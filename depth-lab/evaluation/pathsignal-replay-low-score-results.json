@@ -1,0 +1,92 @@
+[
+  {
+    "frame": "bottle-01.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5967
+  },
+  {
+    "frame": "bottle-02.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5476
+  },
+  {
+    "frame": "bottle-03.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5476
+  },
+  {
+    "frame": "bottle-04.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5420
+  },
+  {
+    "frame": "bottle-05.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5422
+  },
+  {
+    "frame": "bottle-06.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5456
+  },
+  {
+    "frame": "bottle-07.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5396
+  },
+  {
+    "frame": "bottle-08.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5471
+  },
+  {
+    "frame": "empty-01.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5486
+  },
+  {
+    "frame": "empty-02.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5474
+  },
+  {
+    "frame": "empty-03.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5501
+  },
+  {
+    "frame": "empty-04.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5451
+  },
+  {
+    "frame": "empty-05.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5504
+  },
+  {
+    "frame": "empty-06.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5549
+  },
+  {
+    "frame": "empty-07.jpg",
+    "detected": [],
+    "inPath": [],
+    "ms": 5476
+  }
+]

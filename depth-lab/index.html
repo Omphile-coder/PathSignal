@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PathSignal Depth Lab</title>
+<style>
+:root{color-scheme:dark;background:#101517;color:#f1f1ed;font:16px/1.5 "Segoe UI",Arial,sans-serif;--line:#394345;--accent:#ffc474;--muted:#b9c4c4}
+*{box-sizing:border-box}
+body{max-width:1100px;padding:22px;margin:auto}
+header{border-bottom:1px solid var(--line);padding-bottom:12px}
+header strong{color:var(--accent)}
+h1{font-size:clamp(36px,7vw,58px);letter-spacing:-.05em;line-height:1.05;margin:28px 0 10px}
+h2{font-size:19px;margin:0 0 12px}
+p{color:var(--muted);margin:8px 0}
+section{background:#181e21;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px}
+form,.images{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px}
+label{display:grid;gap:6px}
+input,select,button{font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:#111719;color:inherit;max-width:100%;min-height:44px}
+button{cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+button.primary{background:var(--accent);color:#181411;font-weight:700}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+figure{margin:0}
+figcaption{color:var(--muted);margin-bottom:6px}
+img{display:block;width:100%;height:auto;border-radius:7px}
+#preview{cursor:crosshair}
+.point{display:flex;align-items:flex-end;flex-wrap:wrap;gap:8px;margin-top:12px}
+.point input{width:100px}
+output{display:block;color:var(--accent);font-weight:650;margin-top:8px}
+</style>
+</head>
+<body>
+<header><strong>PathSignal</strong></header>
+<main>
+<h1>Depth lab</h1>
+<p>Estimate depth, compare surface changes, or check for objects in an indoor photo.</p>
+<section>
+<h2>Indoor images</h2>
+<form id="form">
+  <label>Image to analyse<input id="target" type="file" accept="image/jpeg,image/png" required></label>
+  <label>Empty reference image (optional)<input id="reference" type="file" accept="image/jpeg,image/png"></label>
+  <label>Region to compare<select id="view"><option value="floor">Floor and lower path</option><option value="upper">Upper path, level camera</option></select></label>
+  <div class="actions"><button class="primary" value="depth">Analyse depth</button><button value="objects">Check objects</button><button id="sample" type="button">Compare sample images</button><button id="object-sample" type="button">Check sample bottle</button></div>
+</form>
+<p id="status" role="status">Use a fixed camera and matching framing for comparisons.</p>
+</section>
+<section id="results" hidden>
+<h2>Estimated depth</h2>
+<div class="images">
+<figure><figcaption>Image and candidate regions</figcaption><img id="preview" alt="Analysed scene with candidate boxes"></figure>
+<figure><figcaption>Relative colours within this image · warm is closer</figcaption><img id="heatmap" alt="Estimated depth heatmap"></figure>
+</div>
+<div class="point">
+<label>Across (%)<input id="x" type="number" min="0" max="100" value="50"></label>
+<label>Down (%)<input id="y" type="number" min="0" max="100" value="50"></label>
+<button id="point">Read depth</button>
+</div>
+<output id="distance" role="status"></output>
+<h2>Candidate hazards</h2>
+<p id="summary"></p>
+<ul id="findings"></ul>
+</section>
+<section id="object-results" hidden>
+<h2>Object detections</h2>
+<div class="images">
+<figure><figcaption>Amber boxes overlap the image-space corridor</figcaption><img id="object-preview" alt="Detected objects and bounding boxes"></figure>
+<div><p id="object-summary"></p><ul id="object-list"></ul></div>
+</div>
+</section>
+<p>Use for stationary, supervised evaluation. Depth estimates and candidate regions need measurement against a real scene.</p>
+</main>
+<script>
+const get = id => document.getElementById(id)
+let result
+function encode(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result.split(',')[1])
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  })
+}
+async function analyse(inputs, mode = 'depth') {
+  const buttons = [...get('form').querySelectorAll('button')]
+  buttons.forEach(button => button.disabled = true)
+  get('status').textContent = mode === 'objects' ? 'Checking objects locally…' : 'Estimating depth locally…'
+  get('results').hidden = true
+  get('object-results').hidden = true
+  try {
+    const { target, reference, view } = await inputs()
+    if ([target, reference].some(file => file && file.size > 8 * 1024 * 1024)) throw Error('Choose images smaller than 8 MB.')
+    const response = await fetch(mode === 'objects' ? '/objects' : '/analyse', {method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({target: await encode(target), reference: reference ? await encode(reference) : null, view})})
+    const data = await response.json()
+    if (!response.ok) throw Error(data.error)
+    if (mode === 'objects') {
+      get('object-preview').src = data.preview
+      get('object-summary').textContent = data.objects.length
+        ? 'Detected labels and scores. Scores are model outputs.'
+        : 'No object passed the detection threshold.'
+      get('object-list').replaceChildren(...data.objects.map(item => {
+        const li = document.createElement('li')
+        li.textContent = item.label + ' · ' + Math.round(item.score * 100) + '% · ' +
+          (item.inPath ? 'Overlaps corridor' : 'Outside corridor')
+        return li
+      }))
+      get('object-results').hidden = false
+      get('status').textContent = 'Object analysis complete.'
+      return
+    }
+    result = data
+    get('preview').src = data.preview
+    get('heatmap').src = data.heatmap
+    get('summary').textContent = data.compared
+      ? (data.findings.length ? 'Regions where estimated depth changed.' : 'No region exceeded the comparison threshold.')
+      : 'Add an empty reference to compare for candidate hazards.'
+    get('findings').replaceChildren(...data.findings.map(item => {
+      const li = document.createElement('li')
+      li.textContent = item.label + ' · estimated depth ' + item.depth.toFixed(2) + ' m · change ' + item.delta.toFixed(2) + ' m'
+      return li
+    }))
+    get('results').hidden = false
+    get('status').textContent = 'Analysis complete. Select a point in the image or enter its coordinates.'
+    readPoint()
+  } catch(error) {
+    get('status').textContent = error.message || 'Analysis could not finish.'
+  } finally {
+    buttons.forEach(button => button.disabled = false)
+  }
+}
+function readPoint() {
+  if (!result) return
+  const grid = result.depth
+  const x = Math.max(0,Math.min(grid[0].length - 1,Math.round((grid[0].length - 1)*Number(get('x').value)/100)))
+  const y = Math.max(0,Math.min(grid.length - 1,Math.round((grid.length - 1)*Number(get('y').value)/100)))
+  const values = grid.slice(Math.max(0,y-1),y+2).flatMap(row => row.slice(Math.max(0,x-1),x+2)).sort((a,b)=>a-b)
+  get('distance').textContent = 'Estimated camera depth: ' + values[Math.floor(values.length/2)].toFixed(2) + ' m'
+}
+get('form').addEventListener('submit',event=>{
+  event.preventDefault()
+  void analyse(async () => ({target:get('target').files[0],reference:event.submitter?.value === 'objects' ? null : get('reference').files[0],view:get('view').value}), event.submitter?.value)
+})
+get('sample').addEventListener('click',()=>{
+  void analyse(async () => {
+    const sample = path => fetch(path).then(response => {
+      if (!response.ok) throw Error('Sample image unavailable.')
+      return response.blob()
+    })
+    const [target,reference] = await Promise.all([sample('/sample-target'), sample('/sample-reference')])
+    return {target,reference,view:'floor'}
+  })
+})
+get('object-sample').addEventListener('click',()=>{
+  void analyse(async () => {
+    const response = await fetch('/sample-target')
+    if (!response.ok) throw Error('Sample image unavailable.')
+    return {target: await response.blob(), view:'floor'}
+  }, 'objects')
+})
+get('point').addEventListener('click',readPoint)
+get('preview').addEventListener('click',event=>{
+  const bounds=get('preview').getBoundingClientRect()
+  get('x').value=Math.round(100*(event.clientX-bounds.left)/bounds.width)
+  get('y').value=Math.round(100*(event.clientY-bounds.top)/bounds.height)
+  readPoint()
+})
+</script>
+</body>
+</html>

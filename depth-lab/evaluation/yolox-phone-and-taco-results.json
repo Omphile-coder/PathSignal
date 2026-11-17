@@ -1,0 +1,1109 @@
+{
+  "score": 0.25,
+  "tacoSample": [
+    {
+      "id": 1408,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/48631087802_640.jpg",
+      "boxes": [
+        [
+          1137.0,
+          1217.0,
+          605.9999999999998,
+          458.0
+        ],
+        [
+          82.99999999999999,
+          1214.9999999999998,
+          602.9999999999999,
+          266.0
+        ],
+        [
+          0.0,
+          1129.0,
+          155.99999999999997,
+          116.0
+        ],
+        [
+          0.9999999999999999,
+          1553.9999999999998,
+          126.0,
+          846.9999999999998
+        ]
+      ]
+    },
+    {
+      "id": 1269,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/47856348611_640.jpg",
+      "boxes": [
+        [
+          663.0,
+          1655.0,
+          670.0,
+          452.0
+        ]
+      ]
+    },
+    {
+      "id": 43,
+      "width": 1537,
+      "height": 2049,
+      "source": "https://img.tacodataset.org/thumb/46939259475_640.jpg",
+      "boxes": [
+        [
+          33.0,
+          230.0,
+          602.0,
+          1316.0
+        ],
+        [
+          807.0,
+          103.0,
+          710.0,
+          1613.0
+        ]
+      ]
+    },
+    {
+      "id": 102,
+      "width": 4000,
+      "height": 1824,
+      "source": "https://img.tacodataset.org/thumb/48700809463_640.jpg",
+      "boxes": [
+        [
+          247.0,
+          101.04761,
+          458.0,
+          397.99998999999997
+        ],
+        [
+          2577.0952,
+          423.0476,
+          168.0,
+          139.0
+        ]
+      ]
+    },
+    {
+      "id": 1105,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/46939966745_640.jpg",
+      "boxes": [
+        [
+          1548.0,
+          1298.0,
+          711.0,
+          375.0
+        ]
+      ]
+    },
+    {
+      "id": 84,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/40888914233_640.jpg",
+      "boxes": [
+        [
+          1680.0,
+          2500.0,
+          278.0,
+          682.0
+        ],
+        [
+          2030.0,
+          2438.0,
+          417.0,
+          635.0
+        ]
+      ]
+    },
+    {
+      "id": 99,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/40888924973_640.jpg",
+      "boxes": [
+        [
+          954.0,
+          1582.0,
+          1492.0,
+          1290.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "width": 2049,
+      "height": 1537,
+      "source": "https://img.tacodataset.org/thumb/33978200068_640.jpg",
+      "boxes": [
+        [
+          189.0,
+          751.0,
+          1617.0,
+          589.0
+        ]
+      ]
+    },
+    {
+      "id": 965,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/33978843678_640.jpg",
+      "boxes": [
+        [
+          1463.0,
+          682.0,
+          524.0,
+          466.0
+        ]
+      ]
+    },
+    {
+      "id": 964,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/40889529623_640.jpg",
+      "boxes": [
+        [
+          1282.0,
+          1981.0,
+          511.0,
+          394.0
+        ]
+      ]
+    },
+    {
+      "id": 1252,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/46940062245_640.jpg",
+      "boxes": [
+        [
+          1741.0,
+          1200.0,
+          222.0,
+          660.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "width": 1537,
+      "height": 2049,
+      "source": "https://img.tacodataset.org/thumb/40888872753_640.jpg",
+      "boxes": [
+        [
+          632.0,
+          987.0,
+          500.0,
+          374.0
+        ]
+      ]
+    },
+    {
+      "id": 1132,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/32912117297_640.jpg",
+      "boxes": [
+        [
+          531.0,
+          552.0,
+          334.0,
+          367.0
+        ]
+      ]
+    },
+    {
+      "id": 1120,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/33978931598_640.jpg",
+      "boxes": [
+        [
+          427.0,
+          296.0,
+          872.0,
+          335.0
+        ],
+        [
+          865.0,
+          649.0,
+          696.0,
+          711.0
+        ]
+      ]
+    },
+    {
+      "id": 1155,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/47804038842_640.jpg",
+      "boxes": [
+        [
+          685.0,
+          422.0,
+          807.0,
+          1190.0
+        ]
+      ]
+    },
+    {
+      "id": 1081,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/33978915118_640.jpg",
+      "boxes": [
+        [
+          994.0,
+          579.0,
+          608.0,
+          315.0
+        ],
+        [
+          2478.0,
+          1995.0,
+          267.0,
+          345.0
+        ]
+      ]
+    },
+    {
+      "id": 192,
+      "width": 4000,
+      "height": 1824,
+      "source": "https://img.tacodataset.org/thumb/48693736598_640.jpg",
+      "boxes": [
+        [
+          2214.0,
+          1255.0,
+          429.0,
+          244.0
+        ]
+      ]
+    },
+    {
+      "id": 1336,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/48580365266_640.jpg",
+      "boxes": [
+        [
+          646.0,
+          444.9999999999999,
+          603.0,
+          465.9999999999998
+        ],
+        [
+          1270.0,
+          601.9999999999999,
+          668.9999999999993,
+          264.9999999999998
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "width": 2049,
+      "height": 1537,
+      "source": "https://img.tacodataset.org/thumb/46939254875_640.jpg",
+      "boxes": [
+        [
+          647.0,
+          1033.0,
+          820.0,
+          376.0
+        ]
+      ]
+    },
+    {
+      "id": 1277,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/46940074445_640.jpg",
+      "boxes": [
+        [
+          1826.0,
+          1285.0,
+          575.0,
+          221.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "width": 2049,
+      "height": 1537,
+      "source": "https://img.tacodataset.org/thumb/47803337262_640.jpg",
+      "boxes": [
+        [
+          1527.0,
+          460.0,
+          415.0,
+          1033.0
+        ],
+        [
+          579.0,
+          521.0,
+          322.0,
+          921.0
+        ],
+        [
+          211.0,
+          1.0,
+          417.0,
+          1417.0
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "width": 1537,
+      "height": 2049,
+      "source": "https://img.tacodataset.org/thumb/47855510951_640.jpg",
+      "boxes": [
+        [
+          593.0,
+          934.0,
+          432.0,
+          238.0
+        ]
+      ]
+    },
+    {
+      "id": 1122,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/47066784304_640.jpg",
+      "boxes": [
+        [
+          970.0,
+          1538.0,
+          342.0,
+          154.0
+        ],
+        [
+          2028.0,
+          1200.0,
+          375.0,
+          342.0
+        ]
+      ]
+    },
+    {
+      "id": 1499,
+      "width": 1824,
+      "height": 4000,
+      "source": "https://img.tacodataset.org/thumb/48701147541_640.jpg",
+      "boxes": [
+        [
+          1125.0,
+          1858.0,
+          234.0,
+          510.0
+        ]
+      ]
+    },
+    {
+      "id": 1208,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/47804066862_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 1184,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/47856291101_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 703,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/40889047743_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 1420,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/48661120173_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 885,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/40889456293_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 710,
+      "width": 2448,
+      "height": 3264,
+      "source": "https://img.tacodataset.org/thumb/32911564227_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 940,
+      "width": 3264,
+      "height": 2448,
+      "source": "https://img.tacodataset.org/thumb/40889496153_640.jpg",
+      "boxes": []
+    },
+    {
+      "id": 1485,
+      "width": 4000,
+      "height": 1824,
+      "source": "https://img.tacodataset.org/thumb/48700815863_640.jpg",
+      "boxes": []
+    }
+  ],
+  "models": [
+    {
+      "name": "yolox_nano.onnx",
+      "tacoSummary": {
+        "truePositives": 8,
+        "falsePositives": 4,
+        "misses": 28
+      },
+      "taco": [
+        {
+          "image": 1408,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 4
+        },
+        {
+          "image": 1269,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 43,
+          "truePositives": 2,
+          "falsePositives": 1,
+          "misses": 0
+        },
+        {
+          "image": 102,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 1105,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 84,
+          "truePositives": 2,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 99,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 5,
+          "truePositives": 0,
+          "falsePositives": 1,
+          "misses": 1
+        },
+        {
+          "image": 965,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 964,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1252,
+          "truePositives": 1,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 2,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1132,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1120,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 1155,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1081,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 192,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1336,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 26,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1277,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 12,
+          "truePositives": 3,
+          "falsePositives": 2,
+          "misses": 0
+        },
+        {
+          "image": 39,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1122,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 1499,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1208,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1184,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 703,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1420,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 885,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 710,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 940,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1485,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        }
+      ],
+      "phone": [
+        {
+          "frame": "bottle-01.jpg",
+          "detections": [],
+          "milliseconds": 22
+        },
+        {
+          "frame": "bottle-02.jpg",
+          "detections": [],
+          "milliseconds": 20
+        },
+        {
+          "frame": "bottle-03.jpg",
+          "detections": [],
+          "milliseconds": 18
+        },
+        {
+          "frame": "bottle-04.jpg",
+          "detections": [],
+          "milliseconds": 18
+        },
+        {
+          "frame": "bottle-05.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "bottle-06.jpg",
+          "detections": [],
+          "milliseconds": 16
+        },
+        {
+          "frame": "bottle-07.jpg",
+          "detections": [],
+          "milliseconds": 18
+        },
+        {
+          "frame": "bottle-08.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "empty-01.jpg",
+          "detections": [],
+          "milliseconds": 19
+        },
+        {
+          "frame": "empty-02.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "empty-03.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "empty-04.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "empty-05.jpg",
+          "detections": [],
+          "milliseconds": 17
+        },
+        {
+          "frame": "empty-06.jpg",
+          "detections": [],
+          "milliseconds": 15
+        },
+        {
+          "frame": "empty-07.jpg",
+          "detections": [],
+          "milliseconds": 16
+        }
+      ]
+    },
+    {
+      "name": "yolox_s.onnx",
+      "tacoSummary": {
+        "truePositives": 11,
+        "falsePositives": 2,
+        "misses": 25
+      },
+      "taco": [
+        {
+          "image": 1408,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 4
+        },
+        {
+          "image": 1269,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 43,
+          "truePositives": 2,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 102,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 1105,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 84,
+          "truePositives": 2,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 99,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 5,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 965,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 964,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1252,
+          "truePositives": 1,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 2,
+          "truePositives": 1,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1132,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1120,
+          "truePositives": 1,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1155,
+          "truePositives": 1,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1081,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 192,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1336,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 26,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1277,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 12,
+          "truePositives": 3,
+          "falsePositives": 2,
+          "misses": 0
+        },
+        {
+          "image": 39,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1122,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 2
+        },
+        {
+          "image": 1499,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 1
+        },
+        {
+          "image": 1208,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1184,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 703,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1420,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 885,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 710,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 940,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        },
+        {
+          "image": 1485,
+          "truePositives": 0,
+          "falsePositives": 0,
+          "misses": 0
+        }
+      ],
+      "phone": [
+        {
+          "frame": "bottle-01.jpg",
+          "detections": [
+            {
+              "box": [
+                201.0157928466797,
+                87.49156951904297,
+                226.8119659423828,
+                169.63034057617188
+              ],
+              "score": 0.6609361171722412
+            }
+          ],
+          "milliseconds": 152
+        },
+        {
+          "frame": "bottle-02.jpg",
+          "detections": [
+            {
+              "box": [
+                199.0846405029297,
+                84.84188842773438,
+                225.4020233154297,
+                169.3651580810547
+              ],
+              "score": 0.5862643718719482
+            }
+          ],
+          "milliseconds": 152
+        },
+        {
+          "frame": "bottle-03.jpg",
+          "detections": [
+            {
+              "box": [
+                201.7536163330078,
+                84.9200439453125,
+                228.57083129882812,
+                171.18960571289062
+              ],
+              "score": 0.6490142941474915
+            }
+          ],
+          "milliseconds": 159
+        },
+        {
+          "frame": "bottle-04.jpg",
+          "detections": [
+            {
+              "box": [
+                204.92335510253906,
+                88.00403594970703,
+                231.5757293701172,
+                174.11647033691406
+              ],
+              "score": 0.6365458369255066
+            }
+          ],
+          "milliseconds": 158
+        },
+        {
+          "frame": "bottle-05.jpg",
+          "detections": [
+            {
+              "box": [
+                208.67657470703125,
+                89.62596130371094,
+                235.2618408203125,
+                174.8125457763672
+              ],
+              "score": 0.5473052263259888
+            }
+          ],
+          "milliseconds": 145
+        },
+        {
+          "frame": "bottle-06.jpg",
+          "detections": [
+            {
+              "box": [
+                208.98043823242188,
+                89.16280364990234,
+                236.22776794433594,
+                174.50413513183594
+              ],
+              "score": 0.7781082391738892
+            }
+          ],
+          "milliseconds": 148
+        },
+        {
+          "frame": "bottle-07.jpg",
+          "detections": [
+            {
+              "box": [
+                210.02174377441406,
+                88.59847259521484,
+                237.3292694091797,
+                174.3731231689453
+              ],
+              "score": 0.4755983352661133
+            }
+          ],
+          "milliseconds": 151
+        },
+        {
+          "frame": "bottle-08.jpg",
+          "detections": [
+            {
+              "box": [
+                208.1011962890625,
+                88.52742004394531,
+                235.55593872070312,
+                174.62010192871094
+              ],
+              "score": 0.6212394833564758
+            }
+          ],
+          "milliseconds": 149
+        },
+        {
+          "frame": "empty-01.jpg",
+          "detections": [],
+          "milliseconds": 156
+        },
+        {
+          "frame": "empty-02.jpg",
+          "detections": [],
+          "milliseconds": 235
+        },
+        {
+          "frame": "empty-03.jpg",
+          "detections": [],
+          "milliseconds": 479
+        },
+        {
+          "frame": "empty-04.jpg",
+          "detections": [],
+          "milliseconds": 469
+        },
+        {
+          "frame": "empty-05.jpg",
+          "detections": [],
+          "milliseconds": 481
+        },
+        {
+          "frame": "empty-06.jpg",
+          "detections": [],
+          "milliseconds": 466
+        },
+        {
+          "frame": "empty-07.jpg",
+          "detections": [],
+          "milliseconds": 478
+        }
+      ]
+    }
+  ]
+}

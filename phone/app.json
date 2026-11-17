@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "PathSignal",
+    "slug": "pathsignal-phone",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow PathSignal to use the rear camera to scan obstacles and read LiDAR depth."
+        }
+      ],
+      "expo-dev-client"
+    ],
+    "scheme": "pathsignal",
+    "ios": {
+      "bundleIdentifier": "com.pathsignal.depthlab",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b2a2028b-f763-49cf-8161-e5a5f91cd05d"
+      }
+    },
+    "owner": "omphilebuilds"
+  }
+}
