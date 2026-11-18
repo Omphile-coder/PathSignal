@@ -8,7 +8,7 @@ import { File } from 'expo-file-system'
 import { toByteArray } from 'base64-js'
 import { decode } from 'jpeg-js'
 import { defaultModel, detect, HEIGHT, WIDTH } from './vision'
-import { scanObjects } from './smart'
+import { useObjectWorker } from './useObjectWorker'
 import { hasLidarModule, LidarPanel } from './LidarPanel'
 import { hasNativeDetector, scanYolo } from './yolox'
 
@@ -42,10 +42,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const smart = profile !== 'bottle'
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [active, setActive] = useState(false)
+  const objectWorker = useObjectWorker(active && profile === 'coco')
   const [ready, setReady] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [status, setStatus] = useState('Camera off')
   const [diagnostic, setDiagnostic] = useState('')
+  const [scanTime, setScanTime] = useState<number | null>(null)
   const [last, setLast] = useState<Cue | null>(null)
   const [counts, setCounts] = useState({ scans: 0, alerts: 0 })
 
@@ -62,6 +64,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
 
   function end(message: string) {
     stopRepeating()
+    objectWorker.cancel()
     activeRun.current++
     clearTimeout(timeout.current)
     pending.current = false
@@ -120,7 +123,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   }
 
   async function scan() {
-    if (!ready || pending.current || !camera.current) return
+    if (!ready || pending.current || !camera.current || (profile === 'coco' && !objectWorker.ready)) return
     pending.current = true
     const run = activeRun.current
     const automatic = auto.current
@@ -144,13 +147,15 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       try {
         if (run !== activeRun.current) return
         if (!saved.base64) throw new Error('Missing image data')
-        stage = 'JPEG decode'
-        const frame = decode(toByteArray(saved.base64), { useTArray: true })
         stage = smart ? 'Object model' : 'Bottle detector'
-        const objects = profile === 'yolox' ? await scanYolo(frame) : smart ? await scanObjects(frame) : []
+        const frame = profile === 'coco' ? null : decode(toByteArray(saved.base64), { useTArray: true })
+        const result = profile === 'coco' ? await objectWorker.scan(saved.base64) : null
+        if (run !== activeRun.current || (automatic && !auto.current)) return
+        setScanTime(result ? result.milliseconds : null)
+        const objects = result?.hazards ?? (profile === 'yolox' && frame ? await scanYolo(frame) : [])
         if (run !== activeRun.current || (automatic && !auto.current)) return
         const labels = new Set(objects.map(object => object.class))
-        if (!smart && detect(frame, defaultModel, 'bottle')) labels.add('dark object')
+        if (!smart && frame && detect(frame, defaultModel, 'bottle')) labels.add('dark object')
         const found = labels.size > 0
         const seen = smart ? [...labels].join(', ') : ''
         const alert = [...labels].some(label => !automatic || !encounter.current.has(label))
@@ -163,7 +168,8 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           for (const label of labels) encounter.current.set(label, 0)
         }
         setCounts(old => ({ scans: old.scans + 1, alerts: old.alerts + Number(alert) }))
-        setStatus(found ? clips.obstacle.text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.')
+        const outside = result?.seen.length ? ' Seen outside the alert corridor: ' + result.seen.join(', ') + '.' : ''
+        setStatus(found ? clips.obstacle.text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.' + outside)
         if (alert) {
           stage = 'Alert audio'
           setLast('obstacle')
@@ -191,6 +197,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   }
 
   return <SafeAreaView style={styles.page}>
+    {objectWorker.worker}
     <ScrollView contentContainerStyle={styles.content}>
       <Text style={styles.label}>PATHSIGNAL · PHONE PROTOTYPE</Text>
       <Text accessibilityRole="header" style={styles.title}>Obstacle monitor</Text>
@@ -211,11 +218,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           }} /> : <Text style={styles.body}>Rear camera preview</Text>}
       </View>
       <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text>
+      {active && profile === 'coco' && <Text accessibilityLiveRegion="polite" style={styles.body}>{objectWorker.status}</Text>}
       {!!diagnostic && <Text selectable style={styles.body}>Scan details · {diagnostic}</Text>}
       <View style={styles.controls}>
         {active ? <>
-          <Button title={scanning ? 'Scanning' : 'Scan now'} primary disabled={!ready || scanning || repeating} onPress={() => void scan()} />
-          <Button title={repeating ? 'Stop repeated scans' : 'Start repeated scans'} disabled={!ready || (scanning && !repeating)} onPress={toggleRepeatedScans} />
+          <Button title={scanning ? 'Scanning' : 'Scan now'} primary disabled={!ready || scanning || repeating || (profile === 'coco' && !objectWorker.ready)} onPress={() => void scan()} />
+          <Button title={repeating ? 'Stop repeated scans' : 'Start repeated scans'} disabled={!ready || (scanning && !repeating) || (profile === 'coco' && !objectWorker.ready)} onPress={toggleRepeatedScans} />
           <Button title="Stop camera" onPress={() => { end('Camera off'); player.pause() }} />
         </> : <Button title="Start camera" primary onPress={() => void start()} />}
         <Button title="Repeat last alert" disabled={!last} onPress={() => { if (last) play(last) }} />
@@ -227,6 +235,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }} />
       </View>
       {hasLidarModule && <Button title="LiDAR distance" onPress={openLidar} disabled={active} />}
+      {profile === 'coco' && <Text style={styles.body}>YOLOX-S{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
       <Text style={styles.body}>{counts.scans} scans · {counts.alerts} alerts</Text>
       <Text style={styles.body}>Use this prototype while stationary. Silence carries no information about path conditions.</Text>
     </ScrollView>

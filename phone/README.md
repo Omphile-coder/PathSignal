@@ -12,13 +12,13 @@ The phone build tests stationary snapshots. Continuous, low-latency camera-frame
 
 ## Object detection
 
-**Object detection** uses a bundled COCO-SSD MobileNet model trained on COCO by the model publisher. The initial model load may take time. Once the app assets are loaded, inference runs on the phone CPU. It passes no camera images to a server. **Black bottle baseline** selects the original tile detector.
+**Object detection** uses the bundled pretrained YOLOX-S model through ONNX Runtime WebAssembly in an embedded processing view. Wait for **Object model ready · YOLOX-S** before scanning. The larger model makes the initial load slower. Once the app assets are loaded, inference runs on the phone. It passes no camera images to a server. **Black bottle baseline** selects the original tile detector.
 
 The object detector can flag bottles, cups, bags, balls, skateboards, furniture, pets, people, and bicycles or motorcycles. Detections need a minimum score and must overlap an image-space walking corridor. In **Start repeated scans**, the app captures one image at a time and re-arms alerts for an object class after two scans without that class. Use this mode while stationary.
 
 The model has no depth estimate. Its object labels do not cover curbs, steps, holes, raised slabs, or many overhead hazards. A detection box in the corridor is a visual cue only. Real-device performance and supervised field trials are pending. The TACO and Kaggle datasets reviewed earlier were not used for additional training.
 
-[Model and implementation](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd) · [Supported model labels](https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd/src/classes.ts)
+[Model and implementation](https://github.com/Megvii-BaseDetection/YOLOX) · [Current update and restart instructions](../Object%20Detection%20Update.md)
 
 ## iPhone LiDAR development build
 
@@ -61,3 +61,8 @@ After setting the floor reference, tap **Repeat stationary checks** and keep the
 
 
 The preview shows an alert count and **Repeat last announcement**. If you stop repeated checks after an alert, the trial form keeps the latest alert-producing sample even if subsequent checks were quiet. If the session produced no alert, the form keeps the most recent completed sample. Depth coverage failures and tracking interruptions have their own spoken messages.
+### Object detection processing update
+
+The model runs independently of the React Native UI. Loading and inference have status messages and timeouts. Stop camera can cancel a pending scan. Rebuild the bundled detector after changes with `npm run build:detector`.
+
+Desktop Chromium and WebKit checks recognized chairs in both supplied office images and a person in the first. WebKit also recognized the bottle in the saved sample and returned no hazard on the empty-floor sample and a blank image. These checks used the camera-preview crops and the same model, preprocessing and decoder as the app. The model is pretrained, with no additional training on these images. Physical iPhone performance remains to be confirmed.
