@@ -5,6 +5,7 @@ import '@tensorflow/tfjs-backend-cpu'
 import { load } from '@tensorflow-models/coco-ssd'
 import type { ObjectDetection, DetectedObject } from '@tensorflow-models/coco-ssd'
 import { corridor } from './vision'
+import { ensureTensorPlatform } from './tensorPlatform'
 
 const manifest = require('./assets/model/model.json')
 const shards = [
@@ -20,7 +21,7 @@ tf.io.registerLoadRouter(url => url === modelUrl ? {
     const chunks = await Promise.all(shards.map(async moduleId => {
       const asset = await Asset.fromModule(moduleId).downloadAsync()
       if (!asset.localUri) throw new Error('Model asset unavailable')
-      return new Uint8Array(await new File(asset.localUri).arrayBuffer())
+      return new File(asset.localUri).bytes()
     }))
     const weightData = new Uint8Array(chunks.reduce((size, chunk) => size + chunk.length, 0))
     let offset = 0
@@ -56,8 +57,10 @@ export function pathHazards(detections: DetectedObject[], width: number, height:
 let loading: Promise<ObjectDetection> | undefined
 
 export async function scanObjects(frame: { data: Uint8Array; width: number; height: number }) {
+  ensureTensorPlatform()
   loading ??= (async () => {
     await tf.setBackend('cpu')
+    await tf.ready()
     return load({ base: 'lite_mobilenet_v2', modelUrl })
   })().catch(error => {
     loading = undefined

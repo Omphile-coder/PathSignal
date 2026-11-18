@@ -45,6 +45,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const [ready, setReady] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [status, setStatus] = useState('Camera off')
+  const [diagnostic, setDiagnostic] = useState('')
   const [last, setLast] = useState<Cue | null>(null)
   const [counts, setCounts] = useState({ scans: 0, alerts: 0 })
 
@@ -124,6 +125,8 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
     const run = activeRun.current
     const automatic = auto.current
     setScanning(true)
+    setDiagnostic('')
+    let stage = 'Camera capture'
     setStatus(smart ? 'Checking for objects' : 'Scanning one image')
     timeout.current = setTimeout(() => {
       if (run === activeRun.current) pause('The camera scan timed out.')
@@ -131,6 +134,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
     try {
       const capture = await camera.current.takePictureAsync({ pictureRef: true, shutterSound: false })
       if (run !== activeRun.current) return
+      stage = 'Image resize'
       const size = smart
         ? (capture.width >= capture.height ? { width: 480 } : { height: 480 })
         : { width: WIDTH, height: HEIGHT }
@@ -140,7 +144,9 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       try {
         if (run !== activeRun.current) return
         if (!saved.base64) throw new Error('Missing image data')
+        stage = 'JPEG decode'
         const frame = decode(toByteArray(saved.base64), { useTArray: true })
+        stage = smart ? 'Object model' : 'Bottle detector'
         const objects = profile === 'yolox' ? await scanYolo(frame) : smart ? await scanObjects(frame) : []
         if (run !== activeRun.current || (automatic && !auto.current)) return
         const labels = new Set(objects.map(object => object.class))
@@ -159,14 +165,20 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         setCounts(old => ({ scans: old.scans + 1, alerts: old.alerts + Number(alert) }))
         setStatus(found ? clips.obstacle.text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.')
         if (alert) {
+          stage = 'Alert audio'
           setLast('obstacle')
           play('obstacle')
         }
       } finally {
         try { new File(saved.uri).delete() } catch { /* The image is in the app cache. */ }
       }
-    } catch {
-      if (run === activeRun.current) pause('The camera image could not be processed.')
+    } catch (error) {
+      if (run === activeRun.current) {
+        const message = error instanceof Error ? error.message : String(error)
+        console.error('[PathSignal scan]', stage, message)
+        setDiagnostic(stage + ': ' + message)
+        pause(stage === 'Object model' ? 'Object detection could not finish.' : stage + ' failed.')
+      }
     } finally {
       if (run === activeRun.current) {
         clearTimeout(timeout.current)
@@ -199,6 +211,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           }} /> : <Text style={styles.body}>Rear camera preview</Text>}
       </View>
       <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text>
+      {!!diagnostic && <Text selectable style={styles.body}>Scan details · {diagnostic}</Text>}
       <View style={styles.controls}>
         {active ? <>
           <Button title={scanning ? 'Scanning' : 'Scan now'} primary disabled={!ready || scanning || repeating} onPress={() => void scan()} />
