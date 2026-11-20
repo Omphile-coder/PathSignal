@@ -1,0 +1,401 @@
+{
+  "annotation_source": "C:\\Users\\lucas\\Documents\\Codex\\2026-11-11\\am\\work\\taco-annotations.json",
+  "sha256": "812c2e3f0d336b437f276597715de2abb08bb8a641599c45f593d233ec66457b",
+  "images_referenced": 1500,
+  "annotations": 4784,
+  "categories": [
+    {
+      "id": 0,
+      "name": "Aluminium foil",
+      "annotations": 62,
+      "images": 43
+    },
+    {
+      "id": 1,
+      "name": "Battery",
+      "annotations": 2,
+      "images": 2
+    },
+    {
+      "id": 2,
+      "name": "Aluminium blister pack",
+      "annotations": 6,
+      "images": 6
+    },
+    {
+      "id": 3,
+      "name": "Carded blister pack",
+      "annotations": 1,
+      "images": 1
+    },
+    {
+      "id": 4,
+      "name": "Other plastic bottle",
+      "annotations": 50,
+      "images": 45
+    },
+    {
+      "id": 5,
+      "name": "Clear plastic bottle",
+      "annotations": 285,
+      "images": 225
+    },
+    {
+      "id": 6,
+      "name": "Glass bottle",
+      "annotations": 104,
+      "images": 74
+    },
+    {
+      "id": 7,
+      "name": "Plastic bottle cap",
+      "annotations": 209,
+      "images": 185
+    },
+    {
+      "id": 8,
+      "name": "Metal bottle cap",
+      "annotations": 80,
+      "images": 55
+    },
+    {
+      "id": 9,
+      "name": "Broken glass",
+      "annotations": 138,
+      "images": 15
+    },
+    {
+      "id": 10,
+      "name": "Food Can",
+      "annotations": 34,
+      "images": 20
+    },
+    {
+      "id": 11,
+      "name": "Aerosol",
+      "annotations": 10,
+      "images": 10
+    },
+    {
+      "id": 12,
+      "name": "Drink can",
+      "annotations": 229,
+      "images": 151
+    },
+    {
+      "id": 13,
+      "name": "Toilet tube",
+      "annotations": 5,
+      "images": 3
+    },
+    {
+      "id": 14,
+      "name": "Other carton",
+      "annotations": 93,
+      "images": 79
+    },
+    {
+      "id": 15,
+      "name": "Egg carton",
+      "annotations": 11,
+      "images": 9
+    },
+    {
+      "id": 16,
+      "name": "Drink carton",
+      "annotations": 45,
+      "images": 41
+    },
+    {
+      "id": 17,
+      "name": "Corrugated carton",
+      "annotations": 64,
+      "images": 41
+    },
+    {
+      "id": 18,
+      "name": "Meal carton",
+      "annotations": 30,
+      "images": 27
+    },
+    {
+      "id": 19,
+      "name": "Pizza box",
+      "annotations": 3,
+      "images": 3
+    },
+    {
+      "id": 20,
+      "name": "Paper cup",
+      "annotations": 67,
+      "images": 62
+    },
+    {
+      "id": 21,
+      "name": "Disposable plastic cup",
+      "annotations": 104,
+      "images": 91
+    },
+    {
+      "id": 22,
+      "name": "Foam cup",
+      "annotations": 13,
+      "images": 11
+    },
+    {
+      "id": 23,
+      "name": "Glass cup",
+      "annotations": 6,
+      "images": 4
+    },
+    {
+      "id": 24,
+      "name": "Other plastic cup",
+      "annotations": 2,
+      "images": 2
+    },
+    {
+      "id": 25,
+      "name": "Food waste",
+      "annotations": 8,
+      "images": 7
+    },
+    {
+      "id": 26,
+      "name": "Glass jar",
+      "annotations": 6,
+      "images": 4
+    },
+    {
+      "id": 27,
+      "name": "Plastic lid",
+      "annotations": 77,
+      "images": 69
+    },
+    {
+      "id": 28,
+      "name": "Metal lid",
+      "annotations": 10,
+      "images": 6
+    },
+    {
+      "id": 29,
+      "name": "Other plastic",
+      "annotations": 273,
+      "images": 171
+    },
+    {
+      "id": 30,
+      "name": "Magazine paper",
+      "annotations": 12,
+      "images": 5
+    },
+    {
+      "id": 31,
+      "name": "Tissues",
+      "annotations": 42,
+      "images": 36
+    },
+    {
+      "id": 32,
+      "name": "Wrapping paper",
+      "annotations": 12,
+      "images": 11
+    },
+    {
+      "id": 33,
+      "name": "Normal paper",
+      "annotations": 82,
+      "images": 68
+    },
+    {
+      "id": 34,
+      "name": "Paper bag",
+      "annotations": 27,
+      "images": 23
+    },
+    {
+      "id": 35,
+      "name": "Plastified paper bag",
+      "annotations": 0,
+      "images": 0
+    },
+    {
+      "id": 36,
+      "name": "Plastic film",
+      "annotations": 451,
+      "images": 310
+    },
+    {
+      "id": 37,
+      "name": "Six pack rings",
+      "annotations": 5,
+      "images": 4
+    },
+    {
+      "id": 38,
+      "name": "Garbage bag",
+      "annotations": 31,
+      "images": 20
+    },
+    {
+      "id": 39,
+      "name": "Other plastic wrapper",
+      "annotations": 260,
+      "images": 184
+    },
+    {
+      "id": 40,
+      "name": "Single-use carrier bag",
+      "annotations": 61,
+      "images": 49
+    },
+    {
+      "id": 41,
+      "name": "Polypropylene bag",
+      "annotations": 3,
+      "images": 3
+    },
+    {
+      "id": 42,
+      "name": "Crisp packet",
+      "annotations": 39,
+      "images": 35
+    },
+    {
+      "id": 43,
+      "name": "Spread tub",
+      "annotations": 9,
+      "images": 9
+    },
+    {
+      "id": 44,
+      "name": "Tupperware",
+      "annotations": 4,
+      "images": 4
+    },
+    {
+      "id": 45,
+      "name": "Disposable food container",
+      "annotations": 38,
+      "images": 37
+    },
+    {
+      "id": 46,
+      "name": "Foam food container",
+      "annotations": 15,
+      "images": 13
+    },
+    {
+      "id": 47,
+      "name": "Other plastic container",
+      "annotations": 6,
+      "images": 6
+    },
+    {
+      "id": 48,
+      "name": "Plastic glooves",
+      "annotations": 4,
+      "images": 4
+    },
+    {
+      "id": 49,
+      "name": "Plastic utensils",
+      "annotations": 37,
+      "images": 29
+    },
+    {
+      "id": 50,
+      "name": "Pop tab",
+      "annotations": 99,
+      "images": 71
+    },
+    {
+      "id": 51,
+      "name": "Rope & strings",
+      "annotations": 29,
+      "images": 28
+    },
+    {
+      "id": 52,
+      "name": "Scrap metal",
+      "annotations": 20,
+      "images": 12
+    },
+    {
+      "id": 53,
+      "name": "Shoe",
+      "annotations": 7,
+      "images": 6
+    },
+    {
+      "id": 54,
+      "name": "Squeezable tube",
+      "annotations": 7,
+      "images": 6
+    },
+    {
+      "id": 55,
+      "name": "Plastic straw",
+      "annotations": 157,
+      "images": 110
+    },
+    {
+      "id": 56,
+      "name": "Paper straw",
+      "annotations": 4,
+      "images": 4
+    },
+    {
+      "id": 57,
+      "name": "Styrofoam piece",
+      "annotations": 112,
+      "images": 78
+    },
+    {
+      "id": 58,
+      "name": "Unlabeled litter",
+      "annotations": 517,
+      "images": 269
+    },
+    {
+      "id": 59,
+      "name": "Cigarette",
+      "annotations": 667,
+      "images": 227
+    }
+  ],
+  "bbox_errors": [
+    {
+      "annotation_id": 371,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 387,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 707,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 859,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 1621,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 1777,
+      "error": "invalid/outside bbox"
+    },
+    {
+      "annotation_id": 2186,
+      "error": "invalid/outside bbox"
+    }
+  ],
+  "image_bytes_audited_here": false,
+  "licence_records_in_annotation": [],
+  "decision": "Annotation inventory only. Food waste is not a dedicated banana-peel label. Previous 32-image sample remains development data, not training or held-out evaluation."
+}

@@ -1,0 +1,6 @@
+"id","url","state","local"
+"rod","https://www.kaggle.com/datasets/abtinzandi/obstacle-detection-dataset","sample_audited_conditional","rod-audit.json"
+"ewaste","https://www.kaggle.com/datasets/akshat103/e-waste-image-dataset","classification_only_not_detection_ready","ewaste-audit.json"
+"banana-peel","https://universe.roboflow.com/gustas/banana-peel-c1fyr","metadata_only_export_unverified","REPORT.md"
+"cables","https://github.com/pablomalvido/cables_segmentation","sample_audited_permission_unresolved","cables-audit.json"
+"taco","https://github.com/pedropro/TACO","annotations_audited","taco-audit.json"

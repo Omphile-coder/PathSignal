@@ -1,0 +1,156 @@
+{
+  "manifest_images": 24326,
+  "manifest_split_counts": {
+    "train": 19186,
+    "test": 1629,
+    "valid": 3511
+  },
+  "manifest_objects": 40195,
+  "class_names_in_order": [
+    "Bike",
+    "Building",
+    "Car",
+    "Person",
+    "Stairs",
+    "Traffic sign",
+    "Electrical Pole",
+    "Road",
+    "Motorcycle",
+    "Dustbin",
+    "Dog",
+    "Manhole",
+    "Tree",
+    "Guard rail",
+    "Pedestrian crosswalk",
+    "Truck",
+    "Bus",
+    "Bench",
+    "Traffic Cone",
+    "Fire hydrant",
+    "Teraffic Barrel",
+    "Plant Pot",
+    "Electrical Box",
+    "Chair",
+    "Bicycle Rack"
+  ],
+  "manifest_duplicate_split_filename_keys": 0,
+  "rename_map_rows": 24326,
+  "potential_same_source_stem_cross_split_groups": 536,
+  "potential_same_source_stem_cross_split_images": 3017,
+  "lineage_method": "Strip final .rf.<hex> suffix from old_stem; potential common source, not proof of pixel duplicates.",
+  "sample_pairs": [
+    {
+      "split": "train",
+      "image": "IMG_00485.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-train-IMG_00485-boxes.jpg",
+      "sha256": "ce867287b36bf5ca162290c1326eec0af1c902f9d9d6af82acb67a24b95ea73e"
+    },
+    {
+      "split": "train",
+      "image": "IMG_00009.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 1,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-train-IMG_00009-boxes.jpg",
+      "sha256": "fd3d943511e281bcb813141fb31db0074aac1e78311ede647124feedf2877b0a"
+    },
+    {
+      "split": "train",
+      "image": "IMG_09431.jpg",
+      "boxes": 2,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-train-IMG_09431-boxes.jpg",
+      "sha256": "a2ef18dc92fde3be336676e2addb4976157564b4cfd556eee3eeb07794231351"
+    },
+    {
+      "split": "train",
+      "image": "IMG_01461.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-train-IMG_01461-boxes.jpg",
+      "sha256": "8288f1fd286fe8bd325f785c949c34d39693a800f5af2b49b0dc2a6f396b646e"
+    },
+    {
+      "split": "valid",
+      "image": "IMG_20955.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-valid-IMG_20955-boxes.jpg",
+      "sha256": "6229a2ba7633c96628e4d86066c5f51cdd3258c048b80ba01b315800e8e7ff18"
+    },
+    {
+      "split": "valid",
+      "image": "IMG_20822.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 1,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-valid-IMG_20822-boxes.jpg",
+      "sha256": "77063fe7300e3cd15b852ea5d80113b3de49694d97cb6304e5636e6151e0d7c2"
+    },
+    {
+      "split": "valid",
+      "image": "IMG_22576.jpg",
+      "boxes": 2,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-valid-IMG_22576-boxes.jpg",
+      "sha256": "d6b4e2b48ccdf0a2007a7d2d7072a3ef8dc1f460a2671598cf6c7ea7f3495acd"
+    },
+    {
+      "split": "valid",
+      "image": "IMG_20967.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-valid-IMG_20967-boxes.jpg",
+      "sha256": "6a5c774b93ac16861a596583d4ad607efdd24ae54f445624c45bdad3cfe2cbf8"
+    },
+    {
+      "split": "test",
+      "image": "IMG_19298.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-test-IMG_19298-boxes.jpg",
+      "sha256": "e164a9ae5dffe1da6061723b27a19928344d60b9112f9212dcfebdbf9ee9e8d5"
+    },
+    {
+      "split": "test",
+      "image": "IMG_19188.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 1,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-test-IMG_19188-boxes.jpg",
+      "sha256": "2af0f8e82293015f8d13afcb95d9b87b3c19bed33506f1202e640fb8a63ae336"
+    },
+    {
+      "split": "test",
+      "image": "IMG_20013.jpg",
+      "boxes": 1,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-test-IMG_20013-boxes.jpg",
+      "sha256": "83efc40634a1d09744c15c8bd5078cc95d61d2ab782ea57f4be6106dca9e50b3"
+    },
+    {
+      "split": "test",
+      "image": "IMG_19263.jpg",
+      "boxes": 2,
+      "polygon_rows_converted_for_preview": 0,
+      "errors": [],
+      "overlay": "C:\\Users\\lucas\\Desktop\\PathSignal\\datasets\\audit-2026-11-21\\samples\\rod-test-IMG_19263-boxes.jpg",
+      "sha256": "1cae2461eef0c2b8505473b51306a6d7cc8eeabc4e8ea892116388f8b51f8e5d"
+    }
+  ],
+  "full_image_hash_audit": false,
+  "full_label_validation": false,
+  "format_warning": "Sample includes polygon rows as well as five-field bounding boxes. Explicit normalisation is needed for a box-only training loader. Train mirror uses images/0 and images/1 shards.",
+  "licence": "Kaggle/HF MIT metadata is not blanket permission for all source images. Paper Appendix 6 lists mixed source terms and one source without a stated licence.",
+  "decision": "Conditional candidate; regroup source-related examples and resolve image provenance before training/release."
+}

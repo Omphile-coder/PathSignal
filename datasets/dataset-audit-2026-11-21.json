@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-21",
+  "phase": "09:00-11:00 dataset audit",
+  "report": "audit-2026-11-21/REPORT.md",
+  "installed_model": "YOLOX-S publisher COCO checkpoint",
+  "active_object_classes": 19,
+  "kaggle_finetuning_performed": false,
+  "weights_changed": false,
+  "candidates": [
+    {
+      "state": "12 image-label pairs audited, full metadata audited; conditional on split repair, label conversion and provenance",
+      "details": "audit-2026-11-21/rod-audit.json",
+      "id": "rod-kaggle"
+    },
+    {
+      "state": "full archive audited; classification only, no localisation labels; rejected as detection-ready",
+      "details": "audit-2026-11-21/ewaste-audit.json",
+      "id": "e-waste-kaggle"
+    },
+    {
+      "state": "indexed project information reviewed; export not obtained; no training",
+      "id": "banana-peel-roboflow"
+    },
+    {
+      "state": "tree and three image-mask pairs audited; licence and floor relevance unresolved",
+      "details": "audit-2026-11-21/cables-audit.json",
+      "id": "cables-research"
+    },
+    {
+      "state": "full existing official annotation inventory audited, not full image corpus",
+      "details": "audit-2026-11-21/taco-audit.json",
+      "id": "taco"
+    }
+  ]
+}
