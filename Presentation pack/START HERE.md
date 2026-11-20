@@ -1,10 +1,10 @@
 # PathSignal — Presentation release
 
-Published on 18 November 2026, version 1.
+Updated on 20 November 2026, version 3.
 
 **Live public link**
 
-https://pathsignal-project.chic-bowl-7588.chatgpt.site
+https://pathsignal-six.vercel.app
 
 Anyone with the link can visit. The PC does not need to keep an Expo or local server running for this website.
 
@@ -43,8 +43,20 @@ Before academic submission, add your institution's required cover page, identity
 
 ## Release record
 
-- Hosted version — 1
-- Source commit — 3aefc8eca93c887b91f8d8ba48450ab1784aac4e
+- Hosted version — 3
+- Source commit — 05b6c5c0fffb222ed24b3ac873e967e49519a479
 - Public site project — appgprj_6afd8b73b14081918c3c77b7329f2992
 
 Hosting publication was confirmed successful by the deployment service. No paid Apple Developer account is needed to open the website.
+
+## Experimental stairs, version 2
+
+Select **Stairs (experimental)**, then **Load AI model**. Try **Facing upstairs** for the recognised example and **Looking downstairs** for the known miss. Dark-marking and empty-floor samples are also available. Changing modes stops the camera and unloads the previous model. Choose **Everyday objects** and load its model to return to YOLOX-S.
+
+The mode uses the existing supplied clips and requires no additional recording to try. Camera height remains unknown. No distance in metres is estimated. There is no hole detector or unsupervised-walking validation. The SegFormer component is licensed for non-commercial research and evaluation. Full development results and the known downward-view miss are documented in `stair-development-notes.md`.
+
+
+## Colourful retro UI, version 3
+
+The live browser UI uses the supplied retro pack as a visual reference. Editable theme styles are in presentation-site/src/retro.css. Object and stair inference behaviour is unchanged. The source ZIP includes the updated theme. The original reference files are kept locally in PathSignal/design-reference/retro-pack.
+

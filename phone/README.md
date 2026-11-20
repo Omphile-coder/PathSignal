@@ -1,5 +1,12 @@
 # PathSignal on Expo Go
 
+## Retro iPhone interface — 20 November 2026
+
+The Expo app now uses the same blue, coral, teal and orange palette as the browser site. It includes bordered camera and status panels, pressed button feedback, explicit selected detector controls and a session summary. No detection model or scanning behaviour changed for this visual update. TypeScript checking and the iOS Metro export passed on Windows; the screen still needs a visual check on the physical iPhone.
+
+To load it, stop the PC's Expo terminal with Ctrl+C. From `C:\Users\lucas\Desktop\PathSignal\phone`, run `npx expo start --go --clear`. Scan the new QR code with the iPhone Camera app and open Expo Go. If PathSignal is already open in Expo Go, reload it. This UI update does not require Apple Developer signing.
+
+
 Double-click **Start PathSignal Phone.cmd** in the Desktop PathSignal folder. Keep the terminal open. Put the phone and PC on the same Wi-Fi, then scan the Expo QR code with the iPhone Camera app or the scanner in Expo Go on Android. This project uses Expo SDK 58.
 
 On iPhone, sign into the same Expo account in Expo Go and the Expo CLI. To sign in on the PC, open a terminal in this folder and run `npx.cmd expo login`.
@@ -66,3 +73,4 @@ The preview shows an alert count and **Repeat last announcement**. If you stop r
 The model runs independently of the React Native UI. Loading and inference have status messages and timeouts. Stop camera can cancel a pending scan. Rebuild the bundled detector after changes with `npm run build:detector`.
 
 Desktop Chromium and WebKit checks recognized chairs in both supplied office images and a person in the first. WebKit also recognized the bottle in the saved sample and returned no hazard on the empty-floor sample and a blank image. These checks used the camera-preview crops and the same model, preprocessing and decoder as the app. The model is pretrained, with no additional training on these images. Physical iPhone performance remains to be confirmed.
+

@@ -9,6 +9,7 @@ import { LidarAlertGate } from './lidarAlertGate'
 import type { Hazard } from './lidarGeometry'
 import { saveLidarTrial, shareLidarTrials } from './lidarTrials'
 import type { LidarTrial } from './lidarTrials'
+import { retro, retroStyles } from './retroTheme'
 
 type ScanMode = 'distance' | 'floor' | 'corridor'
 type ScanRequest = { id: number; mode: ScanMode }
@@ -297,9 +298,9 @@ export function LidarPanel({ onExit }: { onExit: () => void }) {
         trial.result.hazards.length ? trial.result.hazards.map(h => hazardLabels[h.kind] + ' · ' + h.metresAhead.toFixed(2) + ' m').join('\n')
           : trial.result.usableFrames < 3 ? 'Insufficient depth coverage' : 'No candidate flagged'}</Text>
       <TextInput accessibilityLabel="Tape-measured distance in metres" value={reference} onChangeText={setReference}
-        keyboardType="decimal-pad" placeholder="Measured distance in metres (optional)" placeholderTextColor="#a6b4b4" style={styles.input} />
+        keyboardType="decimal-pad" placeholder="Measured distance in metres (optional)" placeholderTextColor="#62594f" style={styles.input} />
       <TextInput accessibilityLabel="Trial notes" value={notes} onChangeText={setNotes} maxLength={300}
-        placeholder="Trial notes (optional)" placeholderTextColor="#a6b4b4" style={styles.input} />
+        placeholder="Trial notes (optional)" placeholderTextColor="#62594f" style={styles.input} />
       {trial.kind === 'corridor' && <>
         <Text style={styles.text}>Observed condition (optional)</Text>
         <View style={styles.controls}>
@@ -321,25 +322,27 @@ function Action({ title, onPress, disabled = false, primary = false, selected }:
   title: string; onPress: () => void; disabled?: boolean; primary?: boolean; selected?: boolean
 }) {
   return <Pressable accessibilityRole="button" accessibilityState={{ disabled, selected }} disabled={disabled}
-    onPress={onPress} style={[styles.action, (primary || selected) && styles.primary, disabled && styles.disabled]}>
+    onPress={onPress} style={({ pressed }) => [styles.action, retroStyles.shadow, (primary || selected) && styles.primary,
+      disabled && styles.disabled, pressed && !disabled && retroStyles.pressed]}>
     <Text style={[styles.actionText, (primary || selected) && styles.primaryText]}>{title}</Text>
   </Pressable>
 }
 
 const styles = StyleSheet.create({
   content: { gap: 14 },
-  title: { color: '#f0f1ed', fontWeight: '800', fontSize: 34 },
-  text: { color: '#c0cbcb', fontSize: 16, lineHeight: 24 },
-  status: { color: '#ffe0b4', fontSize: 18, fontWeight: '600' },
-  preview: { aspectRatio: 1, maxHeight: 370, backgroundColor: '#181e21', borderRadius: 12,
+  title: { color: retro.ink, fontWeight: '800', fontSize: 34 },
+  text: { color: retro.ink, fontSize: 16, lineHeight: 24 },
+  status: { color: retro.ink, fontSize: 18, fontWeight: '700' },
+  preview: { aspectRatio: 1, maxHeight: 370, backgroundColor: retro.blue, borderColor: retro.ink, borderWidth: 2, borderRadius: 12,
     overflow: 'hidden', justifyContent: 'center', alignItems: 'center' },
-  crosshair: { width: 26, height: 26, borderWidth: 2, borderColor: '#ffc474', borderRadius: 13 },
-  journal: { gap: 8, padding: 12, borderWidth: 1, borderColor: '#394345', borderRadius: 8 },
-  input: { minHeight: 46, color: '#f0f1ed', padding: 9, borderRadius: 6, backgroundColor: '#222b2d' },
-  controls: { gap: 8, flexDirection: 'row', flexWrap: 'wrap' },
-  action: { backgroundColor: '#222b2d', padding: 12, minHeight: 48, borderRadius: 8, justifyContent: 'center' },
-  primary: { backgroundColor: '#ffc474' },
-  disabled: { opacity: .45 },
-  actionText: { color: '#f0f1ed', fontSize: 15, fontWeight: '700' },
-  primaryText: { color: '#201b15' },
+  crosshair: { width: 26, height: 26, borderWidth: 2, borderColor: retro.orange, borderRadius: 13 },
+  journal: { gap: 12, padding: 15, borderWidth: 2, borderColor: retro.ink, borderRadius: 10, backgroundColor: retro.paper },
+  input: { minHeight: 48, color: retro.ink, padding: 11, borderWidth: 2, borderColor: retro.ink, borderRadius: 7, backgroundColor: retro.cream, fontSize: 16 },
+  controls: { gap: 12, flexDirection: 'row', flexWrap: 'wrap' },
+  action: { backgroundColor: retro.blue, padding: 12, minHeight: 50, borderWidth: 2, borderColor: retro.ink, borderRadius: 9, justifyContent: 'center', maxWidth: '100%' },
+  primary: { backgroundColor: retro.orange },
+  disabled: { backgroundColor: retro.disabled, shadowOpacity: 0, elevation: 0 },
+  actionText: { color: retro.ink, fontSize: 15, fontWeight: '700', lineHeight: 22 },
+  primaryText: { color: retro.ink },
 })
+

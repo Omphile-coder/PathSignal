@@ -1,6 +1,6 @@
 # Current presentation release
 
-The public browser demonstration is live at https://pathsignal-project.chic-bowl-7588.chatgpt.site.
+The public browser demonstration is live at https://pathsignal-six.vercel.app.
 
 Start with `Presentation pack/START HERE.md`. That folder contains the source ZIP, QR code, project brief and demonstration guide. Editable browser source is in `presentation-site`; the Expo application remains in `phone`. The sections below describe earlier development and the original appearance-based lab.
 

@@ -1,5 +1,10 @@
 # PathSignal — Technical notes and credits
 
+## Experimental stair extension
+
+`src/stairVision.ts` implements RGB preprocessing and pixel-wise decoding. `src/stairs.worker.ts` runs the quantized SegFormer-B0 model. `source-model/stairs.onnx` and its SHA-256 manifest are the tracked model source. Mode changes unload the previous model and stop camera capture. Exports now identify the model and mode per scan. No distance estimate is generated. Read `/stair-development-notes.md` and `/licenses/SEGFORMER-LICENSE.txt` for the known downward-view miss and the component's research/evaluation license.
+
+
 ## Project layout
 
 - `src/App.tsx` — responsive presentation and camera controls.

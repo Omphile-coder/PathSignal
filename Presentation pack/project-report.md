@@ -1,5 +1,10 @@
 # PathSignal — Project brief
 
+## Experimental stair update — 20 November 2026
+
+The browser release now includes a separate SegFormer-B0 research mode that requests a stair warning. It recognised the supplied view facing upstairs but missed the supplied view looking downstairs. Larger candidate variants also missed that view. Both samples are available, including the labelled failure. Distance is explicitly unavailable because the supplied camera setup is uncalibrated. The original YOLOX mode remains available. See [stair-development-notes.md](stair-development-notes.md) for method, evidence and licensing. This addition does not establish reliable step, hole or independent-walking performance.
+
+
 Final-year software project. Presentation release, 18 November 2026.
 
 ## Abstract

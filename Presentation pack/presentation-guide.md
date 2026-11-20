@@ -1,8 +1,13 @@
 # PathSignal — Presentation guide
 
+## Optional experimental stair demonstration
+
+Choose **Stairs (experimental)**. Load its model, then try **Facing upstairs**. Next try **Looking downstairs — Known missed example** and explain the missed detection honestly. Use **Dark markings** and **Empty floor** to check for false stair alerts. This mode does not classify travel direction or estimate distance. Return to **Everyday objects** and load its model to resume YOLOX object recognition. Switching modes stops the camera.
+
+
 ## Before the presentation
 
-Live link — https://pathsignal-project.chic-bowl-7588.chatgpt.site
+Live link — https://pathsignal-six.vercel.app
 
 Download `/pathsignal-qr.svg` from the same site to put its QR code in your slides.
 

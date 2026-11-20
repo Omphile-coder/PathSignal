@@ -1,0 +1,156 @@
+{
+  "model": "SegFormer-B0 quantized",
+  "cameraHeight": "unknown",
+  "metreEstimates": "disabled",
+  "threshold": {
+    "pixelSupport": 0.5,
+    "corridorCoverage": 0.05
+  },
+  "note": "Three frames per development clip, correlated and not independent trials. Original stairs-up label shows downstairs, stairs-down shows upstairs. Dark markings include damaged paving of unverified geometry.",
+  "rows": [
+    {
+      "file": "bottle-120cm-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1278
+    },
+    {
+      "file": "bottle-120cm-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 955
+    },
+    {
+      "file": "bottle-120cm-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1146
+    },
+    {
+      "file": "bottle-180cm-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1411
+    },
+    {
+      "file": "bottle-180cm-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1301
+    },
+    {
+      "file": "bottle-180cm-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1154
+    },
+    {
+      "file": "bottle-60cm-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1538
+    },
+    {
+      "file": "bottle-60cm-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1201
+    },
+    {
+      "file": "bottle-60cm-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1046
+    },
+    {
+      "file": "dark-markings-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 937
+    },
+    {
+      "file": "dark-markings-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1315
+    },
+    {
+      "file": "dark-markings-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1216
+    },
+    {
+      "file": "empty-tile-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1243
+    },
+    {
+      "file": "empty-tile-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1068
+    },
+    {
+      "file": "empty-tile-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 934
+    },
+    {
+      "file": "ordinary-ground-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 992
+    },
+    {
+      "file": "ordinary-ground-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1045
+    },
+    {
+      "file": "ordinary-ground-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 1115
+    },
+    {
+      "file": "stairs-down-0.jpg",
+      "alert": true,
+      "fraction": 0.741169305724726,
+      "milliseconds": 889
+    },
+    {
+      "file": "stairs-down-1.jpg",
+      "alert": true,
+      "fraction": 0.7777101096224117,
+      "milliseconds": 796
+    },
+    {
+      "file": "stairs-down-2.jpg",
+      "alert": true,
+      "fraction": 0.7634997969955339,
+      "milliseconds": 982
+    },
+    {
+      "file": "stairs-up-0.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 941
+    },
+    {
+      "file": "stairs-up-1.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 897
+    },
+    {
+      "file": "stairs-up-2.jpg",
+      "alert": false,
+      "fraction": 0,
+      "milliseconds": 894
+    }
+  ]
+}
