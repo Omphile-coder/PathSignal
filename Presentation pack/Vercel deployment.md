@@ -16,3 +16,6 @@ From this directory, deploy with `npx vercel deploy --scope pixels7 --project pa
 `vercel.json` configures the build and caching. `.vercelignore` excludes local dependencies, generated outputs, review screenshots and the previous host's identity. The `.openai/hosting.json` file is retained as historical local metadata and is not the selected deployment target.
 
 The iPhone Expo application is a separate project in `../phone`. To load its UI changes, run `npx expo start --go --clear` there and reopen the QR code in Expo Go. Website deployment does not update an already-open Expo session.
+
+The YOLOX model is served in 2 MB SHA-256-checked chunks, with up to four downloads in parallel and visible progress. The loading deadline is ten minutes to accommodate slow connections. Initial download time depends on the network; inference after initialization runs on the device. The Expo app retains its separately bundled model.
+
