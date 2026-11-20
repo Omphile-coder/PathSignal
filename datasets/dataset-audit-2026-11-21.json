@@ -3,7 +3,7 @@
   "phase": "09:00-11:00 dataset audit",
   "report": "audit-2026-11-21/REPORT.md",
   "installed_model": "YOLOX-S publisher COCO checkpoint",
-  "active_object_classes": 19,
+  "active_object_classes": 25,
   "kaggle_finetuning_performed": false,
   "weights_changed": false,
   "candidates": [
@@ -31,5 +31,6 @@
       "details": "audit-2026-11-21/taco-audit.json",
       "id": "taco"
     }
-  ]
+  ],
+  "integration_notes": "audit-2026-11-21/NEXT-STAGE.md"
 }

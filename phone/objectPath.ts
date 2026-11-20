@@ -5,6 +5,7 @@ const hazardClasses = new Set([
   'backpack', 'handbag', 'suitcase', 'umbrella', 'bottle', 'cup', 'bowl',
   'sports ball', 'skateboard', 'chair', 'bench', 'couch', 'bed', 'dining table',
   'potted plant', 'person', 'dog', 'cat', 'bicycle', 'motorcycle',
+  'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone',
 ])
 
 export function pathHazards(detections: DetectedObject[], width: number, height: number, threshold = .45) {
