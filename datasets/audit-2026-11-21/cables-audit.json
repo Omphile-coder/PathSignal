@@ -1,0 +1,53 @@
+{
+  "git_tree_sha": "2f0d86585d7d2279f126c6da0b68d107a5073a91",
+  "tree_truncated": false,
+  "real_image_files": 100,
+  "real_mask_files": 100,
+  "unpaired_images": [],
+  "licence_named_paths": [],
+  "sample_pairs": [
+    {
+      "image": "real_images/images/1.jpeg",
+      "mask": "real_images/masks/1.jpeg",
+      "image_size": [
+        512,
+        512
+      ],
+      "mask_size": [
+        512,
+        512
+      ],
+      "mask_mode": "L",
+      "mask_distinct_colours": 17
+    },
+    {
+      "image": "real_images/images/12.jpeg",
+      "mask": "real_images/masks/12.jpeg",
+      "image_size": [
+        512,
+        512
+      ],
+      "mask_size": [
+        512,
+        512
+      ],
+      "mask_mode": "L",
+      "mask_distinct_colours": 18
+    },
+    {
+      "image": "real_images/images/14.jpeg",
+      "mask": "real_images/masks/14.jpeg",
+      "image_size": [
+        512,
+        512
+      ],
+      "mask_size": [
+        512,
+        512
+      ],
+      "mask_mode": "L",
+      "mask_distinct_colours": 17
+    }
+  ],
+  "decision": "Research candidate only: no repository licence file found; masks and floor-view relevance need review before use."
+}

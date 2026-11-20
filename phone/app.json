@@ -4,7 +4,7 @@
     "slug": "pathsignal-phone",
     "version": "0.1.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "light",
     "plugins": [
       [
         "expo-camera",

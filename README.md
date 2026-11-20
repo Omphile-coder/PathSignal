@@ -1,3 +1,10 @@
+# Current presentation release
+
+The public browser demonstration is live at https://pathsignal-six.vercel.app.
+
+Start with `Presentation pack/START HERE.md`. That folder contains the source ZIP, QR code, project brief and demonstration guide. Editable browser source is in `presentation-site`; the Expo application remains in `phone`. The sections below describe earlier development and the original appearance-based lab.
+
+---
 # PathSignal
 
 Start with [Project Handoff.md](Project%20Handoff.md) for the current phone, LiDAR and desktop workflows.
@@ -75,3 +82,4 @@ To replay the two phone clips, use **Upload clip** and select either MP4 from **
 The bottle profile uses logistic regression on the brightness of a 3×3 pixel patch relative to the centre of the frame. It was trained with labelled patches from the bottle, bare tile and grout at 0.5 seconds in the supplied clips. Its purpose is to flag a dark patch of sufficient size in the corridor. A dark shadow or other dark object can also trigger it.
 
 Chrome logged one alert at 0.31 seconds in the bottle replay and zero alerts in the empty-floor replay. Both clips contributed training examples. The bottle was already visible when the clip started, so the replay result measures alert timing within that clip. Testing generalization or warning distance requires fresh footage and a measured setup.
+

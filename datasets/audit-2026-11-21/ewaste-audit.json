@@ -1,0 +1,311 @@
+{
+  "archive_sha256": "1b0ab4530da8f2317ad6b435dadd1eeedf97f3d9ecc8e93942d270ea59c6db30",
+  "file_count": 3000,
+  "extensions": {
+    ".jpg": 3000
+  },
+  "image_count": 3000,
+  "counts": [
+    {
+      "split": "test",
+      "class": "Battery",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Keyboard",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Microwave",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Mobile",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Mouse",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "PCB",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Player",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Printer",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Television",
+      "images": 30
+    },
+    {
+      "split": "test",
+      "class": "Washing Machine",
+      "images": 30
+    },
+    {
+      "split": "train",
+      "class": "Battery",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Keyboard",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Microwave",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Mobile",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Mouse",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "PCB",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Player",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Printer",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Television",
+      "images": 240
+    },
+    {
+      "split": "train",
+      "class": "Washing Machine",
+      "images": 240
+    },
+    {
+      "split": "val",
+      "class": "Battery",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Keyboard",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Microwave",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Mobile",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Mouse",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "PCB",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Player",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Printer",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Television",
+      "images": 30
+    },
+    {
+      "split": "val",
+      "class": "Washing Machine",
+      "images": 30
+    }
+  ],
+  "dimensions": {
+    "(150, 150)": 3000
+  },
+  "non_image_files": [],
+  "image_read_errors": [],
+  "exact_byte_cross_split_groups": [
+    [
+      {
+        "split": "test",
+        "path": "modified-dataset/test/Printer/Printer_61.jpg"
+      },
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Printer/Printer_62.jpg"
+      }
+    ],
+    [
+      {
+        "split": "test",
+        "path": "modified-dataset/test/Television/Television_294.jpg"
+      },
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Television/Television_283.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_187.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_147.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_193.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_150.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_213.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_189.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Player/Player_72.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Player/Player_105.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Television/Television_270.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Television/Television_247.jpg"
+      }
+    ]
+  ],
+  "exact_decoded_pixel_cross_split_groups": [
+    [
+      {
+        "split": "test",
+        "path": "modified-dataset/test/Printer/Printer_61.jpg"
+      },
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Printer/Printer_62.jpg"
+      }
+    ],
+    [
+      {
+        "split": "test",
+        "path": "modified-dataset/test/Television/Television_294.jpg"
+      },
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Television/Television_283.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_187.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_147.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_193.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_150.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Mouse/Mouse_213.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Mouse/Mouse_189.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Player/Player_72.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Player/Player_105.jpg"
+      }
+    ],
+    [
+      {
+        "split": "train",
+        "path": "modified-dataset/train/Television/Television_270.jpg"
+      },
+      {
+        "split": "val",
+        "path": "modified-dataset/val/Television/Television_247.jpg"
+      }
+    ]
+  ],
+  "near_duplicate_audit": "Not performed. Exact hashes do not establish scene independence.",
+  "decision": "Classification folders only; not detection-training-ready without localisation annotation."
+}

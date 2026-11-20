@@ -1,0 +1,136 @@
+{
+  "model": "segformer-b2 ADE20K, quantized ONNX",
+  "pretrained": true,
+  "extra_training": false,
+  "note": "Development still frames. Camera height unknown. No distance estimates.",
+  "results": [
+    {
+      "file": "bottle-120cm-frame.jpg",
+      "milliseconds": 1296,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.9844,
+        "signboard": 0.0067,
+        "ashcan": 0.0064,
+        "person": 0.0013,
+        "wall": 0.0011
+      },
+      "image_size": [
+        480,
+        1766
+      ]
+    },
+    {
+      "file": "bottle-180cm-frame.jpg",
+      "milliseconds": 1518,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.799,
+        "wall": 0.1979,
+        "sink": 0.0032,
+        "building": 0.0,
+        "sky": 0.0
+      },
+      "image_size": [
+        480,
+        2216
+      ]
+    },
+    {
+      "file": "bottle-60cm-frame.jpg",
+      "milliseconds": 1869,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.9575,
+        "signboard": 0.0233,
+        "ball": 0.0092,
+        "ashcan": 0.0089,
+        "wall": 0.0009
+      },
+      "image_size": [
+        480,
+        974
+      ]
+    },
+    {
+      "file": "dark-markings-frame.jpg",
+      "milliseconds": 1609,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "water": 0.9939,
+        "earth": 0.0061,
+        "wall": 0.0,
+        "building": 0.0,
+        "sky": 0.0
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "empty-tile-frame.jpg",
+      "milliseconds": 1640,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.8587,
+        "wall": 0.1249,
+        "bathtub": 0.0156,
+        "cabinet": 0.0007,
+        "toilet": 0.0001
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "ordinary-ground-frame.jpg",
+      "milliseconds": 1582,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "road": 0.9004,
+        "earth": 0.0804,
+        "water": 0.0192,
+        "wall": 0.0,
+        "building": 0.0
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "stairs-down-frame.jpg",
+      "milliseconds": 1561,
+      "stair_corridor_fraction": 0.7109216402760861,
+      "top_classes": {
+        "wall": 0.4763,
+        "stairway": 0.3208,
+        "floor": 0.1309,
+        "ceiling": 0.0424,
+        "bannister": 0.012
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "stairs-up-frame.jpg",
+      "milliseconds": 1758,
+      "stair_corridor_fraction": 0.0018270401948842874,
+      "top_classes": {
+        "wall": 0.4976,
+        "floor": 0.4941,
+        "bannister": 0.0073,
+        "stairway": 0.0006,
+        "signboard": 0.0004
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    }
+  ]
+}

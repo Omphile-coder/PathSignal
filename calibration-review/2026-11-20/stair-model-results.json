@@ -1,0 +1,136 @@
+{
+  "model": "SegFormer B0 ADE20K, quantized ONNX",
+  "pretrained": true,
+  "extra_training": false,
+  "note": "Development still frames. Camera height unknown. No distance estimates.",
+  "results": [
+    {
+      "file": "bottle-120cm-frame.jpg",
+      "milliseconds": 237,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.9078,
+        "wall": 0.0653,
+        "ceiling": 0.0109,
+        "ashcan": 0.007,
+        "bottle": 0.0062
+      },
+      "image_size": [
+        480,
+        1766
+      ]
+    },
+    {
+      "file": "bottle-180cm-frame.jpg",
+      "milliseconds": 252,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.7505,
+        "ceiling": 0.1447,
+        "wall": 0.0608,
+        "desk": 0.0348,
+        "conveyer belt": 0.0089
+      },
+      "image_size": [
+        480,
+        2216
+      ]
+    },
+    {
+      "file": "bottle-60cm-frame.jpg",
+      "milliseconds": 213,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "wall": 0.7985,
+        "floor": 0.1655,
+        "bottle": 0.0192,
+        "signboard": 0.0164,
+        "lamp": 0.0004
+      },
+      "image_size": [
+        480,
+        974
+      ]
+    },
+    {
+      "file": "dark-markings-frame.jpg",
+      "milliseconds": 270,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "earth": 0.9014,
+        "water": 0.0607,
+        "sidewalk": 0.0279,
+        "road": 0.0101,
+        "wall": 0.0
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "empty-tile-frame.jpg",
+      "milliseconds": 298,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.8529,
+        "ceiling": 0.1087,
+        "wall": 0.0363,
+        "cabinet": 0.0021,
+        "building": 0.0
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "ordinary-ground-frame.jpg",
+      "milliseconds": 312,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "road": 0.72,
+        "sidewalk": 0.1456,
+        "earth": 0.1345,
+        "wall": 0.0,
+        "building": 0.0
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "stairs-down-frame.jpg",
+      "milliseconds": 350,
+      "stair_corridor_fraction": 0.8414535119772635,
+      "top_classes": {
+        "wall": 0.4496,
+        "stairway": 0.387,
+        "ceiling": 0.0789,
+        "floor": 0.0617,
+        "stairs": 0.0151
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    },
+    {
+      "file": "stairs-up-frame.jpg",
+      "milliseconds": 350,
+      "stair_corridor_fraction": 0.0,
+      "top_classes": {
+        "floor": 0.5325,
+        "wall": 0.3845,
+        "ceiling": 0.0789,
+        "signboard": 0.0032,
+        "conveyer belt": 0.001
+      },
+      "image_size": [
+        480,
+        854
+      ]
+    }
+  ]
+}

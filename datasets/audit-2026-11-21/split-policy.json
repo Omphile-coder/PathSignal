@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "status": "policy only; no final training split created",
+  "order": ["retain originals and source licence", "validate labels", "group by original image/source scene/video session", "deduplicate", "assign whole groups to splits", "augment training only"],
+  "proposed_ratio": {"train": 0.7, "validation": 0.15, "test": 0.15},
+  "seed": 20261121,
+  "constraints": [
+    "No original image, near-duplicate family, augmentation family or video session may span splits.",
+    "Unknown lineage must be recorded, not assumed independent.",
+    "Banana-peel forks are one unverified provenance chain until evidence establishes otherwise.",
+    "Existing user clips and prior TACO development examples stay development-only.",
+    "An unlabelled floor is not a verified negative; inspect and annotate missed target objects.",
+    "Do not use final test examples for thresholds or checkpoint selection.",
+    "Retain per-class counts and source-group counts; flag classes with insufficient independent groups."
+  ],
+  "evaluation_requirements": ["per-class recall and precision", "false alerts on inspected empty paths", "misses on small/occluded objects", "actual iPhone scan latency", "repeat-alert behavior", "camera-unavailable behavior"],
+  "distance_reporting": "Only report measured distance when the setup supports it; do not infer metres from a box alone."
+}

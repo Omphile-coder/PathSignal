@@ -1,5 +1,12 @@
 # PathSignal on Expo Go
 
+## Retro iPhone interface — 20 November 2026
+
+The Expo app now uses the same blue, coral, teal and orange palette as the browser site. It includes bordered camera and status panels, pressed button feedback, explicit selected detector controls and a session summary. No detection model or scanning behaviour changed for this visual update. TypeScript checking and the iOS Metro export passed on Windows; the screen still needs a visual check on the physical iPhone.
+
+To load it, stop the PC's Expo terminal with Ctrl+C. From `C:\Users\lucas\Desktop\PathSignal\phone`, run `npx expo start --go --clear`. Scan the new QR code with the iPhone Camera app and open Expo Go. If PathSignal is already open in Expo Go, reload it. This UI update does not require Apple Developer signing.
+
+
 Double-click **Start PathSignal Phone.cmd** in the Desktop PathSignal folder. Keep the terminal open. Put the phone and PC on the same Wi-Fi, then scan the Expo QR code with the iPhone Camera app or the scanner in Expo Go on Android. This project uses Expo SDK 58.
 
 On iPhone, sign into the same Expo account in Expo Go and the Expo CLI. To sign in on the PC, open a terminal in this folder and run `npx.cmd expo login`.
@@ -12,13 +19,13 @@ The phone build tests stationary snapshots. Continuous, low-latency camera-frame
 
 ## Object detection
 
-**Object detection** uses a bundled COCO-SSD MobileNet model trained on COCO by the model publisher. The initial model load may take time. Once the app assets are loaded, inference runs on the phone CPU. It passes no camera images to a server. **Black bottle baseline** selects the original tile detector.
+**Object detection** uses the bundled pretrained YOLOX-S model through ONNX Runtime WebAssembly in an embedded processing view. Wait for **Object model ready · YOLOX-S** before scanning. The larger model makes the initial load slower. Once the app assets are loaded, inference runs on the phone. It passes no camera images to a server. **Black bottle baseline** selects the original tile detector.
 
 The object detector can flag bottles, cups, bags, balls, skateboards, furniture, pets, people, and bicycles or motorcycles. Detections need a minimum score and must overlap an image-space walking corridor. In **Start repeated scans**, the app captures one image at a time and re-arms alerts for an object class after two scans without that class. Use this mode while stationary.
 
 The model has no depth estimate. Its object labels do not cover curbs, steps, holes, raised slabs, or many overhead hazards. A detection box in the corridor is a visual cue only. Real-device performance and supervised field trials are pending. The TACO and Kaggle datasets reviewed earlier were not used for additional training.
 
-[Model and implementation](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd) · [Supported model labels](https://github.com/tensorflow/tfjs-models/blob/master/coco-ssd/src/classes.ts)
+[Model and implementation](https://github.com/Megvii-BaseDetection/YOLOX) · [Current update and restart instructions](../Object%20Detection%20Update.md)
 
 ## iPhone LiDAR development build
 
@@ -61,3 +68,9 @@ After setting the floor reference, tap **Repeat stationary checks** and keep the
 
 
 The preview shows an alert count and **Repeat last announcement**. If you stop repeated checks after an alert, the trial form keeps the latest alert-producing sample even if subsequent checks were quiet. If the session produced no alert, the form keeps the most recent completed sample. Depth coverage failures and tracking interruptions have their own spoken messages.
+### Object detection processing update
+
+The model runs independently of the React Native UI. Loading and inference have status messages and timeouts. Stop camera can cancel a pending scan. Rebuild the bundled detector after changes with `npm run build:detector`.
+
+Desktop Chromium and WebKit checks recognized chairs in both supplied office images and a person in the first. WebKit also recognized the bottle in the saved sample and returned no hazard on the empty-floor sample and a blank image. These checks used the camera-preview crops and the same model, preprocessing and decoder as the app. The model is pretrained, with no additional training on these images. Physical iPhone performance remains to be confirmed.
+

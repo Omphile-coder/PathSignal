@@ -1,0 +1,82 @@
+{
+  "distances": "User-reported horizontal floor distances",
+  "purpose": "Development examples, not independent validation",
+  "clips": [
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\54EC801E-D87A-454B-B846-666BCC3471B5\\1-IMG_1246.mov",
+      "distance_cm": null,
+      "label": "stairs-up",
+      "camera_height_cm": null,
+      "kind": "development",
+      "file": "54EC801E-D87A-454B-B846-666BCC3471B5\\1-IMG_1246.mov",
+      "duration_seconds": 2.02,
+      "observed_view": "looking downstairs; original user label retained"
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\45A485FD-5AF4-43C0-8F40-11A88257B9C0\\1-IMG_1248.mov",
+      "distance_cm": null,
+      "label": "stairs-down",
+      "camera_height_cm": null,
+      "kind": "development",
+      "file": "45A485FD-5AF4-43C0-8F40-11A88257B9C0\\1-IMG_1248.mov",
+      "duration_seconds": 4.7,
+      "observed_view": "facing upstairs; original user label retained"
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\B9A4560E-7D71-4AC8-8A82-F4F7802AD6CB\\1-IMG_1242.mov",
+      "distance_cm": null,
+      "label": "dark-markings",
+      "camera_height_cm": null,
+      "kind": "negative-example",
+      "file": "B9A4560E-7D71-4AC8-8A82-F4F7802AD6CB\\1-IMG_1242.mov",
+      "duration_seconds": 1.08,
+      "surface_geometry": "cracked or patched paving; actual unevenness unverified"
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\39D247B7-37D9-4552-9D65-A2ECBD5B5C8F\\1-IMG_1239.mov",
+      "distance_cm": null,
+      "label": "ordinary-ground",
+      "camera_height_cm": null,
+      "kind": "negative-example",
+      "file": "39D247B7-37D9-4552-9D65-A2ECBD5B5C8F\\1-IMG_1239.mov",
+      "duration_seconds": 1.15
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\93A0839E-7B7B-48E1-B4BB-75E904F841D0\\1-IMG_1253.mov",
+      "distance_cm": 60,
+      "label": "bottle-60cm",
+      "camera_height_cm": null,
+      "kind": "user-reported-distance",
+      "file": "93A0839E-7B7B-48E1-B4BB-75E904F841D0\\1-IMG_1253.mov",
+      "duration_seconds": 5.5
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\93A0839E-7B7B-48E1-B4BB-75E904F841D0\\2-IMG_1254.mov",
+      "distance_cm": 120,
+      "label": "bottle-120cm",
+      "camera_height_cm": null,
+      "kind": "user-reported-distance",
+      "file": "93A0839E-7B7B-48E1-B4BB-75E904F841D0\\2-IMG_1254.mov",
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\93A0839E-7B7B-48E1-B4BB-75E904F841D0\\3-IMG_1256.mov",
+      "distance_cm": 180,
+      "label": "bottle-180cm",
+      "camera_height_cm": null,
+      "kind": "user-reported-distance",
+      "file": "93A0839E-7B7B-48E1-B4BB-75E904F841D0\\3-IMG_1256.mov",
+      "duration_seconds": 5.7
+    },
+    {
+      "path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\05914D6E-1D6E-4A0E-A2FE-97CE97B16F2F\\1-IMG_1257.mov",
+      "distance_cm": null,
+      "label": "empty-tile",
+      "camera_height_cm": null,
+      "kind": "negative-example",
+      "file": "05914D6E-1D6E-4A0E-A2FE-97CE97B16F2F\\1-IMG_1257.mov",
+      "duration_seconds": 5.53
+    }
+  ],
+  "camera_height": "unknown"
+}

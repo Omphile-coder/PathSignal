@@ -1,7 +1,7 @@
 import { Asset } from 'expo-asset'
 import { requireOptionalNativeModule } from 'expo'
 import { fromByteArray, toByteArray } from 'base64-js'
-import { pathHazards } from './smart'
+import { pathHazards } from './objectPath'
 import { decodeYolo, makeYoloInput } from './yoloxDecode'
 
 const detector = requireOptionalNativeModule<{ run(uri: string, input: string): Promise<string> }>('PathSignalYolo')

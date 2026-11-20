@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-20",
+  "productionHost": "Vercel",
+  "url": "https://pathsignal-six.vercel.app",
+  "team": "pixels7",
+  "project": "pathsignal",
+  "deploymentId": "dpl_2Z7BExUvbAwbd8DD7GnNcTbpDSTn",
+  "readyState": "READY",
+  "unauthenticatedAccess": "HTTP 200",
+  "objectModel": "Loaded through 18 SHA-256-checked chunks",
+  "bottleSample": "Detected",
+  "emptyFloorSample": "No alert",
+  "stairsBrowserCheck": "WebKit sample checks passed with the known downward-view miss reproduced",
+  "phoneUI": "Retro theme implemented; TypeScript and iOS Metro export passed",
+  "phoneVisualCheck": "Physical iPhone visual review pending",
+  "note": "Desktop checks observe processing and speech requests. They do not verify audible output, a physical iPhone camera, warning distance or independent walking. Initial object-model download can take several minutes on a slow connection."
+}

@@ -5,6 +5,7 @@ import '@tensorflow/tfjs-backend-cpu'
 import { load } from '@tensorflow-models/coco-ssd'
 import type { ObjectDetection, DetectedObject } from '@tensorflow-models/coco-ssd'
 import { corridor } from './vision'
+import { ensureTensorPlatform } from './tensorPlatform'
 
 const manifest = require('./assets/model/model.json')
 const shards = [
@@ -20,7 +21,7 @@ tf.io.registerLoadRouter(url => url === modelUrl ? {
     const chunks = await Promise.all(shards.map(async moduleId => {
       const asset = await Asset.fromModule(moduleId).downloadAsync()
       if (!asset.localUri) throw new Error('Model asset unavailable')
-      return new Uint8Array(await new File(asset.localUri).arrayBuffer())
+      return new File(asset.localUri).bytes()
     }))
     const weightData = new Uint8Array(chunks.reduce((size, chunk) => size + chunk.length, 0))
     let offset = 0
@@ -36,28 +37,16 @@ tf.io.registerLoadRouter(url => url === modelUrl ? {
   },
 } : null!)
 
-const hazardClasses = new Set([
-  'backpack', 'handbag', 'suitcase', 'umbrella', 'bottle', 'cup', 'bowl',
-  'sports ball', 'skateboard', 'chair', 'bench', 'couch', 'bed', 'dining table',
-  'potted plant', 'person', 'dog', 'cat', 'bicycle', 'motorcycle',
-])
-
-export function pathHazards(detections: DetectedObject[], width: number, height: number, threshold = .45) {
-  return detections.filter(({ bbox: [x, y, w, h], class: label, score }) => {
-    if (!hazardClasses.has(label) || score < threshold || w <= 0 || h <= 0) return false
-    const bottom = (y + h) / height
-    if (bottom < .28) return false
-    const half = corridor(Math.min(.94, bottom))
-    const overlap = Math.min((x + w) / width, .5 + half) - Math.max(x / width, .5 - half)
-    return overlap >= Math.min(.035, (w / width) * .55)
-  }).sort((a, b) => b.score - a.score)
-}
+export { pathHazards } from './objectPath'
+import { pathHazards } from './objectPath'
 
 let loading: Promise<ObjectDetection> | undefined
 
 export async function scanObjects(frame: { data: Uint8Array; width: number; height: number }) {
+  ensureTensorPlatform()
   loading ??= (async () => {
     await tf.setBackend('cpu')
+    await tf.ready()
     return load({ base: 'lite_mobilenet_v2', modelUrl })
   })().catch(error => {
     loading = undefined
