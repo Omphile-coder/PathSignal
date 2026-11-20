@@ -8,5 +8,5 @@ if not exist node_modules\.bin\expo.cmd (
     exit /b 1
   )
 )
-call npm.cmd start
+call npm.cmd start -- --clear
 pause

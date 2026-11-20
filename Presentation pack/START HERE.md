@@ -44,8 +44,8 @@ Before academic submission, add your institution's required cover page, identity
 ## Release record
 
 - Hosted version — 3
-- Source commit — 05b6c5c0fffb222ed24b3ac873e967e49519a479
-- Public site project — appgprj_6afd8b73b14081918c3c77b7329f2992
+- Source — the updated PathSignal-source.zip in this folder
+- Production host — Vercel, project pathsignal, team pixels7
 
 Hosting publication was confirmed successful by the deployment service. No paid Apple Developer account is needed to open the website.
 
@@ -60,3 +60,9 @@ The mode uses the existing supplied clips and requires no additional recording t
 
 The live browser UI uses the supplied retro pack as a visual reference. Editable theme styles are in presentation-site/src/retro.css. Object and stair inference behaviour is unchanged. The source ZIP includes the updated theme. The original reference files are kept locally in PathSignal/design-reference/retro-pack.
 
+
+## Vercel migration and iPhone theme
+
+The production address is https://pathsignal-six.vercel.app. The Desktop live-demo shortcuts and QR code now use this address. The website is hosted on Vercel under the existing pixels7 team. Use `Deploy PathSignal Vercel.cmd` in the parent folder for future deployments.
+
+The Expo iPhone app now has the same retro palette, bordered camera panel, coloured buttons and session summary. Stop the existing Expo terminal with Ctrl+C, run `npx expo start --go --clear` from `C:\Users\lucas\Desktop\PathSignal\phone`, then scan its new QR code in the iPhone Camera app and open Expo Go. The UI passed TypeScript and iOS bundle checks; a physical iPhone visual check is still needed.
