@@ -1,0 +1,76 @@
+{
+  "review_date": "2026-11-21",
+  "stage": "Historical pre-download shortlist; see model-comparison/evaluation/RESULTS.md for the completed comparison and actual version-specific class lists.",
+  "requested_search": "https://universe.roboflow.com/search?q=object+detection+model",
+  "scope": "Public model-card review only; no model weights downloaded, no hosted inference requested, no user footage uploaded, no app changes.",
+  "recommendation": "First assess a stair-direction model against existing development clips; prefer clear class meanings and a usable local deployment path over broad class counts.",
+  "candidates": [
+    {
+      "name": "Staircase Detection",
+      "url": "https://universe.roboflow.com/university-of-texas-at-arlington-zreec/staircase-detection-mrpt2",
+      "model_id": "staircase-detection-mrpt2/1",
+      "publisher_name_on_card": "University of Texas at Arlington",
+      "project_images": 121,
+      "model_version_images": 289,
+      "image_count_note": "Project and version counts differ; do not assume all version images are independent originals.",
+      "classes": ["Downstair", "Upstair"],
+      "card_licence": "CC BY 4.0",
+      "model_type": "Roboflow 2.0 Object Detection (Fast)",
+      "access_evidence": "Page provides authenticated serverless API code. Downloadable compatible weights not verified.",
+      "decision": "First candidate to assess for direction labels, not a proven stronger model. Small source collection, no local performance evidence."
+    },
+    {
+      "name": "accesibility street",
+      "url": "https://universe.roboflow.com/tfg-7qtpm/accesibility-street",
+      "model_id": "accesibility-street/11",
+      "project_images": 4968,
+      "model_version_images": 8531,
+      "project_classes_reported": 94,
+      "relevant_project_labels": ["pothole", "crack", "stair", "wire", "curbs", "pole", "cone"],
+      "card_licence": "Public Domain",
+      "model_type": "Roboflow 2.0 Object Detection (Fast)",
+      "access_evidence": "Page provides authenticated serverless API code. Downloadable compatible weights not verified.",
+      "decision": "Broader outdoor candidate; project taxonomy is mixed and model-version mapping must be verified. Pothole/crack boxes do not establish general open-hole detection, trip risk or metric depth."
+    },
+    {
+      "name": "Obstacle Detection",
+      "url": "https://universe.roboflow.com/mawarshazleen/obstacle-detection-n3eec",
+      "model_id": "obstacle-detection-n3eec/1",
+      "project_images": 766,
+      "model_version_images": 1838,
+      "classes": ["stairs", "stairs-holes-curbs"],
+      "card_licence": "Public Domain",
+      "model_type": "Roboflow 3.0 Object Detection (Fast)",
+      "publisher_metrics_percent": {"map50": 83.5, "precision": 88.9, "recall": 73.8},
+      "access_evidence": "Page provides authenticated serverless API code. Downloadable compatible weights not verified.",
+      "decision": "Secondary generic-hazard experiment; compound stairs-holes-curbs class cannot support distinct hole/curb/stair announcements."
+    },
+    {
+      "name": "Stairs_Detection",
+      "url": "https://universe.roboflow.com/stairs-blind/stairs_detection-9av4i",
+      "model_id": "stairs_detection-9av4i/1",
+      "project_images": 602,
+      "project_classes": ["0", "1", "2", "downstair", "stairs", "upstair"],
+      "card_licence": "MIT",
+      "model_type": "Roboflow 3.0 Object Detection (Fast)",
+      "publisher_metrics_percent": {"map50": 64.8, "precision": 78.2, "recall": 52.9},
+      "decision": "Lower priority until numeric class meanings and model-version mapping are resolved. Publisher recall is not sufficient evidence of an improvement."
+    }
+  ],
+  "deployment_and_cost": {
+    "source": "https://roboflow.com/pricing",
+    "current_publisher_statement": "Free tier is available without a credit card. Supported model weights can be downloaded through Roboflow Inference or MCP on every plan; not all model types support this.",
+    "candidate_specific_export_access": "unverified; free-plan feature availability does not prove third-party model weights or compatible ONNX exports are available",
+    "local_path": "Verify model permission, architecture, input/output format and export availability; assess ONNX/WASM compatibility and actual iPhone cost before integration.",
+    "hosted_path": "Authenticated API; camera images leave device; internet, latency and usage limits apply. Requires deliberate product/privacy changes and keeping API credentials out of client bundles.",
+    "no_purchase_made": true
+  },
+  "evaluation_notes": [
+    "Publisher metrics are not PathSignal results or performance on the user's stairs.",
+    "Project-level licences and class lists do not establish model-weight terms or exact version mappings.",
+    "Project image counts may differ from augmented version counts.",
+    "General detection API snippets shown beside a custom model are not evidence that the custom checkpoint was used.",
+    "Use existing clips as development checks only; reserve independent scenes for final evaluation.",
+    "No candidate establishes distance measurement or independent walking."
+  ]
+}

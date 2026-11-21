@@ -1,0 +1,250 @@
+{
+  "checked_at": "2026-11-20T23:33:30.016228+00:00",
+  "images_uploaded": false,
+  "credential_saved": false,
+  "inference_run": false,
+  "results": [
+    {
+      "name": "Staircase Detection",
+      "model_id": "staircase-detection-mrpt2/1",
+      "inference_run": false,
+      "state": "downloaded; inference and mobile compatibility unverified",
+      "weights": {
+        "file": "weights.onnx",
+        "bytes": 7476746,
+        "sha256": "fd0a1f403dfc3dc1de10d43f7d33b5a1dbb8d7d8f678f548519277722f6cc259"
+      },
+      "environment_fields": [
+        "PROJECT",
+        "TRAINING_TIME",
+        "DATASET_LINK",
+        "MODEL_NAME",
+        "UID",
+        "DATASET_OWNER",
+        "DATASET_ID",
+        "DATASET_VERSION_ID",
+        "ENDPOINT",
+        "RESOLUTION",
+        "BATCH_SIZE",
+        "PREPROCESSING"
+      ],
+      "artifact_source": "Roboflow authenticated ORT endpoint; signed URLs not retained",
+      "model_permission_review": "Public card terms recorded separately; not cleared for redistribution by this downloader",
+      "inspection": {
+        "cpu_session_created": true,
+        "inputs": [
+          {
+            "name": "images",
+            "shape": [
+              1,
+              3,
+              640,
+              640
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output",
+            "shape": [
+              1,
+              25200,
+              7
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "339",
+            "shape": [
+              1,
+              3,
+              80,
+              80,
+              7
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "391",
+            "shape": [
+              1,
+              3,
+              40,
+              40,
+              7
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "443",
+            "shape": [
+              1,
+              3,
+              20,
+              20,
+              7
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "metadata_field_names": []
+      }
+    },
+    {
+      "name": "Accessibility Street",
+      "model_id": "accesibility-street/11",
+      "inference_run": false,
+      "state": "downloaded; inference and mobile compatibility unverified",
+      "weights": {
+        "file": "weights.onnx",
+        "bytes": 7099951,
+        "sha256": "cf7499658e7022bade0dc09f417febfb2d74cf01ed0c6d932bc66498488a2496"
+      },
+      "environment_fields": [
+        "PROJECT",
+        "TRAINING_TIME",
+        "DATASET_LINK",
+        "MODEL_NAME",
+        "UID",
+        "DATASET_OWNER",
+        "DATASET_ID",
+        "DATASET_VERSION_ID",
+        "ENDPOINT",
+        "RESOLUTION",
+        "BATCH_SIZE",
+        "PREPROCESSING"
+      ],
+      "artifact_source": "Roboflow authenticated ORT endpoint; signed URLs not retained",
+      "model_permission_review": "Public card terms recorded separately; not cleared for redistribution by this downloader",
+      "inspection": {
+        "cpu_session_created": true,
+        "inputs": [
+          {
+            "name": "images",
+            "shape": [
+              "batch",
+              3,
+              "height",
+              "width"
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output",
+            "shape": [
+              "batch",
+              "anchors",
+              "Concatoutput_dim_2"
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "345",
+            "shape": [
+              "Transpose345_dim_0",
+              "Transpose345_dim_1",
+              "Transpose345_dim_2",
+              "Transpose345_dim_3",
+              "Transpose345_dim_4"
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "473",
+            "shape": [
+              "Transpose473_dim_0",
+              "Transpose473_dim_1",
+              "Transpose473_dim_2",
+              "Transpose473_dim_3",
+              "Transpose473_dim_4"
+            ],
+            "type": "tensor(float)"
+          },
+          {
+            "name": "601",
+            "shape": [
+              "Transpose601_dim_0",
+              "Transpose601_dim_1",
+              "Transpose601_dim_2",
+              "Transpose601_dim_3",
+              "Transpose601_dim_4"
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "metadata_field_names": []
+      }
+    },
+    {
+      "name": "Obstacle Detection",
+      "model_id": "obstacle-detection-n3eec/1",
+      "inference_run": false,
+      "state": "downloaded; inference and mobile compatibility unverified",
+      "weights": {
+        "file": "weights.onnx",
+        "bytes": 12238238,
+        "sha256": "90364c715022d44883f3fb1944e5b233e033b720f6c643ac6f76e96dde872fc0"
+      },
+      "environment_fields": [
+        "BATCH_SIZE",
+        "CACHE_PATH",
+        "DATASET_ID",
+        "DATASET_LINK",
+        "DATASET_OWNER",
+        "DATASET_VERSION_ID",
+        "ENDPOINT",
+        "MODEL_NAME",
+        "PREPROCESSING",
+        "PROJECT",
+        "RESOLUTION",
+        "TRAINING_TIME",
+        "UID"
+      ],
+      "artifact_source": "Roboflow authenticated ORT endpoint; signed URLs not retained",
+      "model_permission_review": "Public card terms recorded separately; not cleared for redistribution by this downloader",
+      "inspection": {
+        "cpu_session_created": true,
+        "inputs": [
+          {
+            "name": "images",
+            "shape": [
+              1,
+              3,
+              640,
+              640
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output0",
+            "shape": [
+              1,
+              5,
+              8400
+            ],
+            "type": "tensor(float)"
+          }
+        ],
+        "metadata_field_names": [
+          "date",
+          "description",
+          "author",
+          "version",
+          "task",
+          "license",
+          "docs",
+          "stride",
+          "batch",
+          "imgsz",
+          "names"
+        ]
+      }
+    }
+  ],
+  "next": "Inspect downloaded preprocessing and class mappings, then implement and compare the correct decoder on development frames."
+}
