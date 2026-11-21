@@ -7,6 +7,12 @@ Start with `Presentation pack/START HERE.md`. That folder contains the source ZI
 ---
 # PathSignal
 
+## Open the current retro app
+
+Double-click **Start PathSignal.cmd**, or the **Start PathSignal** Desktop shortcut. It builds and opens the current app from `presentation-site`, with the cream background and colourful retro controls. Keep its terminal window open. It normally uses `http://127.0.0.1:4173`; if that port is occupied, the launcher opens the next available port. The published version is https://pathsignal-six.vercel.app .
+
+The old dark replay/trial prototype is retained as **Start PathSignal Legacy Lab.cmd**. A tab at `localhost:5174` may still show that older lab; close it and use the current launcher. The instructions below describe the original research lab unless otherwise stated.
+
 Start with [Project Handoff.md](Project%20Handoff.md) for the current phone, LiDAR and desktop workflows.
 
 PathSignal is an assessment prototype for one question. How consistently does a downward-facing phone camera warn before a foam block on a controlled indoor path?

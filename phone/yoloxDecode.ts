@@ -4,6 +4,7 @@ const modelClasses: Record<number, string> = {
   24: 'backpack', 25: 'umbrella', 26: 'handbag', 28: 'suitcase',
   32: 'sports ball', 36: 'skateboard', 39: 'bottle', 41: 'cup', 45: 'bowl',
   56: 'chair', 57: 'couch', 58: 'potted plant', 59: 'bed', 60: 'dining table',
+  62: 'tv', 63: 'laptop', 64: 'mouse', 65: 'remote', 66: 'keyboard', 67: 'cell phone',
 }
 
 type Detection = { class: string; score: number; bbox: [number, number, number, number] }

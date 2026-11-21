@@ -1,0 +1,287 @@
+{
+  "development_only": true,
+  "independent_trial_count": null,
+  "images_uploaded": false,
+  "network_used": false,
+  "note": "24 correlated frames from 8 existing clips; no held-out accuracy, warning-distance or walking-safety claim. Threshold fixed at 0.4 before evaluating. No box ground truth. Baseline segmentation coverage and box detector corridor overlap are different rules.",
+  "models": [
+    {
+      "name": "Staircase Detection",
+      "model_id": "staircase-detection-mrpt2/1",
+      "model_type": "yolov5v6n",
+      "classes": [
+        "Downstair",
+        "Upstair"
+      ],
+      "weights_sha256": "fd0a1f403dfc3dc1de10d43f7d33b5a1dbb8d7d8f678f548519277722f6cc259",
+      "threshold": 0.4,
+      "nms_iou": 0.3,
+      "preprocessing": "EXIF transpose, RGB float bilinear stretch per environment, NCHW, divide by 255",
+      "summary": [
+        {
+          "clip_group": "bottle-120cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "bottle-180cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "bottle-60cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "dark-markings",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "empty-tile",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "ordinary-ground",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "stairs-down",
+          "observed_stair_view": "upstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": 0,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "stairs-up",
+          "observed_stair_view": "downstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": 0,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        }
+      ],
+      "median_processing_ms": 126.5
+    },
+    {
+      "name": "Accessibility Street",
+      "model_id": "accesibility-street/11",
+      "model_type": "yolov5v6n",
+      "classes": [
+        "dificulta el paso",
+        "inaccesible por obras",
+        "necesita rampa",
+        "rampa inaccesible",
+        "suelo inestable"
+      ],
+      "weights_sha256": "cf7499658e7022bade0dc09f417febfb2d74cf01ed0c6d932bc66498488a2496",
+      "threshold": 0.4,
+      "nms_iou": 0.3,
+      "preprocessing": "EXIF transpose, RGB float bilinear stretch per environment, NCHW, divide by 255",
+      "summary": [
+        {
+          "clip_group": "bottle-120cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": [
+            "dificulta el paso"
+          ]
+        },
+        {
+          "clip_group": "bottle-180cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "bottle-60cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": [
+            "dificulta el paso"
+          ]
+        },
+        {
+          "clip_group": "dark-markings",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": [
+            "suelo inestable"
+          ]
+        },
+        {
+          "clip_group": "empty-tile",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "ordinary-ground",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "stairs-down",
+          "observed_stair_view": "upstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": [
+            "necesita rampa"
+          ]
+        },
+        {
+          "clip_group": "stairs-up",
+          "observed_stair_view": "downstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        }
+      ],
+      "median_processing_ms": 126.0
+    },
+    {
+      "name": "Obstacle Detection",
+      "model_id": "obstacle-detection-n3eec/1",
+      "model_type": "yolov8n",
+      "classes": [
+        "stairs"
+      ],
+      "weights_sha256": "90364c715022d44883f3fb1944e5b233e033b720f6c643ac6f76e96dde872fc0",
+      "threshold": 0.4,
+      "nms_iou": 0.3,
+      "preprocessing": "EXIF transpose, RGB float bilinear stretch per environment, NCHW, divide by 255",
+      "summary": [
+        {
+          "clip_group": "bottle-120cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "bottle-180cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "bottle-60cm",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "dark-markings",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "empty-tile",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "ordinary-ground",
+          "observed_stair_view": "no staircase labelled in development review",
+          "frames": 3,
+          "frames_with_stair_detection": 0,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 0,
+          "detected_labels": []
+        },
+        {
+          "clip_group": "stairs-down",
+          "observed_stair_view": "upstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 3,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 3,
+          "detected_labels": [
+            "stairs"
+          ]
+        },
+        {
+          "clip_group": "stairs-up",
+          "observed_stair_view": "downstairs",
+          "frames": 3,
+          "frames_with_stair_detection": 3,
+          "frames_with_correct_direction": null,
+          "frames_with_stair_in_corridor": 3,
+          "detected_labels": [
+            "stairs"
+          ]
+        }
+      ],
+      "median_processing_ms": 143.5
+    }
+  ]
+}

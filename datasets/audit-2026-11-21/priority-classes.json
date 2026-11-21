@@ -3,22 +3,83 @@
   "stage": "dataset audit complete with explicit outstanding gates; no training performed",
   "baseline": {
     "model": "YOLOX-S publisher COCO checkpoint",
-    "active_classes": ["person", "bicycle", "motorcycle", "cat", "dog", "backpack", "umbrella", "handbag", "suitcase", "sports ball", "skateboard", "bottle", "cup", "bowl", "chair", "couch", "potted plant", "bed", "dining table"]
+    "active_classes": [
+      "person",
+      "bicycle",
+      "motorcycle",
+      "cat",
+      "dog",
+      "backpack",
+      "umbrella",
+      "handbag",
+      "suitcase",
+      "sports ball",
+      "skateboard",
+      "bottle",
+      "cup",
+      "bowl",
+      "chair",
+      "couch",
+      "potted plant",
+      "bed",
+      "dining table"
+    ]
   },
   "next_decoder_candidates": [
-    {"coco_id": 62, "model_label": "tv", "spoken_label": "television"},
-    {"coco_id": 63, "model_label": "laptop"},
-    {"coco_id": 64, "model_label": "mouse"},
-    {"coco_id": 65, "model_label": "remote"},
-    {"coco_id": 66, "model_label": "keyboard"},
-    {"coco_id": 67, "model_label": "cell phone"}
+    {
+      "coco_id": 62,
+      "model_label": "tv",
+      "spoken_label": "television"
+    },
+    {
+      "coco_id": 63,
+      "model_label": "laptop"
+    },
+    {
+      "coco_id": 64,
+      "model_label": "mouse"
+    },
+    {
+      "coco_id": 65,
+      "model_label": "remote"
+    },
+    {
+      "coco_id": 66,
+      "model_label": "keyboard"
+    },
+    {
+      "coco_id": 67,
+      "model_label": "cell phone"
+    }
   ],
-  "decoder_candidates_status": "planned, not enabled by this audit; recognition and warning usefulness unmeasured",
+  "decoder_candidates_status": "Enabled in phone and web source; decoder checks, phone export and browser flows pass. Four image diagnostics: keyboard recognised; TV and mouse mislabelled; phone missed. Physical iPhone unverified.",
   "custom_training_priorities": [
-    {"class": "banana-peel", "priority": 1, "state": "metadata_only", "gate": "obtain annotated export; inspect provenance, labels, floor contexts and source-independent splits"},
-    {"class": "stairs", "priority": 2, "state": "sample_audited", "gate": "normalise mixed polygon/box labels, repair source groups and resolve permissions; no direction or distance label"},
-    {"class": "loose-cable", "priority": 3, "state": "sample_audited_not_cleared", "gate": "resolve data permission and floor-view coverage"}
+    {
+      "class": "banana-peel",
+      "priority": 1,
+      "state": "metadata_only",
+      "gate": "obtain annotated export; inspect provenance, labels, floor contexts and source-independent splits"
+    },
+    {
+      "class": "stairs",
+      "priority": 2,
+      "state": "sample_audited",
+      "gate": "normalise mixed polygon/box labels, repair source groups and resolve permissions; no direction or distance label"
+    },
+    {
+      "class": "loose-cable",
+      "priority": 3,
+      "state": "sample_audited_not_cleared",
+      "gate": "resolve data permission and floor-view coverage"
+    }
   ],
-  "unresolved_capabilities": ["open holes", "raised paving slabs", "metric distance", "overhead clearance", "independent walking"],
-  "universal_object_recognition_claim": false
+  "unresolved_capabilities": [
+    "open holes",
+    "raised paving slabs",
+    "metric distance",
+    "overhead clearance",
+    "independent walking"
+  ],
+  "universal_object_recognition_claim": false,
+  "enabled_class_count_after_integration": 25
 }

@@ -1,5 +1,13 @@
 # PathSignal on Expo Go
 
+## Stairs mode — 21 November 2026
+
+Stop the camera, choose **Stairs (experimental)**, start the camera and wait for **Model ready**. Stand still and scan; a fresh encounter plays the bundled recording **Possible stairs ahead**. Repeated scans suppress the same stair class until two scans without it. Stop the camera to switch modes. The embedded detector and iOS export passed desktop checks, but physical iPhone camera, sound and memory remain unverified. No API key is required. Source and licences: https://pathsignal-six.vercel.app/source.html .
+
+## Electronics extension — 21 November 2026
+
+The object detector now enables 25 COCO labels, including TV, laptop, mouse, remote, keyboard and cell phone. The embedded detector was rebuilt; reload Expo Go after restarting the launcher to receive it. These are existing pretrained model classes, not new training. Phone and browser decoder/path checks pass for the six additions. Four low-resolution dataset-image checks on the browser recognised the keyboard, mislabelled the TV and mouse and missed the phone; laptop and remote were not covered. Physical iPhone electronics recognition remains unverified. Banana peel and cable recognition are not installed.
+
 ## Retro iPhone interface — 20 November 2026
 
 The Expo app now uses the same blue, coral, teal and orange palette as the browser site. It includes bordered camera and status panels, pressed button feedback, explicit selected detector controls and a session summary. No detection model or scanning behaviour changed for this visual update. TypeScript checking and the iOS Metro export passed on Windows; the screen still needs a visual check on the physical iPhone.
