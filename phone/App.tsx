@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { AccessibilityInfo, AppState, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { AccessibilityInfo, AppState, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { CameraView, useCameraPermissions } from 'expo-camera'
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator'
@@ -14,6 +14,7 @@ import { hasNativeDetector, scanYolo } from './yolox'
 import { retro, retroStyles } from './retroTheme'
 
 const clips = {
+  stairs: { file: require('./assets/stairs.wav'), text: 'Possible stairs ahead.' },
   obstacle: { file: require('./assets/obstacle.wav'), text: 'Possible obstacle ahead.' },
   paused: { file: require('./assets/paused.wav'), text: 'Obstacle alerts paused.' },
   test: { file: require('./assets/test.wav'), text: 'PathSignal audio check.' },
@@ -41,11 +42,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const nextScan = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const encounter = useRef(new Map<string, number>())
   const [repeating, setRepeating] = useState(false)
-  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle'>('coco')
+  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle' | 'stairs'>('coco')
   const smart = profile !== 'bottle'
+  const embedded = profile === 'coco' || profile === 'stairs'
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [active, setActive] = useState(false)
-  const objectWorker = useObjectWorker(active && profile === 'coco')
+  const objectWorker = useObjectWorker(active && embedded, profile === 'stairs' ? 'stairs' : 'objects')
   const [ready, setReady] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [status, setStatus] = useState('Camera off')
@@ -57,6 +59,14 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   function play(cue: Cue) {
     player.replace(clips[cue].file)
     player.play()
+  }
+
+  function changeProfile(next: typeof profile) {
+    if (active) return
+    objectWorker.cancel()
+    encounter.current.clear()
+    setProfile(next); setLast(null); setScanTime(null); setDiagnostic('')
+    setCounts({ scans: 0, alerts: 0 })
   }
 
   function stopRepeating() {
@@ -90,6 +100,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
     return () => subscription.remove()
   }, [active])
 
+  useEffect(() => {
+    if (active && embedded && objectWorker.status.includes('unavailable.')) {
+      pause('The selected detection model is unavailable. Restart the camera to retry.')
+    }
+  }, [active, embedded, objectWorker.status])
+
   useEffect(() => () => {
     activeRun.current++
     auto.current = false
@@ -102,6 +118,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       const allowed = permission?.granted || (await requestPermission()).granted
       if (!allowed) return pause('Allow camera access in your phone settings.')
       await setAudioModeAsync({ playsInSilentMode: true })
+      if (embedded) objectWorker.reset()
       activeRun.current++
       const run = activeRun.current
       setStatus('Starting camera')
@@ -126,14 +143,14 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   }
 
   async function scan() {
-    if (!ready || pending.current || !camera.current || (profile === 'coco' && !objectWorker.ready)) return
+    if (!ready || pending.current || !camera.current || (embedded && !objectWorker.ready)) return
     pending.current = true
     const run = activeRun.current
     const automatic = auto.current
     setScanning(true)
     setDiagnostic('')
     let stage = 'Camera capture'
-    setStatus(smart ? 'Checking for objects' : 'Scanning one image')
+    setStatus(profile === 'stairs' ? 'Checking for stairs' : smart ? 'Checking for objects' : 'Scanning one image')
     timeout.current = setTimeout(() => {
       if (run === activeRun.current) pause('The camera scan timed out.')
     }, smart ? 45000 : 10000)
@@ -151,8 +168,8 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         if (run !== activeRun.current) return
         if (!saved.base64) throw new Error('Missing image data')
         stage = smart ? 'Object model' : 'Bottle detector'
-        const frame = profile === 'coco' ? null : decode(toByteArray(saved.base64), { useTArray: true })
-        const result = profile === 'coco' ? await objectWorker.scan(saved.base64) : null
+        const frame = embedded ? null : decode(toByteArray(saved.base64), { useTArray: true })
+        const result = embedded ? await objectWorker.scan(saved.base64) : null
         if (run !== activeRun.current || (automatic && !auto.current)) return
         setScanTime(result ? result.milliseconds : null)
         const objects = result?.hazards ?? (profile === 'yolox' && frame ? await scanYolo(frame) : [])
@@ -172,11 +189,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }
         setCounts(old => ({ scans: old.scans + 1, alerts: old.alerts + Number(alert) }))
         const outside = result?.seen.length ? ' Seen outside the alert corridor: ' + result.seen.join(', ') + '.' : ''
-        setStatus(found ? clips.obstacle.text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.' + outside)
+        const cue = profile === 'stairs' ? 'stairs' : 'obstacle'
+        setStatus(found ? clips[cue].text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.' + outside)
         if (alert) {
           stage = 'Alert audio'
-          setLast('obstacle')
-          play('obstacle')
+          setLast(cue)
+          play(cue)
         }
       } finally {
         try { new File(saved.uri).delete() } catch { /* The image is in the app cache. */ }
@@ -207,12 +225,14 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       <Text accessibilityRole="header" style={styles.title}>Obstacle monitor</Text>
       <Text style={styles.body}>{smart ? 'Stand still and aim the rear camera at the path ahead.' : 'Stand still and centre the black bottle on light tile.'}</Text>
       <View style={styles.controls}>
-        <Button title="Object detection" selected={profile === 'coco'} disabled={active} onPress={() => { setProfile('coco'); setCounts({ scans: 0, alerts: 0 }) }} />
-        {hasNativeDetector && <Button title="YOLOX comparison" primary={profile === 'yolox'} disabled={active} onPress={() => { setProfile('yolox'); setCounts({ scans: 0, alerts: 0 }) }} />}
-        <Button title="Black bottle baseline" selected={profile === 'bottle'} disabled={active} onPress={() => { setProfile('bottle'); setCounts({ scans: 0, alerts: 0 }) }} />
+        <Button title="Object detection" selected={profile === 'coco'} disabled={active} onPress={() => changeProfile('coco')} />
+        <Button title="Stairs (experimental)" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
+        {hasNativeDetector && <Button title="YOLOX comparison" primary={profile === 'yolox'} disabled={active} onPress={() => changeProfile('yolox')} />}
+        <Button title="Black bottle baseline" selected={profile === 'bottle'} disabled={active} onPress={() => changeProfile('bottle')} />
       </View>
       <View style={[styles.cameraPanel, retroStyles.shadow]}>
-      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
+      {profile === 'stairs' && <Text style={styles.body}>Experimental stair alerts. No direction or distance measurement. Stop the camera to switch back to everyday objects.</Text>}
+      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{profile === 'stairs' ? 'YOLOv8n stairs' : smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
       <View style={styles.preview}>
         {active ? <CameraView ref={camera} facing="back" mode="picture" style={StyleSheet.absoluteFill}
           animateShutter={false}
@@ -225,12 +245,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       </View>
       <View style={[styles.statusPanel, last === 'paused' && !active && styles.pausedPanel]}><Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text></View>
       </View>
-      {active && profile === 'coco' && <Text accessibilityLiveRegion="polite" style={styles.body}>{objectWorker.status}</Text>}
+      {active && embedded && <Text accessibilityLiveRegion="polite" style={styles.body}>{objectWorker.status}</Text>}
       {!!diagnostic && <Text selectable style={styles.body}>Scan details · {diagnostic}</Text>}
       <View style={styles.controls}>
         {active ? <>
-          <Button title={scanning ? 'Scanning' : 'Scan now'} tone="orange" disabled={!ready || scanning || repeating || (profile === 'coco' && !objectWorker.ready)} onPress={() => void scan()} />
-          <Button title={repeating ? 'Stop repeated scans' : 'Start repeated scans'} disabled={!ready || (scanning && !repeating) || (profile === 'coco' && !objectWorker.ready)} onPress={toggleRepeatedScans} />
+          <Button title={scanning ? 'Scanning' : 'Scan now'} tone="orange" disabled={!ready || scanning || repeating || (embedded && !objectWorker.ready)} onPress={() => void scan()} />
+          <Button title={repeating ? 'Stop repeated scans' : 'Start repeated scans'} disabled={!ready || (scanning && !repeating) || (embedded && !objectWorker.ready)} onPress={toggleRepeatedScans} />
           <Button title="Stop camera" tone="pink" onPress={() => { end('Camera off'); player.pause() }} />
         </> : <Button title="Start camera" primary onPress={() => void start()} />}
         <Button title="Repeat last alert" disabled={!last} onPress={() => { if (last) play(last) }} />
@@ -242,9 +262,10 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }} />
       </View>
       {hasLidarModule && <Button title="LiDAR distance" onPress={openLidar} disabled={active} />}
-      {profile === 'coco' && <Text style={styles.body}>YOLOX-S{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
+      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
       <View style={[styles.sessionPanel, retroStyles.shadow]}><Text style={styles.sessionHeading}>THIS SESSION</Text><View style={styles.metrics}><View style={styles.metric}><Text style={styles.metricNumber}>{counts.scans}</Text><Text style={styles.metricLabel}>scans</Text></View><View style={styles.metric}><Text style={styles.metricNumber}>{counts.alerts}</Text><Text style={styles.metricLabel}>alert requests</Text></View></View></View>
       <View style={styles.scopePanel}><Text style={styles.scopeHeading}>A stationary prototype</Text><Text style={styles.body}>Use this prototype while stationary. Silence carries no information about path conditions.</Text></View>
+      <Button title="Source code and licences" onPress={() => { void Linking.openURL('https://pathsignal-six.vercel.app/source.html').catch(() => setStatus('Open pathsignal-six.vercel.app/source.html for source code and licences.')) }} />
     </ScrollView>
   </SafeAreaView>
 }

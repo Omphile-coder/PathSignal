@@ -8,8 +8,10 @@ const path = require('node:path')
   })
   const directory = path.join(__dirname,'../assets/model')
   const runtime = path.join(__dirname,'../node_modules/onnxruntime-web/dist')
+  for (const mode of ['objects', 'stairs']) {
   const payload = {
-    model: fs.readFileSync(path.join(directory,'yolox_s.onnx')).toString('base64'),
+    mode,
+    model: fs.readFileSync(path.join(directory,mode === 'stairs' ? 'stairs-yolov8n.onnx' : 'yolox_s.onnx')).toString('base64'),
     wasm: fs.readFileSync(path.join(runtime,'ort-wasm-simd-threaded.wasm')).toString('base64'),
     engine: fs.readFileSync(path.join(runtime,'ort-wasm-simd-threaded.mjs'),'utf8'),
   }
@@ -20,6 +22,7 @@ const path = require('node:path')
     '</head><body><script>'+escapeScript(ort)+'</script><script>window.PATHSIGNAL_MODEL='+
     JSON.stringify(payload).replaceAll('<','\u003c')+';</script><script>'+
     escapeScript(result.outputFiles[0].text)+'</script></body></html>'
-  fs.writeFileSync(path.join(directory,'detector.html'),html)
-  console.log('Bundled offline YOLOX-S detector',Math.round(Buffer.byteLength(html)/1024/1024)+' MB')
+  fs.writeFileSync(path.join(directory,mode === 'stairs' ? 'stairs-detector.html' : 'detector.html'),html)
+  console.log('Bundled offline ' + mode + ' detector',Math.round(Buffer.byteLength(html)/1024/1024)+' MB')
+  }
 })().catch(error=>{console.error(error);process.exitCode=1})
