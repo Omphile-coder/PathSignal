@@ -1,0 +1,22 @@
+[
+  {
+    "name": "up-down-stairs",
+    "error": "HTTPError"
+  },
+  {
+    "name": "missing-tile",
+    "error": "HTTPError"
+  },
+  {
+    "name": "sidewalk-dongeui",
+    "error": "HTTPError"
+  },
+  {
+    "name": "damaged-sidewalk",
+    "error": "HTTPError"
+  },
+  {
+    "name": "pothole-workspace",
+    "error": "HTTPError"
+  }
+]
