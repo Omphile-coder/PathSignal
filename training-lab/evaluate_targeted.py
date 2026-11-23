@@ -14,7 +14,7 @@ def corridor(box,w,h):
     bottom/=h
     if bottom<.28:return False
     half=.15+(min(.94,bottom)-.28)*.24
-    return min(right/w,.5+half)-max(x/w,.5-half)>=min(.035,(right-x)/w*.55)
+    return bool(min(right/w,.5+half)-max(x/w,.5-half)>=min(.035,(right-x)/w*.55))
 
 def main(name):
     import torch
@@ -33,7 +33,7 @@ def main(name):
     for r in public['rows']:
         if r['split']=='test':samples.append({'image':r['prepared_image'],'partition':'public_test','label':str(Path(r['prepared_image']).parent.parent/'labels'/ (Path(r['prepared_image']).stem+'.txt'))})
     for r in paving:
-        samples.append(dict(r,partition='local_paving',truth_boxes=r['boxes_xyxy'] if name=='missing-tile-v2' else [],expected_direction=None))
+        samples.append(dict(r,partition='local_paving',truth_boxes=r['boxes_xyxy'] if not is_stairs else [],expected_direction=None))
     for r in stairs:
         samples.append(dict(r,partition='local_stairs',truth_boxes=[],expected_direction=r['class'].replace('stairs_down','downstairs').replace('stairs_up','upstairs')))
     older=json.loads((ROOT.parent/'model-comparison'/'development-manifest.json').read_text())['frames']
