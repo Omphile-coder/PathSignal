@@ -1,0 +1,17 @@
+{
+  "state": "complete",
+  "checkpoint": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\pothole\\weights\\best.pt",
+  "onnx": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\pothole\\weights\\best.onnx",
+  "elapsed_seconds": 739,
+  "public_test_metrics": {
+    "metrics/precision(B)": 0.697798544265481,
+    "metrics/recall(B)": 0.5934065934065934,
+    "metrics/mAP50(B)": 0.6669577756974133,
+    "metrics/mAP50-95(B)": 0.3565362162315703,
+    "fitness": 0.3565362162315703
+  },
+  "model_selection": "best checkpoint on public validation only",
+  "public_test_used_for_tuning": false,
+  "local_clips_used_for_training": false,
+  "app_updated": false
+}
