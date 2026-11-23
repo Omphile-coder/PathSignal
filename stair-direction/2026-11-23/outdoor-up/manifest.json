@@ -1,0 +1,135 @@
+{
+  "purpose": "stair-direction development review; not a trained model or independent benchmark",
+  "clips": [
+    {
+      "clip_id": "U1-up",
+      "staircase_group": "U",
+      "user_label": "up",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\0002023C-C4ED-4A88-A7CB-7553D162E948\\1-IMG_1297.mov",
+      "source_sha256": "797c6906e7e56c74cc5765cf9c057b3893b6a73613a1ad47b182dd71d63dffbf",
+      "duration_seconds": 10.53,
+      "frames": [
+        {
+          "path": "frames\\U1-up\\U1-up-01.jpg",
+          "timestamp_seconds": 1.053,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U1-up-01.jpg"
+        },
+        {
+          "path": "frames\\U1-up\\U1-up-02.jpg",
+          "timestamp_seconds": 3.159,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U1-up-02.jpg"
+        },
+        {
+          "path": "frames\\U1-up\\U1-up-03.jpg",
+          "timestamp_seconds": 5.265,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U1-up-03.jpg"
+        },
+        {
+          "path": "frames\\U1-up\\U1-up-04.jpg",
+          "timestamp_seconds": 7.371,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U1-up-04.jpg"
+        },
+        {
+          "path": "frames\\U1-up\\U1-up-05.jpg",
+          "timestamp_seconds": 9.477,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U1-up-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "stairs_up",
+      "scene_group": "brick_enclosed_daylit_flight_C",
+      "review_note": "Clear ascending tiled flight between brick walls; bright lower steps and shaded upper steps. Visually consistent with C-down; grouped conservatively, exact pairing unverified.",
+      "independent_location_verified": false
+    },
+    {
+      "clip_id": "U2-up",
+      "staircase_group": "U",
+      "user_label": "up",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\0002023C-C4ED-4A88-A7CB-7553D162E948\\2-IMG_1291.mov",
+      "source_sha256": "2dc93728fffbf8a27daba0076b481ed2474268acc01f05524d589639f1e87864",
+      "duration_seconds": 10.54,
+      "frames": [
+        {
+          "path": "frames\\U2-up\\U2-up-01.jpg",
+          "timestamp_seconds": 1.054,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U2-up-01.jpg"
+        },
+        {
+          "path": "frames\\U2-up\\U2-up-02.jpg",
+          "timestamp_seconds": 3.162,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U2-up-02.jpg"
+        },
+        {
+          "path": "frames\\U2-up\\U2-up-03.jpg",
+          "timestamp_seconds": 5.27,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U2-up-03.jpg"
+        },
+        {
+          "path": "frames\\U2-up\\U2-up-04.jpg",
+          "timestamp_seconds": 7.378,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U2-up-04.jpg"
+        },
+        {
+          "path": "frames\\U2-up\\U2-up-05.jpg",
+          "timestamp_seconds": 9.486,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_up",
+          "labelled_path": "labelled-frames/stairs_up/U2-up-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "stairs_up",
+      "scene_group": "outdoor_brick_entrance_steps_D",
+      "review_note": "Clear short ascending brick steps with sun/shadow and parked cars beyond. Grouped conservatively with D-down due similar paving; exact pairing unverified.",
+      "independent_location_verified": false
+    }
+  ],
+  "review_summary": {
+    "clips": 2,
+    "sampled_frames": 10,
+    "boxes_annotated": false,
+    "model_trained": false,
+    "app_changed": false,
+    "negative_examples_in_batch": 0
+  }
+}
