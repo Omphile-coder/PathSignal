@@ -1,0 +1,11 @@
+image,label,clip_id,timestamp_seconds,scene_group,split,annotation_type
+labelled-frames/stairs_down/C-down-01.jpg,stairs_down,C-down,1.093,brick_enclosed_daylit_flight_C,unassigned,image_classification
+labelled-frames/stairs_down/C-down-02.jpg,stairs_down,C-down,3.279,brick_enclosed_daylit_flight_C,unassigned,image_classification
+labelled-frames/stairs_down/C-down-03.jpg,stairs_down,C-down,5.465,brick_enclosed_daylit_flight_C,unassigned,image_classification
+labelled-frames/stairs_down/C-down-04.jpg,stairs_down,C-down,7.651,brick_enclosed_daylit_flight_C,unassigned,image_classification
+labelled-frames/stairs_down/C-down-05.jpg,stairs_down,C-down,9.837,brick_enclosed_daylit_flight_C,unassigned,image_classification
+labelled-frames/stairs_down/D-down-01.jpg,stairs_down,D-down,1.083,outdoor_brick_entrance_steps_D,unassigned,image_classification
+labelled-frames/stairs_down/D-down-02.jpg,stairs_down,D-down,3.249,outdoor_brick_entrance_steps_D,unassigned,image_classification
+labelled-frames/stairs_down/D-down-03.jpg,stairs_down,D-down,5.415,outdoor_brick_entrance_steps_D,unassigned,image_classification
+labelled-frames/stairs_down/D-down-04.jpg,stairs_down,D-down,7.581,outdoor_brick_entrance_steps_D,unassigned,image_classification
+labelled-frames/stairs_down/D-down-05.jpg,stairs_down,D-down,9.747,outdoor_brick_entrance_steps_D,unassigned,image_classification

@@ -1,0 +1,135 @@
+{
+  "purpose": "stair-direction development review; not a trained model or independent benchmark",
+  "clips": [
+    {
+      "clip_id": "C-down",
+      "staircase_group": "C",
+      "user_label": "down",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\1DEAF2F5-21DE-4FFE-A4B8-83DF8B9D8600\\1-IMG_1298.mov",
+      "source_sha256": "1168420114e7d846fe489fb553029b940111a775b1391d3cc9fc93759a87b695",
+      "duration_seconds": 10.93,
+      "frames": [
+        {
+          "path": "frames\\C-down\\C-down-01.jpg",
+          "timestamp_seconds": 1.093,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/C-down-01.jpg"
+        },
+        {
+          "path": "frames\\C-down\\C-down-02.jpg",
+          "timestamp_seconds": 3.279,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/C-down-02.jpg"
+        },
+        {
+          "path": "frames\\C-down\\C-down-03.jpg",
+          "timestamp_seconds": 5.465,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/C-down-03.jpg"
+        },
+        {
+          "path": "frames\\C-down\\C-down-04.jpg",
+          "timestamp_seconds": 7.651,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/C-down-04.jpg"
+        },
+        {
+          "path": "frames\\C-down\\C-down-05.jpg",
+          "timestamp_seconds": 9.837,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/C-down-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "stairs_down",
+      "scene_group": "brick_enclosed_daylit_flight_C",
+      "review_note": "Clear descending flight between brick walls; sunlight and bright exit; step edges visible in sampled frames.",
+      "independent_location_verified": false
+    },
+    {
+      "clip_id": "D-down",
+      "staircase_group": "D",
+      "user_label": "down",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\1DEAF2F5-21DE-4FFE-A4B8-83DF8B9D8600\\2-IMG_1293.mov",
+      "source_sha256": "82aef8fcb5f2c02f7e95cc53bb8d9bf99aeef50845e00064ba3414240971ee80",
+      "duration_seconds": 10.83,
+      "frames": [
+        {
+          "path": "frames\\D-down\\D-down-01.jpg",
+          "timestamp_seconds": 1.083,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/D-down-01.jpg"
+        },
+        {
+          "path": "frames\\D-down\\D-down-02.jpg",
+          "timestamp_seconds": 3.249,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/D-down-02.jpg"
+        },
+        {
+          "path": "frames\\D-down\\D-down-03.jpg",
+          "timestamp_seconds": 5.415,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/D-down-03.jpg"
+        },
+        {
+          "path": "frames\\D-down\\D-down-04.jpg",
+          "timestamp_seconds": 7.581,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/D-down-04.jpg"
+        },
+        {
+          "path": "frames\\D-down\\D-down-05.jpg",
+          "timestamp_seconds": 9.747,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "stairs_down",
+          "labelled_path": "labelled-frames/stairs_down/D-down-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "stairs_down",
+      "scene_group": "outdoor_brick_entrance_steps_D",
+      "review_note": "Short descending brick steps toward a paved entrance; shadows and people in the background; sampled full-size frame checked.",
+      "independent_location_verified": false
+    }
+  ],
+  "review_summary": {
+    "clips": 2,
+    "sampled_frames": 10,
+    "boxes_annotated": false,
+    "model_trained": false,
+    "app_changed": false,
+    "negative_examples_in_batch": 0
+  }
+}
