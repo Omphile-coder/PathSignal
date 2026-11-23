@@ -1,0 +1,52 @@
+[
+  {
+    "dataset": "stairs-v1",
+    "downloaded": true,
+    "archive": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\incoming\\stairs-v1.zip",
+    "archive_sha256": "e3cba5781227585d33cb4432ce3d3b9c99d5281e0a02b5158b2bd8a77b944a9a",
+    "download_bytes": 61152843,
+    "audit_summary": {
+      "decoded_images": 1289,
+      "split_counts": {
+        "test": 112,
+        "train": 952,
+        "valid": 225
+      },
+      "empty_existing_labels": 10,
+      "issues": 0,
+      "exact_pixel_duplicate_pairs": 0,
+      "candidate_related_pairs": 1132,
+      "cross_split_related_pairs": 381
+    },
+    "classes": {
+      "0": "downstairs",
+      "1": "upstairs"
+    },
+    "prepared_images": 544,
+    "originals_deleted": 0
+  },
+  {
+    "dataset": "missing-tile-v2",
+    "downloaded": true,
+    "archive": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\incoming\\missing-tile-v2.zip",
+    "archive_sha256": "6c53db70941e3994f9198f7940db8b695d6796aa08434945e9af5ded64bbd58e",
+    "download_bytes": 36178888,
+    "audit_summary": {
+      "decoded_images": 432,
+      "split_counts": {
+        "train": 384,
+        "valid": 48
+      },
+      "empty_existing_labels": 0,
+      "issues": 0,
+      "exact_pixel_duplicate_pairs": 0,
+      "candidate_related_pairs": 39,
+      "cross_split_related_pairs": 7
+    },
+    "classes": {
+      "0": "missing_tile"
+    },
+    "prepared_images": 406,
+    "originals_deleted": 0
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "dataset": "stairs-v1",
+    "groups": 544,
+    "images": 544,
+    "class_annotations": {
+      "train/upstairs": 218,
+      "test/upstairs": 47,
+      "test/downstairs": 34,
+      "valid/upstairs": 47,
+      "train/downstairs": 161,
+      "valid/downstairs": 34
+    },
+    "issues": [],
+    "contact_sheet": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\stairs-v1-annotation-qa.jpg",
+    "source_files_deleted": 0
+  },
+  {
+    "dataset": "missing-tile-v2",
+    "groups": 406,
+    "images": 406,
+    "class_annotations": {
+      "train/missing_tile": 1138,
+      "test/missing_tile": 297,
+      "valid/missing_tile": 195
+    },
+    "issues": [],
+    "contact_sheet": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\missing-tile-v2-annotation-qa.jpg",
+    "source_files_deleted": 0
+  }
+]
