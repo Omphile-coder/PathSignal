@@ -1,0 +1,26 @@
+[
+  {
+    "file": "datasets\\direction\\manifest.json",
+    "matches_original_hash": true
+  },
+  {
+    "file": "datasets\\pothole\\manifest.json",
+    "matches_original_hash": true
+  },
+  {
+    "file": "datasets\\local-paving-test\\manifest.json",
+    "matches_original_hash": true
+  },
+  {
+    "file": "evaluation-policy.json",
+    "matches_original_hash": true
+  },
+  {
+    "file": "train_direction.py",
+    "matches_original_hash": true
+  },
+  {
+    "file": "train_pothole.py",
+    "matches_original_hash": true
+  }
+]

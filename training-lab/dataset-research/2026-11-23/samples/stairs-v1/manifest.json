@@ -1,0 +1,198 @@
+{
+  "assets": [
+    {
+      "contentType": "image/jpeg",
+      "id": "ca4dfe50bec4569c",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\ca4dfe50bec4569c.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/53ee85309cd829aa86431e29f07131fe/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "75b4a557f56617c6",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\75b4a557f56617c6.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/312de65811997aa7d3349a9636d3ac9d/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "0d588e0afd3afa6a",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\0d588e0afd3afa6a.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/65970cbac0d28013d519ac6dd58b8a56/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "5baea20a7e52af1c",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\5baea20a7e52af1c.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/abaa6b08f3f07fdcbbc97b36a6ebcca8/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "761797cb93aa2e29",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\761797cb93aa2e29.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/04d04faeb66b6eb1e8f6d9bd9019b6cf/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "111f1bd98d51b2f6",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\111f1bd98d51b2f6.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/2adb386115872d9b5ec9b67523d3363d/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "371bc7a48864ff71",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\371bc7a48864ff71.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/120aba2990345721f1d755a2266be2c3/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "e57d9350da4676d8",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\e57d9350da4676d8.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/37c00fa4bea651d3b9fa42f259e36f8a/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "313304cc92943139",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\313304cc92943139.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/57cb7f587f3010ee2b864b9c8a349ea0/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "ae68fc36b4f8c14a",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\ae68fc36b4f8c14a.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/d45c57fb2845ff67a0799efd2e92545a/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "d3dce8267a3f8aa2",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\d3dce8267a3f8aa2.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/aae8a46a16fd3cd8470a24b5a0adcbe7/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "bbe8232177804775",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\bbe8232177804775.jpg",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/664489bc343e9356706b3f13041b1c4a/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "762ae43f756b0b57",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\762ae43f756b0b57.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/53ee85309cd829aa86431e29f07131fe/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "1f71dbdd9007bb0f",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\1f71dbdd9007bb0f.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/312de65811997aa7d3349a9636d3ac9d/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "9123ce448fd6024f",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\9123ce448fd6024f.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/65970cbac0d28013d519ac6dd58b8a56/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "9e51645d00cf92e0",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\9e51645d00cf92e0.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/abaa6b08f3f07fdcbbc97b36a6ebcca8/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "9d21a4f8f51a9e42",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\9d21a4f8f51a9e42.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/04d04faeb66b6eb1e8f6d9bd9019b6cf/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "b9165ce868b80314",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\b9165ce868b80314.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/120aba2990345721f1d755a2266be2c3/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "c955542a30417383",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\c955542a30417383.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/37c00fa4bea651d3b9fa42f259e36f8a/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "875421ae063afee6",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\875421ae063afee6.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/2adb386115872d9b5ec9b67523d3363d/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "1873202a10bfb127",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\1873202a10bfb127.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/57cb7f587f3010ee2b864b9c8a349ea0/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "1dc252c282e28384",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\1dc252c282e28384.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/664489bc343e9356706b3f13041b1c4a/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "816229c919218088",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\816229c919218088.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/aae8a46a16fd3cd8470a24b5a0adcbe7/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "3966628368b52561",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\3966628368b52561.png",
+      "url": "https://transform.roboflow.com/DNDYFWWcdkdfZu1yr0EePmDkEbq1/d45c57fb2845ff67a0799efd2e92545a/annotation.png"
+    }
+  ],
+  "failures": [],
+  "review_asset_scope": "Twelve public preview images plus their rendered annotation overlays; not a full image/YOLO-label archive."
+}

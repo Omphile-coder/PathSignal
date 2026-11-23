@@ -1,0 +1,284 @@
+{
+  "purpose": "stair-direction development review; not a trained model or independent benchmark",
+  "clips": [
+    {
+      "clip_id": "A-up",
+      "staircase_group": "A",
+      "user_label": "up",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\B546A9C4-E4FD-4AE6-A4B4-E3EC6155F27F\\1-IMG_1286.mov",
+      "source_sha256": "24e3806cf14b45514509a65793b66bf74a0abd5b2112c842f947cab10a9a945b",
+      "duration_seconds": 11.04,
+      "frames": [
+        {
+          "path": "frames\\A-up\\A-up-01.jpg",
+          "timestamp_seconds": 1.104,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/A-up-01.jpg"
+        },
+        {
+          "path": "frames\\A-up\\A-up-02.jpg",
+          "timestamp_seconds": 3.312,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/A-up-02.jpg"
+        },
+        {
+          "path": "frames\\A-up\\A-up-03.jpg",
+          "timestamp_seconds": 5.52,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/A-up-03.jpg"
+        },
+        {
+          "path": "frames\\A-up\\A-up-04.jpg",
+          "timestamp_seconds": 7.728,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/A-up-04.jpg"
+        },
+        {
+          "path": "frames\\A-up\\A-up-05.jpg",
+          "timestamp_seconds": 9.936,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/A-up-05.jpg"
+        }
+      ],
+      "review_status": "five sampled frames visually reviewed",
+      "split": "development_only; keep all four clips together until location independence is established",
+      "observed_direction": "stairs_down",
+      "label_correction": "user direction label reversed relative to camera view",
+      "scene_group": "supplied_brick_tile_stairwell_01",
+      "independent_location_verified": false,
+      "scene_note": "Visually similar brick walls, white tiled steps, dark nosings and railings. A/B independence not established."
+    },
+    {
+      "clip_id": "A-down",
+      "staircase_group": "A",
+      "user_label": "down",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\AB6C612F-D0C3-4618-98A5-B45A4AB5A475\\1-IMG_1289.mov",
+      "source_sha256": "715d76cda04714c022728ae06fa09be2f530d389c3cd79ceba5dc9bb015b6cf2",
+      "duration_seconds": 10.74,
+      "frames": [
+        {
+          "path": "frames\\A-down\\A-down-01.jpg",
+          "timestamp_seconds": 1.074,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/A-down-01.jpg"
+        },
+        {
+          "path": "frames\\A-down\\A-down-02.jpg",
+          "timestamp_seconds": 3.222,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/A-down-02.jpg"
+        },
+        {
+          "path": "frames\\A-down\\A-down-03.jpg",
+          "timestamp_seconds": 5.37,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/A-down-03.jpg"
+        },
+        {
+          "path": "frames\\A-down\\A-down-04.jpg",
+          "timestamp_seconds": 7.518,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/A-down-04.jpg"
+        },
+        {
+          "path": "frames\\A-down\\A-down-05.jpg",
+          "timestamp_seconds": 9.666,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/A-down-05.jpg"
+        }
+      ],
+      "review_status": "five sampled frames visually reviewed",
+      "split": "development_only; keep all four clips together until location independence is established",
+      "observed_direction": "stairs_up",
+      "label_correction": "user direction label reversed relative to camera view",
+      "scene_group": "supplied_brick_tile_stairwell_01",
+      "independent_location_verified": false,
+      "scene_note": "Visually similar brick walls, white tiled steps, dark nosings and railings. A/B independence not established."
+    },
+    {
+      "clip_id": "B-up",
+      "staircase_group": "B",
+      "user_label": "up",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\83EA3285-53DB-4777-8576-16C634F88CCA\\1-IMG_1287.mov",
+      "source_sha256": "adaa3007080b9b4f7ad90c25568493e79fbb03eef4cf4cd384694b62da0b5ec0",
+      "duration_seconds": 10.51,
+      "frames": [
+        {
+          "path": "frames\\B-up\\B-up-01.jpg",
+          "timestamp_seconds": 1.051,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/B-up-01.jpg"
+        },
+        {
+          "path": "frames\\B-up\\B-up-02.jpg",
+          "timestamp_seconds": 3.153,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/B-up-02.jpg"
+        },
+        {
+          "path": "frames\\B-up\\B-up-03.jpg",
+          "timestamp_seconds": 5.255,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/B-up-03.jpg"
+        },
+        {
+          "path": "frames\\B-up\\B-up-04.jpg",
+          "timestamp_seconds": 7.357,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/B-up-04.jpg"
+        },
+        {
+          "path": "frames\\B-up\\B-up-05.jpg",
+          "timestamp_seconds": 9.459,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_down",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_down/B-up-05.jpg"
+        }
+      ],
+      "review_status": "five sampled frames visually reviewed",
+      "split": "development_only; keep all four clips together until location independence is established",
+      "observed_direction": "stairs_down",
+      "label_correction": "user direction label reversed relative to camera view",
+      "scene_group": "supplied_brick_tile_stairwell_01",
+      "independent_location_verified": false,
+      "scene_note": "Visually similar brick walls, white tiled steps, dark nosings and railings. A/B independence not established."
+    },
+    {
+      "clip_id": "B-down",
+      "staircase_group": "B",
+      "user_label": "down",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\3DEC5F3F-3B7A-4898-BEA3-FA8ED902AF0B\\1-IMG_1288.mov",
+      "source_sha256": "eb814325e15598d8e723d6f77c34d354bb31aafe316fad40b86fac21f1566014",
+      "duration_seconds": 10.71,
+      "frames": [
+        {
+          "path": "frames\\B-down\\B-down-01.jpg",
+          "timestamp_seconds": 1.071,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/B-down-01.jpg"
+        },
+        {
+          "path": "frames\\B-down\\B-down-02.jpg",
+          "timestamp_seconds": 3.213,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/B-down-02.jpg"
+        },
+        {
+          "path": "frames\\B-down\\B-down-03.jpg",
+          "timestamp_seconds": 5.355,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/B-down-03.jpg"
+        },
+        {
+          "path": "frames\\B-down\\B-down-04.jpg",
+          "timestamp_seconds": 7.497,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/B-down-04.jpg"
+        },
+        {
+          "path": "frames\\B-down\\B-down-05.jpg",
+          "timestamp_seconds": 9.639,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "image-level direction visually reviewed; no bounding box annotation",
+          "direction_label": "stairs_up",
+          "usable_for_direction_review": true,
+          "labelled_path": "labelled-frames/stairs_up/B-down-05.jpg"
+        }
+      ],
+      "review_status": "five sampled frames visually reviewed",
+      "split": "development_only; keep all four clips together until location independence is established",
+      "observed_direction": "stairs_up",
+      "label_correction": "user direction label reversed relative to camera view",
+      "scene_group": "supplied_brick_tile_stairwell_01",
+      "independent_location_verified": false,
+      "scene_note": "Visually similar brick walls, white tiled steps, dark nosings and railings. A/B independence not established."
+    }
+  ],
+  "review_summary": {
+    "clips": 4,
+    "sampled_frames": 20,
+    "stairs_up_frames": 10,
+    "stairs_down_frames": 10,
+    "image_level_labels_only": true,
+    "model_trained": false,
+    "app_changed": false,
+    "independent_test_set": false,
+    "negative_examples_in_this_batch": 0
+  }
+}

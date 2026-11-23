@@ -1,0 +1,6 @@
+image,label,clip_id,timestamp_seconds,scene_group,split,annotation_type,empty_yolo_label
+labelled-frames/intact_paving_no_visible_pothole/N1-intact-01.jpg,intact_paving_no_visible_pothole,N1-intact,1.15,outdoor_paver_defects_01,unassigned,pothole_negative,background-labels/N1-intact-01.txt
+labelled-frames/intact_paving_no_visible_pothole/N1-intact-02.jpg,intact_paving_no_visible_pothole,N1-intact,3.45,outdoor_paver_defects_01,unassigned,pothole_negative,background-labels/N1-intact-02.txt
+labelled-frames/intact_paving_no_visible_pothole/N1-intact-03.jpg,intact_paving_no_visible_pothole,N1-intact,5.75,outdoor_paver_defects_01,unassigned,pothole_negative,background-labels/N1-intact-03.txt
+labelled-frames/intact_paving_no_visible_pothole/N1-intact-04.jpg,intact_paving_no_visible_pothole,N1-intact,8.05,outdoor_paver_defects_01,unassigned,pothole_negative,background-labels/N1-intact-04.txt
+labelled-frames/intact_paving_no_visible_pothole/N1-intact-05.jpg,intact_paving_no_visible_pothole,N1-intact,10.35,outdoor_paver_defects_01,unassigned,pothole_negative,background-labels/N1-intact-05.txt

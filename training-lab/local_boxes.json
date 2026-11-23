@@ -1,0 +1,18 @@
+{
+  "annotation_method": "Assistant visual box annotations after inspecting all ten full-size defect samples. Single annotator; approximate exposed-ground region extents, no independent adjudication.",
+  "purpose": "Frozen local domain-check reference before model training; not measured hole depth or a safety benchmark.",
+  "coordinate_format": "pixel xyxy on the saved 1280x720 P1 or 720x1280 P2 images",
+  "class": "missing_paver_depression",
+  "boxes": {
+    "P1-pothole-01.jpg": [[718,243,817,421],[69,430,149,594]],
+    "P1-pothole-02.jpg": [[735,237,832,409],[90,418,164,581]],
+    "P1-pothole-03.jpg": [[748,237,843,406],[101,414,173,576]],
+    "P1-pothole-04.jpg": [[735,232,830,404],[88,411,161,575]],
+    "P1-pothole-05.jpg": [[735,233,831,405],[90,413,163,577]],
+    "P2-pothole-01.jpg": [[115,603,577,1010]],
+    "P2-pothole-02.jpg": [[117,611,573,1025]],
+    "P2-pothole-03.jpg": [[117,616,573,1028]],
+    "P2-pothole-04.jpg": [[116,606,571,1024]],
+    "P2-pothole-05.jpg": [[116,607,574,1026]]
+  }
+}

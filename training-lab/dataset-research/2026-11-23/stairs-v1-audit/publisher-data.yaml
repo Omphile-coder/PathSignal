@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['downstairs', 'upstairs']
+
+roboflow:
+  workspace: stairs-n9kkx
+  project: up-down-stairs
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/stairs-n9kkx/up-down-stairs/dataset/1

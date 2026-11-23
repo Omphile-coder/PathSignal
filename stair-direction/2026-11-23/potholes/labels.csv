@@ -1,0 +1,11 @@
+image,label,clip_id,timestamp_seconds,scene_group,split,annotation_type
+labelled-frames/missing_paver_depression/P1-pothole-01.jpg,missing_paver_depression,P1-pothole,1.063,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P1-pothole-02.jpg,missing_paver_depression,P1-pothole,3.189,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P1-pothole-03.jpg,missing_paver_depression,P1-pothole,5.315,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P1-pothole-04.jpg,missing_paver_depression,P1-pothole,7.441,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P1-pothole-05.jpg,missing_paver_depression,P1-pothole,9.567,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P2-pothole-01.jpg,missing_paver_depression,P2-pothole,1.18,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P2-pothole-02.jpg,missing_paver_depression,P2-pothole,3.54,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P2-pothole-03.jpg,missing_paver_depression,P2-pothole,5.9,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P2-pothole-04.jpg,missing_paver_depression,P2-pothole,8.26,outdoor_paver_defects_01,unassigned,image_classification
+labelled-frames/missing_paver_depression/P2-pothole-05.jpg,missing_paver_depression,P2-pothole,10.62,outdoor_paver_defects_01,unassigned,image_classification

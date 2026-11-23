@@ -1,0 +1,35 @@
+{
+  "prepared_date": "2026-11-23",
+  "device": "CPU",
+  "cpu": "12th Gen Intel(R) Core(TM) i5-1235U",
+  "memory_gb": 11.7,
+  "seed": 23,
+  "paid_compute": false,
+  "app_changed": false,
+  "inputs": [
+    {
+      "sha256": "4635d90068365c69bc3483ef4dc60559abd387819ff1c0b37b8e45fd399d1fc5",
+      "file": "datasets\\direction\\manifest.json"
+    },
+    {
+      "sha256": "b50b243a50792c8050ba67f2ccc2f0199ebdac83352d9b800e618e7040527780",
+      "file": "datasets\\pothole\\manifest.json"
+    },
+    {
+      "sha256": "24dd8298b44a8da0f088cbd0f18cd31ac9f6b8f6791a7f62419af7937bafb42a",
+      "file": "datasets\\local-paving-test\\manifest.json"
+    },
+    {
+      "sha256": "d378d3d8070d0d12973da4c5432b484fbb04988e8fff67e7b264945c53d4c566",
+      "file": "evaluation-policy.json"
+    },
+    {
+      "sha256": "ab17b7947cfa98a713c7177e516b74476e0a6925f60da55889c97e11d4afb325",
+      "file": "train_direction.py"
+    },
+    {
+      "sha256": "3b90a6a65d6591d1bc334d7ee922d0de11581b2919ff056cddb66bafe2b5a477",
+      "file": "train_pothole.py"
+    }
+  ]
+}

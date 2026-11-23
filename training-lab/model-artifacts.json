@@ -1,0 +1,22 @@
+[
+  {
+    "file": "runs\\direction\\direction.pt",
+    "bytes": 3843723,
+    "sha256": "3f69cc44f8478dec8491c5d550c1fd2c3ef6d4eb617025c381d345a084fce8ae"
+  },
+  {
+    "file": "runs\\direction\\direction.onnx",
+    "bytes": 3721943,
+    "sha256": "ca5412e62b67451514c2d30c59f1f6cc12fab4e78364bbf6eae5ae09a81efbb5"
+  },
+  {
+    "file": "runs\\pothole\\weights\\best.pt",
+    "bytes": 6461866,
+    "sha256": "faec0df94a537f3f9f3fb9e03ab89b72f73b7d3bc480f0e5f4f32026888cf9ad"
+  },
+  {
+    "file": "runs\\pothole\\weights\\best.onnx",
+    "bytes": 12620264,
+    "sha256": "7d81dad757c46f6abf4569e86dc38bab8980349c2263858ce2763fd941b0668d"
+  }
+]

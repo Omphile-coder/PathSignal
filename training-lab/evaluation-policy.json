@@ -1,0 +1,29 @@
+{
+  "purpose": "Preliminary engineering screening only; not a mobility-safety acceptance standard",
+  "app_update_in_this_task": false,
+  "fixed_detection_confidence": 0.4,
+  "fixed_nms_iou": 0.3,
+  "fixed_local_box_matching_iou": 0.5,
+  "direction_abstention_confidence": 0.8,
+  "direction_screen": {
+    "validation_correct_minimum_of_10": 8,
+    "test_correct_minimum_of_10": 8,
+    "test_correct_minimum_per_direction_of_5": 4,
+    "requires_working_stair_gate": true,
+    "confidence_is_not_calibrated_probability_of_safety": true
+  },
+  "pothole_screen_fixed_before_training": {
+    "public_test_box_precision_minimum": 0.5,
+    "public_test_box_recall_minimum": 0.5,
+    "local_positive_frames_with_localized_match_minimum_of_10": 8,
+    "local_localized_matches_minimum_per_positive_clip_of_5": 4,
+    "intact_negative_frames_alerted_maximum_of_5": 1,
+    "onnx_backend_check_required": true
+  },
+  "limits": [
+    "Counts refer to correlated frames, with very few locations and no independent adjudication of local boxes.",
+    "The dataset public split has no publisher test set; its validation subset was split before training.",
+    "Any tuning after inspecting these test results requires a fresh final evaluation set.",
+    "Passing these small checks would support an experimental candidate only, not walking or independent-use claims."
+  ]
+}

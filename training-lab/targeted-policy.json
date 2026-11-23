@@ -1,0 +1,28 @@
+{
+  "purpose": "Preliminary experimental integration screening; not independent walking validation",
+  "prediction_confidence": 0.4,
+  "nms_iou": 0.3,
+  "box_matching_iou": 0.5,
+  "direction_confidence": 0.6,
+  "direction_competing_score_margin": 0.15,
+  "additional_older_negative_frames_alerted_maximum_of_15": 1,
+  "stair_screen": {
+    "correct_direction_minimum_per_outdoor_group_of_10": 8,
+    "wrong_direction_maximum_all_40": 1,
+    "nonstair_frames_alerted_maximum_of_15": 1
+  },
+  "missing_paver_screen": {
+    "public_test_box_precision_minimum": 0.5,
+    "public_test_box_recall_minimum": 0.5,
+    "matched_frames_minimum_per_local_clip_of_5": 4,
+    "intact_negative_frames_alerted_maximum_of_5": 1,
+    "stair_frames_falsely_labelled_missing_paver_maximum_of_40": 2
+  },
+  "conditions": [
+    "Fixed before viewing this round's local inference results.",
+    "All local clips are known development material from earlier model evaluations; this is a regression check, not a new blind test.",
+    "Passing only supports an experimental feature with documented limitations.",
+    "Browser ONNX inference and decoder parity required before integration.",
+    "No general hole detection, warning distance, stair traversal or unsupervised walking claims."
+  ]
+}

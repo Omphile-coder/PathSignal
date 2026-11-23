@@ -1,0 +1,78 @@
+{
+  "purpose": "stair-direction development review; not a trained model or independent benchmark",
+  "clips": [
+    {
+      "clip_id": "N1-intact",
+      "staircase_group": "N",
+      "user_label": "intact",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\00EC36D7-FAFB-43D5-8147-EDB60D1FBCE5\\1-IMG_1302.mov",
+      "source_sha256": "329f8cb1a57ad7c76d58207165b59c66aaad4eec8f0e3352dba498409fae6ace",
+      "duration_seconds": 11.5,
+      "frames": [
+        {
+          "path": "frames\\N1-intact\\N1-intact-01.jpg",
+          "timestamp_seconds": 1.15,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed negative for visible potholes/missing pavers only",
+          "label": "intact_paving_no_visible_pothole",
+          "labelled_path": "labelled-frames/intact_paving_no_visible_pothole/N1-intact-01.jpg",
+          "empty_yolo_label": "background-labels/N1-intact-01.txt"
+        },
+        {
+          "path": "frames\\N1-intact\\N1-intact-02.jpg",
+          "timestamp_seconds": 3.45,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed negative for visible potholes/missing pavers only",
+          "label": "intact_paving_no_visible_pothole",
+          "labelled_path": "labelled-frames/intact_paving_no_visible_pothole/N1-intact-02.jpg",
+          "empty_yolo_label": "background-labels/N1-intact-02.txt"
+        },
+        {
+          "path": "frames\\N1-intact\\N1-intact-03.jpg",
+          "timestamp_seconds": 5.75,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed negative for visible potholes/missing pavers only",
+          "label": "intact_paving_no_visible_pothole",
+          "labelled_path": "labelled-frames/intact_paving_no_visible_pothole/N1-intact-03.jpg",
+          "empty_yolo_label": "background-labels/N1-intact-03.txt"
+        },
+        {
+          "path": "frames\\N1-intact\\N1-intact-04.jpg",
+          "timestamp_seconds": 8.05,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed negative for visible potholes/missing pavers only",
+          "label": "intact_paving_no_visible_pothole",
+          "labelled_path": "labelled-frames/intact_paving_no_visible_pothole/N1-intact-04.jpg",
+          "empty_yolo_label": "background-labels/N1-intact-04.txt"
+        },
+        {
+          "path": "frames\\N1-intact\\N1-intact-05.jpg",
+          "timestamp_seconds": 10.35,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed negative for visible potholes/missing pavers only",
+          "label": "intact_paving_no_visible_pothole",
+          "labelled_path": "labelled-frames/intact_paving_no_visible_pothole/N1-intact-05.jpg",
+          "empty_yolo_label": "background-labels/N1-intact-05.txt"
+        }
+      ],
+      "review_status": "five chronological samples and central full-size frame visually reviewed",
+      "split": "unassigned; keep related local pavement scenes together",
+      "observed_label": "intact_paving_no_visible_pothole",
+      "scene_group": "outdoor_paver_defects_01",
+      "scene_note": "Similar paving and surroundings to outdoor collection; conservatively grouped with missing-paver examples. Exact location not verified.",
+      "review_scope": "No visible hole or missing paver in the sampled frames. This is not a path-clearance or surface-levelness assessment."
+    }
+  ],
+  "review_summary": {
+    "clips": 1,
+    "sampled_frames": 5,
+    "negative_frames": 5,
+    "model_trained": false,
+    "app_changed": false
+  }
+}

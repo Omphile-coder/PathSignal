@@ -1,0 +1,198 @@
+{
+  "assets": [
+    {
+      "contentType": "image/png",
+      "id": "6ae160bf2777d55f",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\6ae160bf2777d55f.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/9a614f17ea063cc5d3f9d30118cacd41/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "2fec7934b903d1fa",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\2fec7934b903d1fa.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/2623bb1e02748f08754da38c98d31300/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "6654f25caeba917a",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\6654f25caeba917a.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/2623bb1e02748f08754da38c98d31300/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "ffd65f13e9e5b5d9",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\ffd65f13e9e5b5d9.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/a49fefef67d5fa18245e3f12476dd15c/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "197f3c62ac10eb6c",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\197f3c62ac10eb6c.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/9a614f17ea063cc5d3f9d30118cacd41/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "de1c5a9eee2e443b",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\de1c5a9eee2e443b.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/a49fefef67d5fa18245e3f12476dd15c/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "d29b133b3954a79b",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\d29b133b3954a79b.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/6a24b17804f8b0ebe9d106a8858746ac/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "99d7b5d997901db8",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\99d7b5d997901db8.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/0a14172e5b03466865104045f42c9481/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "e29c204bcc78d0b4",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\e29c204bcc78d0b4.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/0a14172e5b03466865104045f42c9481/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "54de90c787e2e5fd",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\54de90c787e2e5fd.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/6a24b17804f8b0ebe9d106a8858746ac/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "c399052e66b2f727",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\c399052e66b2f727.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/ec0e5c8a3bf4f2fa606b3adbef5f3cc6/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "1b6d79d6c3cb2852",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\1b6d79d6c3cb2852.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/eec74c11104ab02e7ccb87066cfe3559/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "bfe22660cb6789e0",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\bfe22660cb6789e0.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/ec0e5c8a3bf4f2fa606b3adbef5f3cc6/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "a93b49887df4e345",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a93b49887df4e345.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/eec74c11104ab02e7ccb87066cfe3559/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "3b4be3fdb43a4070",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\3b4be3fdb43a4070.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/f0ab5cb264d874da3d437e5a6c4c9ee1/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "a72f1029a167073d",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a72f1029a167073d.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/f0ab5cb264d874da3d437e5a6c4c9ee1/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "28a8f482a7b19a2f",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\28a8f482a7b19a2f.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/04a145cb1362054fdce491f159d491b2/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "a89375b7d028c31c",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a89375b7d028c31c.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/04a145cb1362054fdce491f159d491b2/thumb.jpg"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "645693505e1b10e7",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\645693505e1b10e7.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/92d1c550c3cb53bd262893ec3bff20eb/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "0c396bd57d379b9f",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\0c396bd57d379b9f.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/92d1c550c3cb53bd262893ec3bff20eb/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "0ac2cdb1dfd6a6ca",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\0ac2cdb1dfd6a6ca.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/8556474c86c922fea794ed8d518156cb/thumb.jpg"
+    },
+    {
+      "contentType": "image/png",
+      "id": "0ba98d97932d5668",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\0ba98d97932d5668.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/8556474c86c922fea794ed8d518156cb/annotation.png"
+    },
+    {
+      "contentType": "image/png",
+      "id": "f0e691d0336322f9",
+      "kind": "image",
+      "name": "annotation.png",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\f0e691d0336322f9.png",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/b54eb5c637fc6894e00c8d6c898a1463/annotation.png"
+    },
+    {
+      "contentType": "image/jpeg",
+      "id": "85e498a4dd132da1",
+      "kind": "image",
+      "name": "thumb.jpg",
+      "path": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\85e498a4dd132da1.jpg",
+      "url": "https://transform.roboflow.com/aJdc8XmD9xOBJR1YArNyxoO3plZ2/b54eb5c637fc6894e00c8d6c898a1463/thumb.jpg"
+    }
+  ],
+  "failures": [],
+  "review_asset_scope": "Twelve public preview images plus their rendered annotation overlays; not a full image/YOLO-label archive."
+}

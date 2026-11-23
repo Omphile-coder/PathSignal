@@ -1,0 +1,220 @@
+[
+  {
+    "dataset": "missing-tile-v2",
+    "scope": "12 publicly visible thumbnails, not the full archive",
+    "images": 12,
+    "exact_duplicate_pairs": 0,
+    "candidate_similar_pairs": 0,
+    "screen_rule": "same RGB pixels, or dHash<=8 bits, or pHash<=8 bits. Similarity flags require visual review; no automatic deletion.",
+    "rows": [
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\2fec7934b903d1fa.jpg",
+        "source_image_id": "2623bb1e02748f08754da38c98d31300",
+        "file_sha256": "ee441af0b2fd3d6cdf9ee671ecdedd19f5dc67ff066347ef52a612099638dc4f",
+        "pixel_sha256": "e4bef29a3f2626e199b41ac267cb94ee9e19df6b48139fdc0466f906287a7616",
+        "dhash": "52a585971319331d",
+        "phash": "d69926b952aca953"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\197f3c62ac10eb6c.jpg",
+        "source_image_id": "9a614f17ea063cc5d3f9d30118cacd41",
+        "file_sha256": "e5fa6c123a1df1dd99c0f7c3f8c565e2a7af4d557f935006b458ffeb75c347b2",
+        "pixel_sha256": "04d74706a4ba095b41e821dc7063632f1412f5b347dc22d2f3f4906cf279bde5",
+        "dhash": "0672723234353599",
+        "phash": "b631969bc4991b65"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\de1c5a9eee2e443b.jpg",
+        "source_image_id": "a49fefef67d5fa18245e3f12476dd15c",
+        "file_sha256": "879d1afa2f57178569a11251553defd466885612d387859ecbc922043f6925cc",
+        "pixel_sha256": "837d254b494c9e1025a940dac221fef4ecc6bbcf1a0b23ffe7a7a596eaa2504e",
+        "dhash": "050667070b8b8747",
+        "phash": "db36a0c936e0d1b3"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\99d7b5d997901db8.jpg",
+        "source_image_id": "0a14172e5b03466865104045f42c9481",
+        "file_sha256": "525922dc82973c1b4f64c2b400ca2b0c77e2edc9f0f51b66362ecac54f9e481f",
+        "pixel_sha256": "5c176e339a868183c394d1f9868c48d13afdafb07cf3c1f380f7d1baf2fed9a9",
+        "dhash": "868e8dcd464f0b07",
+        "phash": "873cf0e41fc9e113"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\54de90c787e2e5fd.jpg",
+        "source_image_id": "6a24b17804f8b0ebe9d106a8858746ac",
+        "file_sha256": "152229ab5cf7eee93365e3773cbbe849ae0b34ad1724e25a3194ef5d844a393b",
+        "pixel_sha256": "8ec0f578c4f17376dc5bf57c483f088ba24c7f8b810fb7879dfc335bea6e1d38",
+        "dhash": "1f3636362d0d1b1b",
+        "phash": "ca74ba9966929b61"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\bfe22660cb6789e0.jpg",
+        "source_image_id": "ec0e5c8a3bf4f2fa606b3adbef5f3cc6",
+        "file_sha256": "1b33313b404b3bf80c7ac01fd600510731374b425db7cdc8d25d27430afd45e2",
+        "pixel_sha256": "dfe0ece40cc2e8396f9a6521333dd45530eb337cc3c42348ccdc99116cc5b2d6",
+        "dhash": "0f0f0f0734440f0f",
+        "phash": "313e3d4ec1833b2b"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a93b49887df4e345.jpg",
+        "source_image_id": "eec74c11104ab02e7ccb87066cfe3559",
+        "file_sha256": "cd2d1be00bba7124470c7cfd7d6e015e8f1368d03b8822bc8d78c2a92036b52f",
+        "pixel_sha256": "f4635772d5e6fb8b0204976e49fa84e16229159df778151f3d875d84cff4be5d",
+        "dhash": "8f17170f1e1e0d0e",
+        "phash": "334aeca28a3e39e9"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a72f1029a167073d.jpg",
+        "source_image_id": "f0ab5cb264d874da3d437e5a6c4c9ee1",
+        "file_sha256": "1961c3af409ec63391f824c522d57df55ca489e3e958b838302b95570af43dab",
+        "pixel_sha256": "c8c0a989af4034ee2f391b44ddf897eacce0871a2b950f2c2525edd237c2cbe3",
+        "dhash": "c353534347393927",
+        "phash": "9c866bf3f3680983"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\a89375b7d028c31c.jpg",
+        "source_image_id": "04a145cb1362054fdce491f159d491b2",
+        "file_sha256": "a3b01d21c74d8780d9d9f7b18679c8297a473f2a4278ef0a437ccf9748467e8c",
+        "pixel_sha256": "e69e90bc8f1513164df1db95aa15be355b60c91500f68755c1c2021c213f7587",
+        "dhash": "9b1b1f270f0f0d0b",
+        "phash": "67d9d36446d82b29"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\645693505e1b10e7.jpg",
+        "source_image_id": "92d1c550c3cb53bd262893ec3bff20eb",
+        "file_sha256": "f14d70d77550a27e88835f6c55fa8542d3fc865c83fd396deaca3553010be512",
+        "pixel_sha256": "68f24b27d2ccc4450406e7690b86b29cbe8cc4c115614b4e6e1a3d186498f690",
+        "dhash": "1e1f1f1737272f2f",
+        "phash": "9b99dc44d3926369"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\0ac2cdb1dfd6a6ca.jpg",
+        "source_image_id": "8556474c86c922fea794ed8d518156cb",
+        "file_sha256": "5b1adc74c150b446b65bbba17a247541a2065c1ed7fe99391c4c91d43dcab90f",
+        "pixel_sha256": "c8a5c3f9df6742ab416290d50a965584c0f806b39472ea6dc84824c7e19c313a",
+        "dhash": "373f0f37370f1f1f",
+        "phash": "bab3ec7c50d04b29"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\missing-tile-v2\\85e498a4dd132da1.jpg",
+        "source_image_id": "b54eb5c637fc6894e00c8d6c898a1463",
+        "file_sha256": "23da5b31813823c4492aecbb83b970d30dcefe51ff1678abdbc6a1177e8aa6a0",
+        "pixel_sha256": "1a59449cb76407ba43a5bd838cdd5a79cb575dc5c4bff64edd41a22cbfe857e4",
+        "dhash": "820f0f130b0f0f0f",
+        "phash": "dcf379c8e870a1c1"
+      }
+    ],
+    "pairs": [],
+    "files_deleted": 0,
+    "full_dataset_audited": false
+  },
+  {
+    "dataset": "stairs-v1",
+    "scope": "12 publicly visible thumbnails, not the full archive",
+    "images": 12,
+    "exact_duplicate_pairs": 0,
+    "candidate_similar_pairs": 0,
+    "screen_rule": "same RGB pixels, or dHash<=8 bits, or pHash<=8 bits. Similarity flags require visual review; no automatic deletion.",
+    "rows": [
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\ca4dfe50bec4569c.jpg",
+        "source_image_id": "53ee85309cd829aa86431e29f07131fe",
+        "file_sha256": "a25aeb5565aa188c359ed8fb992bec6db55d1a2a1fd3b15255df97b0991765d4",
+        "pixel_sha256": "0a5af6c5322d5f1bec75687768022ab38b0a934faa8e6404fec53b414ba277b6",
+        "dhash": "377f6f2f3f1d0737",
+        "phash": "2b0dae5ab5cf0329"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\75b4a557f56617c6.jpg",
+        "source_image_id": "312de65811997aa7d3349a9636d3ac9d",
+        "file_sha256": "3816cf5facfd34d5db076d272438b9c130628dce85ccc14cda7e8d8a53f0570a",
+        "pixel_sha256": "adace72f733bd5cdb676ec18c991365feac239505f605c6cdced79d735530a7b",
+        "dhash": "2007078b0f2f3e39",
+        "phash": "842f8b8f8dada929"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\0d588e0afd3afa6a.jpg",
+        "source_image_id": "65970cbac0d28013d519ac6dd58b8a56",
+        "file_sha256": "7a1d5e7810906086b065d6ec29c7146cf2c6fb4c686d3fc57a16971b6f0aa163",
+        "pixel_sha256": "3ef26709489b6f7d907331a39763896be37b226f63daff26e147d3c17c774d0e",
+        "dhash": "2e6676745c5ac6c6",
+        "phash": "ec8e550a2052f3f7"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\5baea20a7e52af1c.jpg",
+        "source_image_id": "abaa6b08f3f07fdcbbc97b36a6ebcca8",
+        "file_sha256": "019a248f14aeb35643c9b8fee082b62001172d298a4897aae54101e611264758",
+        "pixel_sha256": "8b89b2efe4a7eadb48359170c160b9c55c8b5052799eb42df62c4b89f6029398",
+        "dhash": "4f0b0e17ccec8c9e",
+        "phash": "4eb5b4d0cb9ad819"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\761797cb93aa2e29.jpg",
+        "source_image_id": "04d04faeb66b6eb1e8f6d9bd9019b6cf",
+        "file_sha256": "a1a6ef83560145b273adc92b0a72f2c690d1ff189d0d6e4fa54796f6fc327b8b",
+        "pixel_sha256": "2c1cd72119e51d72011498284f88c90d7cfcf0fa006ecf5cc640d46834c96078",
+        "dhash": "df6b33eebf8d9b37",
+        "phash": "357a853ae1c61ee1"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\111f1bd98d51b2f6.jpg",
+        "source_image_id": "2adb386115872d9b5ec9b67523d3363d",
+        "file_sha256": "9dfac6419f08ae49bddbb7918cf30d0f6d9efdef07677a67d4d56ef26ab30373",
+        "pixel_sha256": "6bef38fc1a3dc0a979751be0aa8633c1abfa2fb36a533dff23d5eaa837b8668e",
+        "dhash": "6929ad3f5d0d5fab",
+        "phash": "03075faf5ea5d301"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\371bc7a48864ff71.jpg",
+        "source_image_id": "120aba2990345721f1d755a2266be2c3",
+        "file_sha256": "91273284a61ceda8b793efddca25a320ab9040417d4175ffd47f0031f399b09c",
+        "pixel_sha256": "cddede2cceddc9a24893da53c43e427d228c3f887c0e4fc17799cc133c3ca4fd",
+        "dhash": "17070d1d19193333",
+        "phash": "b8b3a44b72e34d49"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\e57d9350da4676d8.jpg",
+        "source_image_id": "37c00fa4bea651d3b9fa42f259e36f8a",
+        "file_sha256": "1ddfe377cfcfa4ea1f406beb8f282b6944750577a7ccfcf0065d969df0a8253b",
+        "pixel_sha256": "06edf0fe007341cf38a342cd20b9a3a079e02bd959a89cd53ad6e4461ae6ef86",
+        "dhash": "78008e8686868682",
+        "phash": "07598b84eb5455db"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\313304cc92943139.jpg",
+        "source_image_id": "57cb7f587f3010ee2b864b9c8a349ea0",
+        "file_sha256": "717e1103a64ecb05d567ff7215ab623d6873b33ab29bb270fea6aec00610638e",
+        "pixel_sha256": "d2c47aeb4008568bc462e5b8cb81137ec5634c0a03ec94c3a4d1be6118d5d098",
+        "dhash": "fd3b1aa7278e38e1",
+        "phash": "30b2c1f2c68e7cf1"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\ae68fc36b4f8c14a.jpg",
+        "source_image_id": "d45c57fb2845ff67a0799efd2e92545a",
+        "file_sha256": "39035823448a3de8d7030b45f6e89897f25aaa8cac16ea6d2ce7da8bea6db4db",
+        "pixel_sha256": "89e9aeeeb61f5aa5469bf56431e0838b41e03ff33894a7adebcd8d776dc24ede",
+        "dhash": "06272f2f6f8f9b3d",
+        "phash": "f6b635ad29690929"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\d3dce8267a3f8aa2.jpg",
+        "source_image_id": "aae8a46a16fd3cd8470a24b5a0adcbe7",
+        "file_sha256": "440c433ba8d1839848f862f5e209b6a3732d1357991a96ced26c1b9b3f544af1",
+        "pixel_sha256": "84c342a7c340fb85752c43bc201c34cc9b2227717523b08e34dcdb8465c3a107",
+        "dhash": "268ccc4b4d4ddc28",
+        "phash": "4ea65ca19f6e8c19"
+      },
+      {
+        "image": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\dataset-research\\2026-11-23\\samples\\stairs-v1\\bbe8232177804775.jpg",
+        "source_image_id": "664489bc343e9356706b3f13041b1c4a",
+        "file_sha256": "cb84dfcd3c4f4439fe21744341339433f6776dda93e2d6ef022b34072d4498cc",
+        "pixel_sha256": "176515f9fd8385fbe2e6dc63d5a1659397052860a0c0fa1c26e34e1ca15406ec",
+        "dhash": "0f89193b3727241a",
+        "phash": "0ab15a818eff6a8b"
+      }
+    ],
+    "pairs": [],
+    "files_deleted": 0,
+    "full_dataset_audited": false
+  }
+]
