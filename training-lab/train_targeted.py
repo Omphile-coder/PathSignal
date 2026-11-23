@@ -44,5 +44,5 @@ def main(name,epochs):
     print(json.dumps(summary,indent=2),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2']);p.add_argument('--epochs',type=int,default=40)
+    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2','stairs-v1-corrected','missing-tile-v2-corrected']);p.add_argument('--epochs',type=int,default=40)
     a=p.parse_args();main(a.name,a.epochs)

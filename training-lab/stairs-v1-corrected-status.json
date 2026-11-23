@@ -1,0 +1,16 @@
+{
+  "state": "training",
+  "dataset": "stairs-v1-corrected",
+  "epoch_completed": 2,
+  "epochs_planned": 40,
+  "elapsed_seconds": 187,
+  "metrics": {
+    "metrics/precision(B)": 0.16611,
+    "metrics/recall(B)": 0.59136,
+    "metrics/mAP50(B)": 0.2028,
+    "metrics/mAP50-95(B)": 0.08374,
+    "val/box_loss": 1.97634,
+    "val/cls_loss": 3.66676,
+    "val/dfl_loss": 2.07242
+  }
+}

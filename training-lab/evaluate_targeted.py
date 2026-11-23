@@ -22,6 +22,7 @@ def main(name):
     from PIL import Image,ImageDraw
     torch.set_num_threads(4)
     training=json.loads((ROOT/'runs'/f'{name}-summary.json').read_text())
+    is_stairs=name.startswith('stairs-v1')
     policy=json.loads((ROOT/'targeted-policy.json').read_text())
     model=YOLO(training['checkpoint'])
     out=ROOT/'runs'/(name+'-evaluation');out.mkdir(exist_ok=True)
@@ -59,7 +60,7 @@ def main(name):
         hazards=[p for p in predictions if p['in_corridor']]
         ranked=sorted(hazards,key=lambda p:-p['score'])
         direction=None
-        if name=='stairs-v1' and ranked and ranked[0]['score']>=policy['direction_confidence']:
+        if is_stairs and ranked and ranked[0]['score']>=policy['direction_confidence']:
             competing=max((p['score'] for p in ranked if p['class']!=ranked[0]['class']),default=0)
             if ranked[0]['score']-competing>=policy['direction_competing_score_margin']:direction=ranked[0]['class']
         record={**row,'width':w,'height':h,'truth_boxes':truth,'predictions':predictions,'hazards':hazards,'spoken_direction':direction,
@@ -82,14 +83,14 @@ def main(name):
     for r in localstairs+localpavers:byclip[r['clip']].append(r)
     report={'dataset':name,'policy':policy,'public_test_fixed_threshold':summary([r for r in rows if r['partition']=='public_test']),
         'local_paving':summary(localpavers),'local_stairs':st(localstairs),
-        'per_clip':{k:(st(v) if name=='stairs-v1' else summary(v)) for k,v in byclip.items()},
+        'per_clip':{k:(st(v) if is_stairs else summary(v)) for k,v in byclip.items()},
         'nonstair_false_alert_frames':sum(bool(r['hazards']) for r in localpavers),
         'older_negative_check':{'frames':sum(r['partition']=='older_negative_check' for r in rows),
             'frames_alerted':sum(r['partition']=='older_negative_check' and bool(r['hazards']) for r in rows)},
         'dark_marking_review':{'frames':3,'frames_alerted':sum(r['partition']=='older_surface_review' and bool(r['hazards']) for r in rows),
             'note':'Cracked/marked surface: geometry unknown; not labelled as a safe path or used for a false-positive acceptance count.'},
         'rows':rows,'app_updated':False,'local_frames_are_correlated':True,'local_boxes_single_assistant_annotations':True}
-    if name=='stairs-v1':
+    if is_stairs:
         groups=defaultdict(list)
         for r in localstairs:groups[r['group']].append(r)
         report['local_stair_groups']={k:st(v) for k,v in groups.items()}
@@ -104,4 +105,4 @@ def main(name):
     print(json.dumps({k:v for k,v in report.items() if k not in ('rows','policy')},indent=2),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2']);main(p.parse_args().name)
+    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2','stairs-v1-corrected','missing-tile-v2-corrected']);main(p.parse_args().name)
