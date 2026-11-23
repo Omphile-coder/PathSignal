@@ -1,0 +1,135 @@
+{
+  "purpose": "stair-direction development review; not a trained model or independent benchmark",
+  "clips": [
+    {
+      "clip_id": "P1-pothole",
+      "staircase_group": "P",
+      "user_label": "pothole",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\E7C7734F-B80C-4A16-91DF-200D705C4F05\\1-IMG_1294.mov",
+      "source_sha256": "628f899053e36a749316989fd26d2a631529f50b783e64cff0e5ef4fda8b48d5",
+      "duration_seconds": 10.63,
+      "frames": [
+        {
+          "path": "frames\\P1-pothole\\P1-pothole-01.jpg",
+          "timestamp_seconds": 1.063,
+          "width": 1280,
+          "height": 720,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P1-pothole-01.jpg"
+        },
+        {
+          "path": "frames\\P1-pothole\\P1-pothole-02.jpg",
+          "timestamp_seconds": 3.189,
+          "width": 1280,
+          "height": 720,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P1-pothole-02.jpg"
+        },
+        {
+          "path": "frames\\P1-pothole\\P1-pothole-03.jpg",
+          "timestamp_seconds": 5.315,
+          "width": 1280,
+          "height": 720,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P1-pothole-03.jpg"
+        },
+        {
+          "path": "frames\\P1-pothole\\P1-pothole-04.jpg",
+          "timestamp_seconds": 7.441,
+          "width": 1280,
+          "height": 720,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P1-pothole-04.jpg"
+        },
+        {
+          "path": "frames\\P1-pothole\\P1-pothole-05.jpg",
+          "timestamp_seconds": 9.567,
+          "width": 1280,
+          "height": 720,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P1-pothole-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "missing_paver_depression",
+      "scene_group": "outdoor_paver_defects_01",
+      "review_note": "Missing individual paving blocks with exposed ground; strong shadows; landscape, close downward view. Depth unmeasured.",
+      "independent_location_verified": false
+    },
+    {
+      "clip_id": "P2-pothole",
+      "staircase_group": "P",
+      "user_label": "pothole",
+      "source_path": "C:\\Users\\lucas\\.codex\\codex-remote-attachments\\01a1cb75-c927-78d3-992c-6742da228f58\\E7C7734F-B80C-4A16-91DF-200D705C4F05\\2-IMG_1295.mov",
+      "source_sha256": "087af273ef014f85e926872d9782ce5bf350ff050a69f364378a525ec2b93b7c",
+      "duration_seconds": 11.8,
+      "frames": [
+        {
+          "path": "frames\\P2-pothole\\P2-pothole-01.jpg",
+          "timestamp_seconds": 1.18,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P2-pothole-01.jpg"
+        },
+        {
+          "path": "frames\\P2-pothole\\P2-pothole-02.jpg",
+          "timestamp_seconds": 3.54,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P2-pothole-02.jpg"
+        },
+        {
+          "path": "frames\\P2-pothole\\P2-pothole-03.jpg",
+          "timestamp_seconds": 5.9,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P2-pothole-03.jpg"
+        },
+        {
+          "path": "frames\\P2-pothole\\P2-pothole-04.jpg",
+          "timestamp_seconds": 8.26,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P2-pothole-04.jpg"
+        },
+        {
+          "path": "frames\\P2-pothole\\P2-pothole-05.jpg",
+          "timestamp_seconds": 10.62,
+          "width": 720,
+          "height": 1280,
+          "annotation_status": "reviewed image-level label; bounding boxes not annotated",
+          "label": "missing_paver_depression",
+          "labelled_path": "labelled-frames/missing_paver_depression/P2-pothole-05.jpg"
+        }
+      ],
+      "review_status": "five chronological sampled frames visually reviewed",
+      "split": "unassigned; do not use for training until location-based split is fixed",
+      "observed_label": "missing_paver_depression",
+      "scene_group": "outdoor_paver_defects_01",
+      "review_note": "Larger missing-paver area and exposed ground; shadows and shoes; portrait, close downward view. Depth unmeasured.",
+      "independent_location_verified": false
+    }
+  ],
+  "review_summary": {
+    "clips": 2,
+    "sampled_frames": 10,
+    "boxes_annotated": false,
+    "model_trained": false,
+    "app_changed": false,
+    "negative_examples_in_batch": 0
+  }
+}
