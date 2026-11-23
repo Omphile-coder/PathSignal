@@ -48,4 +48,4 @@ def main(name):
     if not report['all_passed']:raise SystemExit('ONNX numerical check failed')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2']);main(p.parse_args().name)
+    p=argparse.ArgumentParser();p.add_argument('name',choices=['stairs-v1','missing-tile-v2','stairs-v1-corrected','missing-tile-v2-corrected']);main(p.parse_args().name)
