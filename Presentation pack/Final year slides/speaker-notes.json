@@ -1,0 +1,191 @@
+{
+  "slides": [
+    {
+      "notes": "PathSignal is a prototype for spoken obstacle awareness, intended to supplement existing mobility tools. This presentation covers the problem, aim, requirements, design and selected technology. Photograph: original user-supplied development recording; it is not evidence of independent walking performance.",
+      "slide": 1,
+      "text": [
+        "PathSignal",
+        "Ground Obstacle\nAlert Prototype",
+        "Final-year project\n21 November 2026"
+      ]
+    },
+    {
+      "notes": "A small object or change in level can matter to a traveller who cannot rely on visual inspection. The project explores an extra spoken cue; it does not establish prevention of trips or injuries. Current camera testing is stationary and uses supported classes. Local need has not been quantified through a representative user study. WHO discusses functional and mobility impacts of vision impairment.\n\nSources (accessed 21 November 2026):\nhttps://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment",
+      "slide": 2,
+      "text": [
+        "Problem statement",
+        "02",
+        "Objects and stair edges can be difficult to notice without reliable visual information.",
+        "Intended users\nBlind and low-vision travellers.",
+        "Prototype question\nCan a phone snapshot provide an additional spoken warning about a supported obstacle ahead?",
+        "Supplied bottle test image"
+      ]
+    },
+    {
+      "notes": "The WHO population figure includes near and distance vision impairment, not only blindness and not the number of potential app users. WHO identifies mobility and falls impacts particularly among older adults. Existing assistive products also establish an active area of need, but neither their existence nor the statistic validates this prototype. No local accident survey or blind-user usability study has been completed for PathSignal.\n\nSources (accessed 21 November 2026):\nhttps://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment\nhttps://lazarillo.app/theapp/\nhttps://support.wewalk.io/en/article/wewalk-smart-cane-2-users-manual/",
+      "slide": 3,
+      "text": [
+        "Evidence supporting the need",
+        "03",
+        "2.2 billion",
+        "people globally have near or distance\nvision impairment (WHO, 2026).",
+        "Mobility impact",
+        "WHO links vision impairment in older adults to difficulty walking and increased fall risk.",
+        "This motivates research. It does not show that PathSignal reduces falls."
+      ]
+    },
+    {
+      "notes": "RNIB describes canes, guide dogs and guiding support. Lazarillo describes audible nearby-place and route information. WeWALK’s manual describes its cane/app features and states that obstacle detection does not replace white-cane skills. This is a comparison of roles, not a claim that competitors lack particular capabilities or that PathSignal performs better. Clew3D was an early inspiration but was not inspected sufficiently for a technical feature comparison.\n\nSources (accessed 21 November 2026):\nhttps://media.rnib.org.uk/documents/Understanding_how_blind_and_partially_sighted_people_get_around_-_RNIB_2021.pdf\nhttps://lazarillo.app/theapp/\nhttps://support.wewalk.io/en/article/wewalk-smart-cane-2-users-manual/",
+      "slide": 4,
+      "text": [
+        "How people handled the problem before",
+        "04",
+        "Existing aids remain important. PathSignal supplements them."
+      ]
+    },
+    {
+      "notes": "This aim is aligned with the original Ground Obstacle Alert Prototype problem. Earlier warning is an assessment goal, not a demonstrated outcome. The current contribution is software integration and interaction: pretrained detectors, preprocessing, image-space filtering, encounter handling, spoken alerts and observable test records. Distance and independent travel remain outside the validated scope.",
+      "slide": 5,
+      "text": [
+        "Project aim",
+        "05",
+        "To develop and assess a phone-based prototype that gives spoken warnings about supported objects and stair regions in a camera image.",
+        "Implementation objective",
+        "Make local camera inference usable through accessible controls and brief audio alerts.",
+        "Assessment objective",
+        "Measure detections, misses, unwanted alerts and warning delay under defined conditions."
+      ]
+    },
+    {
+      "notes": "Implementation sources: phone/App.tsx, phone/useObjectWorker.tsx, phone/worker/detector.ts, presentation-site/src/useMonitor.ts and useDetector.ts. Both apps scan snapshots and offer separate modes. Repeated scans re-arm a class after two scans without it. Browser logging includes timestamps, source, model, duration and whether speech was requested, with CSV/JSON export. The phone currently shows session counters; do not imply it has the same export log. Camera/model failure states request a pause announcement. Desktop tests do not establish all physical iPhone behaviors.",
+      "slide": 6,
+      "text": [
+        "Functional requirements",
+        "06"
+      ]
+    },
+    {
+      "notes": "Security scope: application code does not upload camera pixels; normal hosting requests still reach Vercel, and browser font stylesheets may load externally. HTTPS protects browser delivery and enables camera access; an initial model/runtime download is required and offline browser use is not guaranteed. Usability controls and selected/disabled semantics exist, but a formal VoiceOver/user study remains pending. No acceptable end-to-end warning-latency threshold has been agreed, so this slide does not claim one. Reliability refers to implemented handling and desktop checks, not a measured real-world hazard recall rate.",
+      "slide": 7,
+      "text": [
+        "Non-functional requirements",
+        "07",
+        "Security & privacy",
+        "Process images locally; request camera permission; keep API keys out of the shipped app.",
+        "Implemented design",
+        "Usability",
+        "Label controls for screen readers; use clear states, large controls and short alerts.",
+        "VoiceOver review pending",
+        "Performance",
+        "Keep inference off the main UI; measure scan duration and physical alert delay.",
+        "iPhone latency target/testing pending",
+        "Reliability",
+        "Handle failures explicitly; suppress repeat alerts; prevent stale scan results.",
+        "Desktop checks pass; field testing pending"
+      ]
+    },
+    {
+      "notes": "Architecture is a simplified logical view of the current shipped applications. The selected model alone loads for a mode. YOLOX-S retains 25 COCO object labels; the separate YOLOv8n model has one stairs class. The browser uses a Web Worker; Expo uses a hidden react-native-webview processing view. Local preprocessing/decoding, filtering and encounter logic precede audio. Browser localStorage holds up to 200 scan records and exports on request; Expo currently shows counters. Hosting delivers static assets, not a server-side camera-inference API. Diagram objects and connectors are editable.",
+      "slide": 8,
+      "text": [
+        "System architecture",
+        "08",
+        "Camera pixels stay on the device",
+        "Rear-camera\nsnapshot",
+        "Local inference\nYOLOX-S or\nYOLOv8n stairs",
+        "Score + box\nfiltering\nImage corridor",
+        "Encounter logic\nSpoken warning",
+        "Browser: local\nscan log + export",
+        "Browser: dedicated WASM worker\nExpo: embedded WebView + WASM",
+        "Delivery: Vercel serves the web app and model files; Expo serves the phone bundle during development."
+      ]
+    },
+    {
+      "notes": "These are intended use cases, not evidence of completed blind-user trials. The current supervised/stationary demonstration can be run by a sighted operator. The primary actor selects a mode, controls capture and receives/repeats audio. The evaluator reviews browser scan evidence and exports it. Plain UML associations do not represent data flow. Runtime permission and availability checks are internal to the capture/scan use cases. The system boundary and use cases remain native editable slide objects.",
+      "slide": 9,
+      "text": [
+        "Use-case diagram",
+        "09",
+        "PathSignal prototype",
+        "Traveller /\noperator",
+        "Examiner /\nevaluator",
+        "Select object / stair mode",
+        "Start or stop camera",
+        "Scan and receive alert",
+        "Repeat alert / test audio",
+        "Review / export scan log",
+        "Log export is available in the browser application."
+      ]
+    },
+    {
+      "notes": "Current code uses Expo SDK 58, expo-camera, expo-image-manipulator and expo-audio. The browser uses getUserMedia, canvas and Web Speech; this does not imply that every browser offers identical speech behavior. Expo Go avoids a paid custom iOS build for the supported camera/WASM prototype; native LiDAR is a different signed-build path and is not active in Expo Go. TypeScript checks, local builds, browser automation and Git history support reproducibility. Vercel hosts static assets and does not process camera images in a backend.\n\nSources (accessed 21 November 2026):\nhttps://docs.expo.dev/get-started/start-developing/\nhttps://onnxruntime.ai/docs/tutorials/web/",
+      "slide": 10,
+      "text": [
+        "Interface and delivery tools",
+        "10"
+      ]
+    },
+    {
+      "notes": "The student/project did not train these neural networks. YOLOX-S is a publisher COCO checkpoint; only selected labels are enabled. The Roboflow artifact obstacle-detection-n3eec/1 contains one stairs class despite the broader project overview. No Kaggle fine-tuning or LLM is part of the current app. Kaggle and Roboflow supported dataset/model research; the current stair weights came from Roboflow. Roboflow keys were used only by a local access/download tool and are absent from shipped apps. The downloaded stair artifact identifies Ultralytics 8.2.0 and AGPL-3.0; the project publishes application source and licence notices.\n\nSources (accessed 21 November 2026):\nhttps://github.com/Megvii-BaseDetection/YOLOX\nhttps://universe.roboflow.com/mawarshazleen/obstacle-detection-n3eec\nhttps://onnxruntime.ai/docs/tutorials/web/\nhttps://pathsignal-six.vercel.app/source.html",
+      "slide": 11,
+      "text": [
+        "AI and machine learning tools",
+        "11",
+        "Pretrained models",
+        "Project contribution: preprocessing, filtering, encounter handling, audio and evaluation."
+      ]
+    },
+    {
+      "notes": "The latest user report in this conversation states that prototype testing on chairs, laptops, keyboards and monitors passed. There is no recorded denominator, lighting protocol or independent ground truth, so no recognition percentage is inferred. Stair counts come from model-comparison/evaluation/comparison.json and the actual Chromium WASM worker check in presentation-site/verification/stair-yolov8n-development-frames.json. The six stair frames come from two clips; the other 18 come from six clips. Physical iPhone stair camera/audio checks remain unreported. There is no box-annotation benchmark or warning-distance result.",
+      "slide": 12,
+      "text": [
+        "Current evidence",
+        "12",
+        "User-reported phone examples",
+        "Chairs, laptops, keyboards and monitors detected.\nTrial counts and conditions were not recorded.",
+        "Recorded stair development check",
+        "Three frames per clip are correlated; these counts are not an accuracy estimate."
+      ]
+    },
+    {
+      "notes": "The prototype supplements existing mobility tools. Silence gives no information about path clearance. Independent walking is not validated. An iPhone 15 Pro LiDAR scanner exists on the user device, but the current Expo Go/browser application does not expose a validated LiDAR distance feature. Future assessment must use fresh scenes, define conditions and thresholds, measure audible delay and failures, and keep development clips out of held-out results. These are next steps, not completed outcomes. Demo: https://pathsignal-six.vercel.app",
+      "slide": 13,
+      "text": [
+        "Prototype scope and next assessment",
+        "13",
+        "Working software",
+        "Local object/stair inference, short alerts,\nrepeat handling and a public web demonstration.",
+        "Still unfinished",
+        "Holes, metric distance, overhead hazards\nand reliable stair-direction recognition.",
+        "Next assessment",
+        "Fresh controlled trials, measured alert delay,\nmisses, unwanted alerts and accessibility review.",
+        "Live demonstration: pathsignal-six.vercel.app"
+      ]
+    },
+    {
+      "notes": "Full reference URLs are attached to the corresponding labels and listed here. All accessed 21 November 2026. Original project image rights: supplied by the user for this project. Local evidence records: presentation-site/verification/stair-integration-release.md; stair-yolov8n-development-frames.json; model-comparison/evaluation/RESULTS.md. The public source/attribution offer is https://pathsignal-six.vercel.app/source.html .\n\nSources (accessed 21 November 2026):\nhttps://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment\nhttps://media.rnib.org.uk/documents/Understanding_how_blind_and_partially_sighted_people_get_around_-_RNIB_2021.pdf\nhttps://lazarillo.app/theapp/\nhttps://support.wewalk.io/en/article/wewalk-smart-cane-2-users-manual/\nhttps://github.com/Megvii-BaseDetection/YOLOX\nhttps://universe.roboflow.com/mawarshazleen/obstacle-detection-n3eec\nhttps://docs.expo.dev/get-started/start-developing/\nhttps://onnxruntime.ai/docs/tutorials/web/",
+      "slide": 14,
+      "text": [
+        "References",
+        "14",
+        "WHO",
+        "Blindness and vision impairment",
+        "RNIB",
+        "How people with sight loss get around",
+        "Lazarillo",
+        "Accessible navigation app",
+        "WeWALK",
+        "Smart Cane 2 user manual",
+        "YOLOX",
+        "Publisher model and source",
+        "Roboflow Universe",
+        "Downloaded stair model project",
+        "Expo",
+        "Phone development workflow",
+        "ONNX Runtime",
+        "Browser inference documentation",
+        "Project evidence: source code, development-frame records and user reports, 21 November 2026."
+      ]
+    }
+  ]
+}
