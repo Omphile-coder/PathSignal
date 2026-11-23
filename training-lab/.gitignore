@@ -1,0 +1,11 @@
+.venv/
+datasets/
+runs/
+weights/
+cache/
+__pycache__/
+*.onnx
+*.pt
+*.pth
+*.log
+dataset-research/**/incoming/
