@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "portrait and landscape letterbox",
+    "RGB and padding",
+    "invalid inputs",
+    "coordinate restoration",
+    "class-aware suppression",
+    "corridor",
+    "direction abstention",
+    "output shape and NaN rejection"
+  ],
+  "real_model_browser_parity": "pending"
+}
