@@ -1,0 +1,35 @@
+{
+  "source": "https://www.kaggle.com/datasets/farzadnekouei/pothole-image-segmentation-dataset",
+  "archive_sha256": "5f637c1bba3787629b836ce5f49d177104de2cfa96a67dc869cab7c1f140faf1",
+  "splits": {
+    "train": {
+      "images": 720,
+      "labels": 720,
+      "polygons": 1846,
+      "empty_labels": 0,
+      "missing_labels": 0,
+      "source_name_groups": 240
+    },
+    "valid": {
+      "images": 60,
+      "labels": 60,
+      "polygons": 201,
+      "empty_labels": 0,
+      "missing_labels": 0,
+      "source_name_groups": 60
+    },
+    "test": {
+      "images": 0,
+      "labels": 0,
+      "polygons": 0,
+      "empty_labels": 0,
+      "missing_labels": 0,
+      "source_name_groups": 0
+    }
+  },
+  "invalid_labels": [],
+  "model_trained": false,
+  "publisher_readme": "\nPothole_Segmentation_YOLOv8 - v1 2023-10-20 10:09pm\n==============================\n\nThis dataset was exported via roboflow.com on October 20, 2023 at 6:43 PM GMT\n\nThe dataset includes 780 images.\nPothole are annotated in YOLOv8 format.\n\nThe following pre-processing was applied to each image:\n* Auto-orientation of pixel data (with EXIF-orientation stripping)\n* Resize to 640x640 (Stretch)\n\nThe following augmentation was applied to create 3 versions of each source image:\n* 50% probability of horizontal flip\n* Randomly crop between 0 and 20 percent of the image\n* Random rotation of between -15 and +15 degrees\n* Random shear of between -5\u00b0 to +5\u00b0 horizontally and -5\u00b0 to +5\u00b0 vertically\n* Random brigthness adjustment of between -25 and +25 percent\n* Random exposure adjustment of between -25 and +25 percent\n\n\n",
+  "data_yaml": "train: ../train/images\nval: ../valid/images\n\nnc: 1\nnames: ['Pothole']\n\nroboflow:\n  workspace: farzad\n  project: pothole_segmentation_yolov8\n  version: 1\n  license: CC BY 4.0\n  url: https://universe.roboflow.com/farzad/pothole_segmentation_yolov8/dataset/1",
+  "train_valid_source_name_overlap": []
+}
