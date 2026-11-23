@@ -1,0 +1,448 @@
+[
+  {
+    "dataset": "stairs-v1-corrected",
+    "decision": "rejected_for_app_integration",
+    "passes_local_screen": false,
+    "cpu_onnx_parity_passed": true,
+    "browser_wasm_parity": "not_run_candidate_failed_local_screen",
+    "physical_iphone_tested": false,
+    "app_updated": false,
+    "training": {
+      "dataset": "stairs-v1-corrected",
+      "elapsed_seconds": 3354,
+      "public_test_metrics": {
+        "metrics/precision(B)": 0.8717452620367981,
+        "metrics/recall(B)": 0.6619634563795453,
+        "metrics/mAP50(B)": 0.7617870888831874,
+        "metrics/mAP50-95(B)": 0.27888179294981047,
+        "fitness": 0.27888179294981047
+      },
+      "selection": "Best validation checkpoint. Public test used once after selection.",
+      "local_clips_used_for_training": false
+    },
+    "dataset_manifest": {
+      "original_images": 1289,
+      "selected_images": 543,
+      "excluded_similar_views": 746,
+      "split_counts": {
+        "train": 381,
+        "test": 81,
+        "valid": 81
+      },
+      "classes": [
+        "downstairs",
+        "upstairs"
+      ]
+    },
+    "evaluation": {
+      "dataset": "stairs-v1-corrected",
+      "public_test_fixed_threshold": {
+        "frames": 81,
+        "positive_frames": 81,
+        "positive_frames_with_any_prediction": 58,
+        "positive_frames_with_localized_match": 48,
+        "negative_frames": 0,
+        "negative_frames_alerted": 0,
+        "tp_boxes": 48,
+        "fp_boxes": 11,
+        "fn_boxes": 33,
+        "box_precision": 0.8135593220338984,
+        "box_recall": 0.5925925925925926,
+        "median_pipeline_ms": 57.0
+      },
+      "local_paving": {
+        "frames": 15,
+        "positive_frames": 0,
+        "positive_frames_with_any_prediction": 0,
+        "positive_frames_with_localized_match": 0,
+        "negative_frames": 15,
+        "negative_frames_alerted": 3,
+        "tp_boxes": 0,
+        "fp_boxes": 3,
+        "fn_boxes": 0,
+        "box_precision": 0.0,
+        "box_recall": null,
+        "median_pipeline_ms": 73.1
+      },
+      "local_stairs": {
+        "frames": 40,
+        "generic_stair_alerts": 31,
+        "correct_direction": 14,
+        "wrong_direction": 7
+      },
+      "per_clip": {
+        "A-up": {
+          "frames": 5,
+          "generic_stair_alerts": 4,
+          "correct_direction": 3,
+          "wrong_direction": 0
+        },
+        "A-down": {
+          "frames": 5,
+          "generic_stair_alerts": 5,
+          "correct_direction": 5,
+          "wrong_direction": 0
+        },
+        "B-up": {
+          "frames": 5,
+          "generic_stair_alerts": 5,
+          "correct_direction": 0,
+          "wrong_direction": 2
+        },
+        "B-down": {
+          "frames": 5,
+          "generic_stair_alerts": 5,
+          "correct_direction": 4,
+          "wrong_direction": 0
+        },
+        "U1-up": {
+          "frames": 5,
+          "generic_stair_alerts": 5,
+          "correct_direction": 2,
+          "wrong_direction": 0
+        },
+        "U2-up": {
+          "frames": 5,
+          "generic_stair_alerts": 2,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        },
+        "C-down": {
+          "frames": 5,
+          "generic_stair_alerts": 5,
+          "correct_direction": 0,
+          "wrong_direction": 5
+        },
+        "D-down": {
+          "frames": 5,
+          "generic_stair_alerts": 0,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        },
+        "P1-pothole": {
+          "frames": 5,
+          "generic_stair_alerts": 0,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        },
+        "P2-pothole": {
+          "frames": 5,
+          "generic_stair_alerts": 2,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        },
+        "N1-intact": {
+          "frames": 5,
+          "generic_stair_alerts": 1,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        }
+      },
+      "nonstair_false_alert_frames": 3,
+      "older_negative_check": {
+        "frames": 15,
+        "frames_alerted": 1
+      },
+      "dark_marking_review": {
+        "frames": 3,
+        "frames_alerted": 1,
+        "note": "Cracked/marked surface: geometry unknown; not labelled as a safe path or used for a false-positive acceptance count."
+      },
+      "app_updated": false,
+      "local_frames_are_correlated": true,
+      "local_boxes_single_assistant_annotations": true,
+      "local_stair_groups": {
+        "supplied_brick_tile_stairwell_01": {
+          "frames": 20,
+          "generic_stair_alerts": 19,
+          "correct_direction": 12,
+          "wrong_direction": 2
+        },
+        "brick_enclosed_daylit_flight_C": {
+          "frames": 10,
+          "generic_stair_alerts": 10,
+          "correct_direction": 2,
+          "wrong_direction": 5
+        },
+        "outdoor_brick_entrance_steps_D": {
+          "frames": 10,
+          "generic_stair_alerts": 2,
+          "correct_direction": 0,
+          "wrong_direction": 0
+        }
+      },
+      "passes_local_screen": false
+    },
+    "artifacts": [
+      {
+        "kind": "checkpoint",
+        "relative_path": "runs\\stairs-v1-corrected\\weights\\best.pt",
+        "bytes": 6475306,
+        "sha256": "bdb071ac1e7ab5cc755b5381c235984cfff93ccf29e08a72efb720f4cb2b0aa5"
+      },
+      {
+        "kind": "onnx",
+        "relative_path": "runs\\stairs-v1-corrected\\weights\\best.onnx",
+        "bytes": 12650247,
+        "sha256": "53a522eb6db2939033c56b56d3230effb0139fb4f27a2fc91c0bb53e7ac7a9b4"
+      }
+    ]
+  },
+  {
+    "dataset": "missing-tile-v2-corrected",
+    "decision": "rejected_for_app_integration",
+    "passes_local_screen": false,
+    "cpu_onnx_parity_passed": true,
+    "browser_wasm_parity": "not_run_candidate_failed_local_screen",
+    "physical_iphone_tested": false,
+    "app_updated": false,
+    "training": {
+      "dataset": "missing-tile-v2-corrected",
+      "elapsed_seconds": 1613,
+      "public_test_metrics": {
+        "metrics/precision(B)": 0.9379809464448285,
+        "metrics/recall(B)": 0.9166128077963123,
+        "metrics/mAP50(B)": 0.9504110265387403,
+        "metrics/mAP50-95(B)": 0.6810322060469514,
+        "fitness": 0.6810322060469514
+      },
+      "selection": "Best validation checkpoint. Public test used once after selection.",
+      "local_clips_used_for_training": false
+    },
+    "dataset_manifest": {
+      "original_images": 432,
+      "selected_images": 406,
+      "excluded_similar_views": 26,
+      "split_counts": {
+        "train": 284,
+        "test": 61,
+        "valid": 61
+      },
+      "classes": [
+        "missing_tile"
+      ]
+    },
+    "evaluation": {
+      "dataset": "missing-tile-v2-corrected",
+      "public_test_fixed_threshold": {
+        "frames": 61,
+        "positive_frames": 61,
+        "positive_frames_with_any_prediction": 61,
+        "positive_frames_with_localized_match": 61,
+        "negative_frames": 0,
+        "negative_frames_alerted": 0,
+        "tp_boxes": 271,
+        "fp_boxes": 16,
+        "fn_boxes": 26,
+        "box_precision": 0.9442508710801394,
+        "box_recall": 0.9124579124579124,
+        "median_pipeline_ms": 91.5
+      },
+      "local_paving": {
+        "frames": 15,
+        "positive_frames": 10,
+        "positive_frames_with_any_prediction": 6,
+        "positive_frames_with_localized_match": 0,
+        "negative_frames": 5,
+        "negative_frames_alerted": 0,
+        "tp_boxes": 0,
+        "fp_boxes": 12,
+        "fn_boxes": 15,
+        "box_precision": 0.0,
+        "box_recall": 0.0,
+        "median_pipeline_ms": 69.0
+      },
+      "local_stairs": {
+        "frames": 40,
+        "generic_stair_alerts": 3,
+        "correct_direction": 0,
+        "wrong_direction": 0
+      },
+      "per_clip": {
+        "A-up": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 67.5
+        },
+        "A-down": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 4,
+          "tp_boxes": 0,
+          "fp_boxes": 4,
+          "fn_boxes": 0,
+          "box_precision": 0.0,
+          "box_recall": null,
+          "median_pipeline_ms": 138.8
+        },
+        "B-up": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 105.2
+        },
+        "B-down": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 110.6
+        },
+        "U1-up": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 98.1
+        },
+        "U2-up": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 3,
+          "tp_boxes": 0,
+          "fp_boxes": 6,
+          "fn_boxes": 0,
+          "box_precision": 0.0,
+          "box_recall": null,
+          "median_pipeline_ms": 109.6
+        },
+        "C-down": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 106.6
+        },
+        "D-down": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 95.7
+        },
+        "P1-pothole": {
+          "frames": 5,
+          "positive_frames": 5,
+          "positive_frames_with_any_prediction": 1,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 0,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 1,
+          "fn_boxes": 10,
+          "box_precision": 0.0,
+          "box_recall": 0.0,
+          "median_pipeline_ms": 77.5
+        },
+        "P2-pothole": {
+          "frames": 5,
+          "positive_frames": 5,
+          "positive_frames_with_any_prediction": 5,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 0,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 11,
+          "fn_boxes": 5,
+          "box_precision": 0.0,
+          "box_recall": 0.0,
+          "median_pipeline_ms": 65.9
+        },
+        "N1-intact": {
+          "frames": 5,
+          "positive_frames": 0,
+          "positive_frames_with_any_prediction": 0,
+          "positive_frames_with_localized_match": 0,
+          "negative_frames": 5,
+          "negative_frames_alerted": 0,
+          "tp_boxes": 0,
+          "fp_boxes": 0,
+          "fn_boxes": 0,
+          "box_precision": null,
+          "box_recall": null,
+          "median_pipeline_ms": 69.0
+        }
+      },
+      "nonstair_false_alert_frames": 0,
+      "older_negative_check": {
+        "frames": 15,
+        "frames_alerted": 0
+      },
+      "dark_marking_review": {
+        "frames": 3,
+        "frames_alerted": 0,
+        "note": "Cracked/marked surface: geometry unknown; not labelled as a safe path or used for a false-positive acceptance count."
+      },
+      "app_updated": false,
+      "local_frames_are_correlated": true,
+      "local_boxes_single_assistant_annotations": true,
+      "stair_frames_falsely_labelled_missing_paver": 3,
+      "passes_local_screen": false
+    },
+    "artifacts": [
+      {
+        "kind": "checkpoint",
+        "relative_path": "runs\\missing-tile-v2-corrected\\weights\\best.pt",
+        "bytes": 6472874,
+        "sha256": "8d797f213bc823332bc3446a1f5011de9768f91279e755eb6b1ead5b9372a0c9"
+      },
+      {
+        "kind": "onnx",
+        "relative_path": "runs\\missing-tile-v2-corrected\\weights\\best.onnx",
+        "bytes": 12649268,
+        "sha256": "e86bc3c0cfa2bfe05feeac6eb9a587611809996b54059c3532bb703e90a3fd1e"
+      }
+    ]
+  }
+]
