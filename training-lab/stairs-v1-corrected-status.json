@@ -1,16 +1,17 @@
 {
-  "state": "training",
+  "state": "complete",
   "dataset": "stairs-v1-corrected",
-  "epoch_completed": 5,
-  "epochs_planned": 40,
-  "elapsed_seconds": 451,
-  "metrics": {
-    "metrics/precision(B)": 0.36724,
-    "metrics/recall(B)": 0.46527,
-    "metrics/mAP50(B)": 0.39108,
-    "metrics/mAP50-95(B)": 0.12979,
-    "val/box_loss": 2.11709,
-    "val/cls_loss": 2.11475,
-    "val/dfl_loss": 1.9675
-  }
+  "checkpoint": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\stairs-v1-corrected\\weights\\best.pt",
+  "onnx": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\stairs-v1-corrected\\weights\\best.onnx",
+  "elapsed_seconds": 3354,
+  "public_test_metrics": {
+    "metrics/precision(B)": 0.8717452620367981,
+    "metrics/recall(B)": 0.6619634563795453,
+    "metrics/mAP50(B)": 0.7617870888831874,
+    "metrics/mAP50-95(B)": 0.27888179294981047,
+    "fitness": 0.27888179294981047
+  },
+  "selection": "Best validation checkpoint. Public test used once after selection.",
+  "local_clips_used_for_training": false,
+  "app_updated": false
 }
