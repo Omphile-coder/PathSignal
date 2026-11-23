@@ -1,19 +1,21 @@
 import { decodeYolo, makeYoloInput, YOLOX_SIZE } from '../yoloxDecode'
 import { pathHazards } from '../objectPath'
 import { prepareStairInput, decodeStairOutput, STAIR_SIZE, STAIR_MODEL } from '../stairDetector'
+import { prepareRodInput, decodeRodOutput, rodPathHazards, ROD_SIZE, ROD_MODEL } from '../rodDetector'
 import type * as Ort from 'onnxruntime-web'
 
 declare global {
   interface Window {
     ReactNativeWebView?: { postMessage(message: string): void }
-    PATHSIGNAL_MODEL: { model: string; wasm: string; engine: string; mode: 'objects' | 'stairs' }
+    PATHSIGNAL_MODEL: { model: string; wasm: string; engine: string; mode: 'objects' | 'stairs' | 'rod' }
     ort: typeof Ort
   }
 }
 const send = (message: object) => window.ReactNativeWebView?.postMessage(JSON.stringify(message))
 const ort = window.ort
 const stairs = window.PATHSIGNAL_MODEL.mode === 'stairs'
-const modelName = stairs ? STAIR_MODEL : 'YOLOX-S'
+const rod = window.PATHSIGNAL_MODEL.mode === 'rod'
+const modelName = stairs ? STAIR_MODEL : rod ? ROD_MODEL : 'YOLOX-S'
 let model: Ort.InferenceSession
 let busy = false
 let lastId = 0
@@ -42,8 +44,8 @@ async function initialise() {
     data.model = ''
     model = await ort.InferenceSession.create(modelBytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all' })
     send({ type: 'progress', text: 'Preparing first scan' })
-    const size = stairs ? STAIR_SIZE : YOLOX_SIZE
-    const warmup = new ort.Tensor('float32', new Float32Array(3 * size ** 2).fill(stairs ? 0 : 114), [1, 3, size, size])
+    const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : YOLOX_SIZE
+    const warmup = new ort.Tensor('float32', new Float32Array(3 * size ** 2).fill(stairs || rod ? 0 : 114), [1, 3, size, size])
     const results = await model.run({ [model.inputNames[0]]: warmup })
     warmup.dispose()
     Object.values(results).forEach(tensor => tensor.dispose())
@@ -81,16 +83,19 @@ async function receive(event: MessageEvent) {
     context.drawImage(image, 0, 0)
     const rgba = context.getImageData(0, 0, canvas.width, canvas.height)
     const frame = { data: new Uint8Array(rgba.data.buffer), width: rgba.width, height: rgba.height }
-    const prepared = stairs ? { tensor: prepareStairInput(frame.data, frame.width, frame.height), ratio: 1 } : makeYoloInput(frame)
-    const size = stairs ? STAIR_SIZE : YOLOX_SIZE
+    const prepared = stairs ? { tensor: prepareStairInput(frame.data, frame.width, frame.height), ratio: 1 }
+      : rod ? prepareRodInput(frame.data, frame.width, frame.height) : makeYoloInput(frame)
+    const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : YOLOX_SIZE
     tensor = new ort.Tensor('float32', prepared.tensor, [1, 3, size, size])
     send({ type: 'progress', id: input.id, text: 'Detecting with ' + modelName })
     results = await model.run({ [model.inputNames[0]]: tensor })
     const output = results[model.outputNames[0]]?.data
     if (!(output instanceof Float32Array)) throw Error('Object predictions unavailable')
     const stairResult = stairs ? decodeStairOutput(output, results[model.outputNames[0]].dims, canvas.width, canvas.height) : null
-    const all = stairResult?.detections ?? decodeYolo(output, prepared.ratio, canvas.width, canvas.height)
-    const hazards = stairResult?.hazards ?? pathHazards(all, canvas.width, canvas.height, .25)
+    const all = stairResult?.detections ?? (rod
+      ? decodeRodOutput(output, results[model.outputNames[0]].dims, canvas.width, canvas.height, prepared as ReturnType<typeof prepareRodInput>)
+      : decodeYolo(output, (prepared as ReturnType<typeof makeYoloInput>).ratio, canvas.width, canvas.height))
+    const hazards = stairResult?.hazards ?? (rod ? rodPathHazards(all, canvas.width, canvas.height) : pathHazards(all, canvas.width, canvas.height, .25))
     send({ type: 'result', id: input.id, hazards, seen: [...new Set(all.map(item => item.class))],
       milliseconds: Math.round(performance.now() - start), model: modelName })
     image.src = ''
