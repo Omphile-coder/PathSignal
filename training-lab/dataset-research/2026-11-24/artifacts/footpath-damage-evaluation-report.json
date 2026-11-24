@@ -1,0 +1,19 @@
+{
+  "dataset": "Indian Footpath Damage Segmentation Dataset",
+  "doi": "10.5281/zenodo.15414238",
+  "license": "CC BY 4.0",
+  "task": "visible footpath damage segmentation",
+  "test_images": 87,
+  "selected_by": "validation foreground IoU",
+  "test_metrics": {
+    "loss": 0.7188483675320944,
+    "foreground_iou": 0.5135399180631731,
+    "precision": 0.6223724875711987,
+    "recall": 0.745982809209845
+  },
+  "limitations": [
+    "Source locations are in Pune, India, not a held-out South African site.",
+    "Damage masks do not establish trip risk, depth, or warning distance.",
+    "This candidate is not integrated into PathSignal."
+  ]
+}

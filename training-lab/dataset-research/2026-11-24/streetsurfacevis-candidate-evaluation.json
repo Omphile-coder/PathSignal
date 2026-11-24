@@ -1,0 +1,41 @@
+{
+  "dataset": "StreetSurfaceVis",
+  "doi": "10.5281/zenodo.11449977",
+  "license": "CC BY-SA 4.0",
+  "task": "image-level binary classification: source-labeled bad/very_bad versus other quality labels",
+  "model": "MobileNetV3-Small, fine-tuned at 224x224",
+  "training": {
+    "accelerator": "Kaggle NVIDIA Tesla T4",
+    "epochs_requested": 12,
+    "early_stopping": "stopped after 7 epochs based on validation F1",
+    "threshold_selected_on": "geographically grouped validation subset",
+    "selected_threshold": 0.65,
+    "unreadable_images_skipped": 2
+  },
+  "source_test": {
+    "n": 776,
+    "bad_or_very_bad": 86,
+    "other_quality": 690,
+    "confusion_counts": {"tp": 71, "fp": 21, "fn": 15, "tn": 669},
+    "precision": 0.7717391304,
+    "recall": 0.8255813953,
+    "f1": 0.7977528090,
+    "specificity": 0.9695652174,
+    "accuracy": 0.9536082474
+  },
+  "source_test_by_surface_type": {
+    "asphalt": {"n": 530, "bad_or_very_bad": 8, "tp": 3, "fp": 11, "fn": 5, "tn": 511},
+    "concrete": {"n": 16, "bad_or_very_bad": 0, "tp": 0, "fp": 0, "fn": 0, "tn": 16},
+    "paving_stones": {"n": 113, "bad_or_very_bad": 0, "tp": 0, "fp": 2, "fn": 0, "tn": 111},
+    "sett": {"n": 32, "bad_or_very_bad": 14, "tp": 7, "fp": 2, "fn": 7, "tn": 16},
+    "unpaved": {"n": 85, "bad_or_very_bad": 64, "tp": 61, "fp": 6, "fn": 3, "tn": 15}
+  },
+  "limits": [
+    "This classifies whole images by perceived surface quality; it does not detect or localize individual hazards.",
+    "The held-out paving_stones group contained zero bad/very_bad examples, so performance on damaged pavers was not measured.",
+    "Overall metrics are dominated by surface categories and do not establish safe mobility warnings.",
+    "Imagery is mostly from Germany; no South African local validation was performed.",
+    "The trained classifier was not integrated into the live PathSignal alert app.",
+    "ONNX export was blocked in Kaggle because onnxscript is missing; trained checkpoint remains in the Kaggle run output."
+  ]
+}

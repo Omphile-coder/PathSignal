@@ -55,12 +55,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const encounter = useRef(new Map<string, number>())
   const lastSpoken = useRef<string | null>(null)
   const [repeating, setRepeating] = useState(false)
-  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle' | 'stairs' | 'rod'>('coco')
+  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle' | 'stairs' | 'rod' | 'footpath'>('coco')
   const smart = profile !== 'bottle'
-  const embedded = profile === 'coco' || profile === 'stairs' || profile === 'rod'
+  const embedded = profile === 'coco' || profile === 'stairs' || profile === 'rod' || profile === 'footpath'
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [active, setActive] = useState(false)
-  const objectWorker = useObjectWorker(active && embedded, profile === 'stairs' ? 'stairs' : profile === 'rod' ? 'rod' : 'objects')
+  const objectWorker = useObjectWorker(active && embedded, profile === 'stairs' ? 'stairs' : profile === 'rod' ? 'rod' : profile === 'footpath' ? 'footpath' : 'objects')
   const [ready, setReady] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [status, setStatus] = useState('Camera off')
@@ -123,9 +123,12 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
 
   useEffect(() => {
     if (active && embedded && objectWorker.status.includes('unavailable.')) {
-      pause('The selected detection model is unavailable. Restart the camera to retry.')
+      setDiagnostic(objectWorker.status)
+      pause(profile === 'footpath'
+        ? 'The damaged paving model could not load. Check the model details below.'
+        : 'The selected detection model is unavailable. Restart the camera to retry.')
     }
-  }, [active, embedded, objectWorker.status])
+  }, [active, embedded, objectWorker.status, profile])
 
   useEffect(() => () => {
     activeRun.current++
@@ -142,6 +145,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       if (embedded) objectWorker.reset()
       activeRun.current++
       const run = activeRun.current
+      setDiagnostic('')
       setStatus('Starting camera')
       setActive(true)
       timeout.current = setTimeout(() => {
@@ -171,24 +175,35 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
     setScanning(true)
     setDiagnostic('')
     let stage = 'Camera capture'
-    setStatus(profile === 'stairs' ? 'Checking for stairs' : smart ? 'Checking for objects' : 'Scanning one image')
+    setStatus(profile === 'stairs' ? 'Checking for stairs' : profile === 'footpath' ? 'Checking for damaged paving' : smart ? 'Checking for objects' : 'Scanning one image')
     timeout.current = setTimeout(() => {
-      if (run === activeRun.current) pause('The camera scan timed out.')
-    }, smart ? 45000 : 10000)
+      if (run !== activeRun.current) return
+      if (profile === 'footpath') {
+        setDiagnostic(`${stage} timed out after two minutes.`)
+        pause('The damaged paving scan did not finish.')
+      } else {
+        pause('The camera scan timed out.')
+      }
+    }, profile === 'footpath' ? 120000 : smart ? 45000 : 10000)
     try {
       const capture = await camera.current.takePictureAsync({ pictureRef: true, shutterSound: false })
       if (run !== activeRun.current) return
       stage = 'Image resize'
+      const captureEdge = profile === 'footpath' ? 768 : 480
       const size = smart
-        ? (capture.width >= capture.height ? { width: 480 } : { height: 480 })
+        ? (capture.width >= capture.height ? { width: captureEdge } : { height: captureEdge })
         : { width: WIDTH, height: HEIGHT }
       const image = await ImageManipulator.manipulate(capture).resize(size).renderAsync()
       if (run !== activeRun.current) return
-      const saved = await image.saveAsync({ format: SaveFormat.JPEG, compress: .9, base64: true })
+      const saved = await image.saveAsync({
+        format: SaveFormat.JPEG,
+        compress: profile === 'footpath' ? .95 : .9,
+        base64: true,
+      })
       try {
         if (run !== activeRun.current) return
         if (!saved.base64) throw new Error('Missing image data')
-        stage = smart ? 'Object model' : 'Bottle detector'
+        stage = profile === 'footpath' ? 'Damaged paving model' : smart ? 'Object model' : 'Bottle detector'
         const frame = embedded ? null : decode(toByteArray(saved.base64), { useTArray: true })
         const result = embedded ? await objectWorker.scan(saved.base64) : null
         if (run !== activeRun.current || (automatic && !auto.current)) return
@@ -216,14 +231,15 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           for (const label of labels) encounter.current.set(label, 0)
         }
         setCounts(old => ({ scans: old.scans + 1, alerts: old.alerts + Number(alert) }))
-        const outside = result?.seen.length ? ' Seen outside the alert corridor: ' + result.seen.join(', ') + '.' : ''
+        const outside = profile !== 'footpath' && result?.seen.length ? ' Seen outside the alert corridor: ' + result.seen.join(', ') + '.' : ''
         const cue = profile === 'stairs' ? 'stairs' : 'obstacle'
-        setStatus(found ? (profile === 'stairs' ? clips.stairs.text : phrase) + outside : 'No alert on this scan.' + outside)
+        const spokenPhrase = profile === 'footpath' ? 'Possible damaged paving ahead.' : phrase
+        setStatus(found ? (profile === 'stairs' ? clips.stairs.text : spokenPhrase) + outside : 'No alert on this scan.' + outside)
         if (alert) {
           stage = 'Alert audio'
           setLast(cue)
           if (profile === 'stairs') play(cue)
-          else if (spokenNames.length) speakObstacle(phrase)
+          else if (spokenNames.length) speakObstacle(spokenPhrase)
           else play(cue)
         }
       } finally {
@@ -256,15 +272,17 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       <Text style={styles.body}>{smart ? 'Stand still and aim the rear camera at the path ahead.' : 'Stand still and centre the black bottle on light tile.'}</Text>
       <View style={styles.controls}>
         <Button title="Object detection" selected={profile === 'coco'} disabled={active} onPress={() => changeProfile('coco')} />
-        <Button title="Stairs (experimental)" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
-        <Button title="ROD field objects (experimental)" selected={profile === 'rod'} disabled={active} onPress={() => changeProfile('rod')} />
+        <Button title="Stairs" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
+        <Button title="Damaged paving" selected={profile === 'footpath'} disabled={active} onPress={() => changeProfile('footpath')} />
+        <Button title="ROD field objects" selected={profile === 'rod'} disabled={active} onPress={() => changeProfile('rod')} />
         {hasNativeDetector && <Button title="YOLOX comparison" primary={profile === 'yolox'} disabled={active} onPress={() => changeProfile('yolox')} />}
         <Button title="Black bottle baseline" selected={profile === 'bottle'} disabled={active} onPress={() => changeProfile('bottle')} />
       </View>
       <View style={[styles.cameraPanel, retroStyles.shadow]}>
       {profile === 'stairs' && <Text style={styles.body}>Experimental stair alerts. No direction or distance measurement. Stop the camera to switch back to everyday objects.</Text>}
+      {profile === 'footpath' && <Text style={styles.body}>Experimental paving damage alerts. {__DEV__ ? 'Keep your iPhone and PC on the same Wi-Fi. The model loads from your PC (about 151 MiB).' : 'The model downloads from the PathSignal site (about 151 MiB).'} Camera frames are processed on your phone. This mode has only been checked on a small set of clips.</Text>}
       {profile === 'rod' && <Text style={styles.body}>Experimental ROD detector trained on 25 street-scene classes. It can miss hazards and may alert on harmless objects; stationary checks only.</Text>}
-      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
+      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : profile === 'footpath' ? 'Footpath model' : smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
       <View style={styles.preview}>
         {active ? <CameraView ref={camera} facing="back" mode="picture" style={StyleSheet.absoluteFill}
           animateShutter={false}
@@ -279,7 +297,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           <View style={styles.corridorLeft} /><View style={styles.corridorRight} />
         </View>}
       </View>
-      <View style={[styles.statusPanel, last === 'paused' && !active && styles.pausedPanel]}><Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text></View>
+      <View style={[styles.statusPanel, last === 'paused' && !active && styles.pausedPanel]}><Text accessibilityLiveRegion="polite" style={styles.status}>{profile === 'footpath' && active && ready && !objectWorker.ready ? 'Camera ready. Loading the damaged paving model.' : status}</Text></View>
       </View>
       {active && embedded && <Text accessibilityLiveRegion="polite" style={styles.body}>{objectWorker.status}</Text>}
       {!!diagnostic && <Text selectable style={styles.body}>Scan details · {diagnostic}</Text>}
@@ -298,7 +316,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }} />
       </View>
       {hasLidarModule && <Button title="LiDAR distance" onPress={openLidar} disabled={active} />}
-      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
+      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : profile === 'footpath' ? 'Footpath damage segmentation' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
       <View style={[styles.sessionPanel, retroStyles.shadow]}><Text style={styles.sessionHeading}>THIS SESSION</Text><View style={styles.metrics}><View style={styles.metric}><Text style={styles.metricNumber}>{counts.scans}</Text><Text style={styles.metricLabel}>scans</Text></View><View style={styles.metric}><Text style={styles.metricNumber}>{counts.alerts}</Text><Text style={styles.metricLabel}>alert requests</Text></View></View></View>
       <View style={styles.scopePanel}><Text style={styles.scopeHeading}>A stationary prototype</Text><Text style={styles.body}>Use this prototype while stationary. Silence carries no information about path conditions.</Text></View>
       <Button title="Source code and licences" onPress={() => { void Linking.openURL('https://pathsignal-six.vercel.app/source.html').catch(() => setStatus('Open pathsignal-six.vercel.app/source.html for source code and licences.')) }} />

@@ -2,12 +2,14 @@ import { decodeYolo, makeYoloInput, YOLOX_SIZE } from '../yoloxDecode'
 import { pathHazards } from '../objectPath'
 import { prepareStairInput, decodeStairOutput, STAIR_SIZE, STAIR_MODEL } from '../stairDetector'
 import { prepareRodInput, decodeRodOutput, rodPathHazards, ROD_SIZE, ROD_MODEL } from '../rodDetector'
+import { FOOTPATH_MODEL_BASE_URL, FOOTPATH_MODEL, FOOTPATH_SIZE, prepareFootpathInput, decodeFootpathOutput } from '../../presentation-site/src/footpath'
+import { fetchFootpathGraph, fetchFootpathManifest, fetchFootpathWeights } from '../../presentation-site/src/footpathModel'
 import type * as Ort from 'onnxruntime-web'
 
 declare global {
   interface Window {
     ReactNativeWebView?: { postMessage(message: string): void }
-    PATHSIGNAL_MODEL: { model: string; wasm: string; engine: string; mode: 'objects' | 'stairs' | 'rod' }
+    PATHSIGNAL_MODEL: { model: string; wasm: string; engine: string; mode: 'objects' | 'stairs' | 'rod' | 'footpath' }
     ort: typeof Ort
   }
 }
@@ -15,7 +17,8 @@ const send = (message: object) => window.ReactNativeWebView?.postMessage(JSON.st
 const ort = window.ort
 const stairs = window.PATHSIGNAL_MODEL.mode === 'stairs'
 const rod = window.PATHSIGNAL_MODEL.mode === 'rod'
-const modelName = stairs ? STAIR_MODEL : rod ? ROD_MODEL : 'YOLOX-S'
+const footpath = window.PATHSIGNAL_MODEL.mode === 'footpath'
+const modelName = stairs ? STAIR_MODEL : rod ? ROD_MODEL : footpath ? FOOTPATH_MODEL : 'YOLOX-S'
 let model: Ort.InferenceSession
 let busy = false
 let lastId = 0
@@ -40,15 +43,32 @@ async function initialise() {
     ort.env.wasm.wasmPaths = { mjs: engineUrl }
     data.engine = ''
     send({ type: 'progress', text: 'Loading ' + modelName })
-    const modelBytes = bytes(data.model)
-    data.model = ''
-    model = await ort.InferenceSession.create(modelBytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all' })
-    send({ type: 'progress', text: 'Preparing first scan' })
-    const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : YOLOX_SIZE
-    const warmup = new ort.Tensor('float32', new Float32Array(3 * size ** 2).fill(stairs || rod ? 0 : 114), [1, 3, size, size])
-    const results = await model.run({ [model.inputNames[0]]: warmup })
-    warmup.dispose()
-    Object.values(results).forEach(tensor => tensor.dispose())
+    if (footpath) {
+      const baseUrl = window.location.pathname === '/pathsignal-dev/footpath/detector.html'
+        ? new URL('.', window.location.href).href : FOOTPATH_MODEL_BASE_URL
+      const manifest = await fetchFootpathManifest(baseUrl)
+      const total = manifest.graph.bytes + manifest.weights_bytes
+      const [graph, externalData] = await Promise.all([
+        fetchFootpathGraph(baseUrl, manifest),
+        fetchFootpathWeights(baseUrl, manifest, (loaded, all) => send({ type: 'progress', text: `Downloading footpath model · ${Math.round(loaded / all * 100)}%` })),
+      ])
+      send({ type: 'progress', text: `Loading ${Math.round(total / 1024 / 1024)} MiB footpath model` })
+      model = await ort.InferenceSession.create(graph, { executionProviders: ['wasm'], graphOptimizationLevel: 'all', externalData })
+    } else {
+      const modelBytes = bytes(data.model)
+      data.model = ''
+      model = await ort.InferenceSession.create(modelBytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all' })
+      send({ type: 'progress', text: 'Preparing first scan' })
+      const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : YOLOX_SIZE
+      const warmup = new ort.Tensor('float32', new Float32Array(3 * size ** 2).fill(stairs || rod ? 0 : 114), [1, 3, size, size])
+      try {
+        const results = await model.run({ [model.inputNames[0]]: warmup })
+        Object.values(results).forEach(tensor => tensor.dispose())
+      } finally {
+        warmup.dispose()
+      }
+    }
+    // Footpath inference starts with the user's first photo.
     send({ type: 'ready', backend: 'wasm', model: modelName })
   } catch (error) {
     send({ type: 'failed', error: error instanceof Error ? error.message : String(error) })
@@ -84,18 +104,21 @@ async function receive(event: MessageEvent) {
     const rgba = context.getImageData(0, 0, canvas.width, canvas.height)
     const frame = { data: new Uint8Array(rgba.data.buffer), width: rgba.width, height: rgba.height }
     const prepared = stairs ? { tensor: prepareStairInput(frame.data, frame.width, frame.height), ratio: 1 }
-      : rod ? prepareRodInput(frame.data, frame.width, frame.height) : makeYoloInput(frame)
-    const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : YOLOX_SIZE
+      : rod ? prepareRodInput(frame.data, frame.width, frame.height)
+        : footpath ? { tensor: prepareFootpathInput(frame.data, frame.width, frame.height) } : makeYoloInput(frame)
+    const size = stairs ? STAIR_SIZE : rod ? ROD_SIZE : footpath ? FOOTPATH_SIZE : YOLOX_SIZE
     tensor = new ort.Tensor('float32', prepared.tensor, [1, 3, size, size])
-    send({ type: 'progress', id: input.id, text: 'Detecting with ' + modelName })
+    send({ type: 'progress', id: input.id, text: footpath ? 'Analysing paving on this phone…' : 'Detecting with ' + modelName })
     results = await model.run({ [model.inputNames[0]]: tensor })
     const output = results[model.outputNames[0]]?.data
     if (!(output instanceof Float32Array)) throw Error('Object predictions unavailable')
-    const stairResult = stairs ? decodeStairOutput(output, results[model.outputNames[0]].dims, canvas.width, canvas.height) : null
-    const all = stairResult?.detections ?? (rod
-      ? decodeRodOutput(output, results[model.outputNames[0]].dims, canvas.width, canvas.height, prepared as ReturnType<typeof prepareRodInput>)
+    const prediction = results[model.outputNames[0]]
+    const stairResult = stairs ? decodeStairOutput(output, prediction.dims, canvas.width, canvas.height) : null
+    const footpathResult = footpath ? decodeFootpathOutput(output, prediction.dims, canvas.width, canvas.height) : null
+    const all = footpathResult?.detections ?? stairResult?.detections ?? (rod
+      ? decodeRodOutput(output, prediction.dims, canvas.width, canvas.height, prepared as ReturnType<typeof prepareRodInput>)
       : decodeYolo(output, (prepared as ReturnType<typeof makeYoloInput>).ratio, canvas.width, canvas.height))
-    const hazards = stairResult?.hazards ?? (rod ? rodPathHazards(all, canvas.width, canvas.height) : pathHazards(all, canvas.width, canvas.height, .25))
+    const hazards = footpathResult?.hazards ?? stairResult?.hazards ?? (rod ? rodPathHazards(all, canvas.width, canvas.height) : pathHazards(all, canvas.width, canvas.height, .25))
     send({ type: 'result', id: input.id, hazards, seen: [...new Set(all.map(item => item.class))],
       milliseconds: Math.round(performance.now() - start), model: modelName })
     image.src = ''
