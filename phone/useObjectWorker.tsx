@@ -18,7 +18,7 @@ function footpathDevPage() {
 }
 
 export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | 'rod' | 'footpath' = 'objects') {
-  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : mode === 'rod' ? 'ROD YOLOv8n · 25 classes' : mode === 'footpath' ? 'Footpath damage · experimental' : 'YOLOX-S'
+  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : mode === 'rod' ? 'ROD YOLOv8n · 25 classes' : mode === 'footpath' ? 'Footpath damage' : 'YOLOX-S'
   const view = useRef<WebView<{}>>(null)
   const [source, setSource] = useState<{ html: string } | { uri: string } | null>(null)
   const [status, setStatus] = useState('Preparing object model')

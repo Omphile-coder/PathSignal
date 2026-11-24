@@ -2,7 +2,7 @@
 
 ## Kaggle ROD detector — experimental
 
-The **ROD field objects (experimental)** profile loads the locally bundled `assets/model/rod-yolov8n.onnx` produced by the Kaggle training notebook. The adapter letterboxes camera images to 640×640, normalizes RGB pixels, decodes YOLOv8's 25-class output and filters candidate boxes to the image-space alert corridor. ONNX Runtime WebAssembly runs inside the app's local WebView; camera frames are not uploaded. The original object and stairs profiles remain available.
+The **ROD field objects** profile loads the locally bundled `assets/model/rod-yolov8n.onnx` produced by the Kaggle training notebook. The adapter letterboxes camera images to 640×640, normalizes RGB pixels, decodes YOLOv8's 25-class output and filters candidate boxes to the image-space alert corridor. ONNX Runtime WebAssembly runs inside the app's local WebView; camera frames are not uploaded. The original object and stairs profiles remain available.
 
 To rebuild the embedded offline model page after replacing the ONNX file, run `npm run build:detector` from the phone folder. The generated page is `assets/model/rod-detector.html`; Metro includes this page and the ONNX weights in the phone bundle.
 
@@ -14,11 +14,11 @@ The phone camera displays the same dotted image-space trapezoid as the presentat
 
 ## Stairs mode — 21 November 2026
 
-Stop the camera, choose **Stairs (experimental)**, start the camera and wait for **Model ready**. Stand still and scan; a fresh encounter plays the bundled recording **Possible stairs ahead**. Repeated scans suppress the same stair class until two scans without it. Stop the camera to switch modes. The embedded detector and iOS export passed desktop checks, but physical iPhone camera, sound and memory remain unverified. No API key is required. Source and licences: https://pathsignal-six.vercel.app/source.html .
+Stop the camera, choose **Stairs**, start the camera and wait for **Model ready**. Stand still and scan; a fresh encounter plays the bundled recording **Possible stairs ahead**. Repeated scans suppress the same stair class until two scans without it. Stop the camera to switch modes. The embedded detector and iOS export passed desktop checks, but physical iPhone camera, sound and memory remain unverified. No API key is required. Source and licences: https://pathsignal-six.vercel.app/source.html .
 
 ## Footpath damage mode — experimental
 
-In Expo Go, connect the iPhone and PC to the same Wi-Fi and restart the Expo server so it can serve the model. Scan the new Expo QR code, choose **Damaged paving (experimental)**, tap **Start camera**, then wait for **Model ready** before tapping **Scan now** while stationary.
+In Expo Go, connect the iPhone and PC to the same Wi-Fi and restart the Expo server so it can serve the model. Scan the new Expo QR code, choose **Damaged paving**, tap **Start camera**, then wait for **Model ready** before tapping **Scan now** while stationary.
 
 Expo Go loads about 151 MiB from the PC over Wi-Fi. A packaged build uses the versioned model files from the presentation site. Both process camera frames locally. The app says “Possible damaged paving ahead” when at least 5% of the dotted image corridor is marked as damage by the model. This rule was tuned on a small set of development clips. Physical iPhone memory use and scan speed still need to be measured.
 

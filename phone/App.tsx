@@ -272,9 +272,9 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       <Text style={styles.body}>{smart ? 'Stand still and aim the rear camera at the path ahead.' : 'Stand still and centre the black bottle on light tile.'}</Text>
       <View style={styles.controls}>
         <Button title="Object detection" selected={profile === 'coco'} disabled={active} onPress={() => changeProfile('coco')} />
-        <Button title="Stairs (experimental)" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
-        <Button title="Damaged paving (experimental)" selected={profile === 'footpath'} disabled={active} onPress={() => changeProfile('footpath')} />
-        <Button title="ROD field objects (experimental)" selected={profile === 'rod'} disabled={active} onPress={() => changeProfile('rod')} />
+        <Button title="Stairs" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
+        <Button title="Damaged paving" selected={profile === 'footpath'} disabled={active} onPress={() => changeProfile('footpath')} />
+        <Button title="ROD field objects" selected={profile === 'rod'} disabled={active} onPress={() => changeProfile('rod')} />
         {hasNativeDetector && <Button title="YOLOX comparison" primary={profile === 'yolox'} disabled={active} onPress={() => changeProfile('yolox')} />}
         <Button title="Black bottle baseline" selected={profile === 'bottle'} disabled={active} onPress={() => changeProfile('bottle')} />
       </View>
@@ -316,7 +316,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }} />
       </View>
       {hasLidarModule && <Button title="LiDAR distance" onPress={openLidar} disabled={active} />}
-      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : profile === 'footpath' ? 'Footpath damage segmentation · experimental' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
+      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : profile === 'footpath' ? 'Footpath damage segmentation' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
       <View style={[styles.sessionPanel, retroStyles.shadow]}><Text style={styles.sessionHeading}>THIS SESSION</Text><View style={styles.metrics}><View style={styles.metric}><Text style={styles.metricNumber}>{counts.scans}</Text><Text style={styles.metricLabel}>scans</Text></View><View style={styles.metric}><Text style={styles.metricNumber}>{counts.alerts}</Text><Text style={styles.metricLabel}>alert requests</Text></View></View></View>
       <View style={styles.scopePanel}><Text style={styles.scopeHeading}>A stationary prototype</Text><Text style={styles.body}>Use this prototype while stationary. Silence carries no information about path conditions.</Text></View>
       <Button title="Source code and licences" onPress={() => { void Linking.openURL('https://pathsignal-six.vercel.app/source.html').catch(() => setStatus('Open pathsignal-six.vercel.app/source.html for source code and licences.')) }} />
