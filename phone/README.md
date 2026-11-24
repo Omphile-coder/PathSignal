@@ -16,6 +16,12 @@ The phone camera displays the same dotted image-space trapezoid as the presentat
 
 Stop the camera, choose **Stairs (experimental)**, start the camera and wait for **Model ready**. Stand still and scan; a fresh encounter plays the bundled recording **Possible stairs ahead**. Repeated scans suppress the same stair class until two scans without it. Stop the camera to switch modes. The embedded detector and iOS export passed desktop checks, but physical iPhone camera, sound and memory remain unverified. No API key is required. Source and licences: https://pathsignal-six.vercel.app/source.html .
 
+## Footpath damage mode — experimental
+
+In Expo Go, connect the iPhone and PC to the same Wi-Fi and restart the Expo server so it can serve the model. Scan the new Expo QR code, choose **Damaged paving (experimental)**, tap **Start camera**, then wait for **Model ready** before tapping **Scan now** while stationary.
+
+Expo Go loads about 151 MiB from the PC over Wi-Fi. A packaged build uses the versioned model files from the presentation site. Both process camera frames locally. The app says “Possible damaged paving ahead” when at least 5% of the dotted image corridor is marked as damage by the model. This rule was tuned on a small set of development clips. Physical iPhone memory use and scan speed still need to be measured.
+
 ## Electronics extension — 21 November 2026
 
 The object detector now enables 25 COCO labels, including TV, laptop, mouse, remote, keyboard and cell phone. The embedded detector was rebuilt; reload Expo Go after restarting the launcher to receive it. These are existing pretrained model classes, not new training. Phone and browser decoder/path checks pass for the six additions. Four low-resolution dataset-image checks on the browser recognised the keyboard, mislabelled the TV and mouse and missed the phone; laptop and remote were not covered. Physical iPhone electronics recognition remains unverified. Banana peel and cable recognition are not installed.
