@@ -1,5 +1,17 @@
 # PathSignal on Expo Go
 
+## Kaggle ROD detector — experimental
+
+The **ROD field objects (experimental)** profile loads the locally bundled `assets/model/rod-yolov8n.onnx` produced by the Kaggle training notebook. The adapter letterboxes camera images to 640×640, normalizes RGB pixels, decodes YOLOv8's 25-class output and filters candidate boxes to the image-space alert corridor. ONNX Runtime WebAssembly runs inside the app's local WebView; camera frames are not uploaded. The original object and stairs profiles remain available.
+
+To rebuild the embedded offline model page after replacing the ONNX file, run `npm run build:detector` from the phone folder. The generated page is `assets/model/rod-detector.html`; Metro includes this page and the ONNX weights in the phone bundle.
+
+The Kaggle notebook reported held-out test metrics of precision 0.888, recall 0.881, mAP50 0.913 and mAP50–95 0.743. These are dataset metrics, not a safety guarantee or phone-camera validation. ROD has no explicit pothole, rock, missing-paver or raised-slab class. This profile is stationary and experimental; do not use it to navigate unsupervised. Physical iPhone loading, performance and alerts still require user testing.
+
+## Shared camera corridor and named alerts
+
+The phone camera displays the same dotted image-space trapezoid as the presentation site. Object mode speaks the names of up to two highest-confidence obstacle detections inside that corridor (for example, “Possible chair and person ahead”), matching the web alert wording. Repeated scans still suppress an already-present object encounter; **Repeat last alert** repeats the last spoken names. Boxes and model confidence are visual estimates, not proof of a hazard or a distance measurement.
+
 ## Stairs mode — 21 November 2026
 
 Stop the camera, choose **Stairs (experimental)**, start the camera and wait for **Model ready**. Stand still and scan; a fresh encounter plays the bundled recording **Possible stairs ahead**. Repeated scans suppress the same stair class until two scans without it. Stop the camera to switch modes. The embedded detector and iOS export passed desktop checks, but physical iPhone camera, sound and memory remain unverified. No API key is required. Source and licences: https://pathsignal-six.vercel.app/source.html .

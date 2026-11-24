@@ -4,6 +4,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { CameraView, useCameraPermissions } from 'expo-camera'
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator'
 import { useAudioPlayer, setAudioModeAsync } from 'expo-audio'
+import * as Speech from 'expo-speech'
 import { File } from 'expo-file-system'
 import { toByteArray } from 'base64-js'
 import { decode } from 'jpeg-js'
@@ -20,6 +21,17 @@ const clips = {
   test: { file: require('./assets/test.wav'), text: 'PathSignal audio check.' },
 }
 type Cue = keyof typeof clips
+
+function strongestHazardNames(items: { class: string; score: number }[]) {
+  return [...items].sort((a, b) => b.score - a.score).slice(0, 2).map(item => item.class.trim().toLowerCase()).filter(Boolean)
+}
+function hazardPhrase(names: string[]) {
+  if (names.length > 1 && names[0] === names[1]) {
+    const plural: Record<string, string> = { person: 'people', manhole: 'manholes', 'fire hydrant': 'fire hydrants', 'plant pot': 'plant pots', 'traffic cone': 'traffic cones', 'traffic sign': 'traffic signs', 'guard rail': 'guard rails', 'electrical pole': 'electrical poles', 'electrical box': 'electrical boxes', 'bicycle rack': 'bicycle racks', stairs: 'stairs' }
+    return `Possible two ${plural[names[0]] ?? names[0] + 's'} ahead.`
+  }
+  return names.length ? `Possible ${names.join(' and ')} ahead.` : 'Possible obstacle ahead.'
+}
 
 function Button({ title, onPress, disabled = false, primary = false, tone, selected }: {
   title: string; onPress: () => void; disabled?: boolean; primary?: boolean; tone?: 'pink' | 'teal' | 'orange'; selected?: boolean
@@ -41,13 +53,14 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const auto = useRef(false)
   const nextScan = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const encounter = useRef(new Map<string, number>())
+  const lastSpoken = useRef<string | null>(null)
   const [repeating, setRepeating] = useState(false)
-  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle' | 'stairs'>('coco')
+  const [profile, setProfile] = useState<'coco' | 'yolox' | 'bottle' | 'stairs' | 'rod'>('coco')
   const smart = profile !== 'bottle'
-  const embedded = profile === 'coco' || profile === 'stairs'
+  const embedded = profile === 'coco' || profile === 'stairs' || profile === 'rod'
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [active, setActive] = useState(false)
-  const objectWorker = useObjectWorker(active && embedded, profile === 'stairs' ? 'stairs' : 'objects')
+  const objectWorker = useObjectWorker(active && embedded, profile === 'stairs' ? 'stairs' : profile === 'rod' ? 'rod' : 'objects')
   const [ready, setReady] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [status, setStatus] = useState('Camera off')
@@ -57,14 +70,22 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
   const [counts, setCounts] = useState({ scans: 0, alerts: 0 })
 
   function play(cue: Cue) {
+    void Speech.stop()
     player.replace(clips[cue].file)
     player.play()
+  }
+
+  function speakObstacle(message: string) {
+    lastSpoken.current = message
+    void Speech.stop()
+    Speech.speak(message, { language: 'en', rate: 0.92 })
   }
 
   function changeProfile(next: typeof profile) {
     if (active) return
     objectWorker.cancel()
     encounter.current.clear()
+    lastSpoken.current = null
     setProfile(next); setLast(null); setScanTime(null); setDiagnostic('')
     setCounts({ scans: 0, alerts: 0 })
   }
@@ -175,9 +196,16 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         const objects = result?.hazards ?? (profile === 'yolox' && frame ? await scanYolo(frame) : [])
         if (run !== activeRun.current || (automatic && !auto.current)) return
         const labels = new Set(objects.map(object => object.class))
+        const strongest = strongestHazardNames(objects)
         if (!smart && frame && detect(frame, defaultModel, 'bottle')) labels.add('dark object')
+        const fallbackNames = [...labels]
+          .filter((label): label is string => typeof label === 'string' && label.trim().length > 0)
+          .sort((a, b) => a.localeCompare(b))
+          .slice(0, 2)
+          .map(label => label.toLowerCase())
+        const spokenNames = strongest.length ? strongest : fallbackNames
+        const phrase = hazardPhrase(spokenNames)
         const found = labels.size > 0
-        const seen = smart ? [...labels].join(', ') : ''
         const alert = [...labels].some(label => !automatic || !encounter.current.has(label))
         if (automatic) {
           for (const [label, misses] of encounter.current) {
@@ -190,11 +218,13 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         setCounts(old => ({ scans: old.scans + 1, alerts: old.alerts + Number(alert) }))
         const outside = result?.seen.length ? ' Seen outside the alert corridor: ' + result.seen.join(', ') + '.' : ''
         const cue = profile === 'stairs' ? 'stairs' : 'obstacle'
-        setStatus(found ? clips[cue].text + (seen ? ' Detected: ' + seen : '') : 'No alert on this scan.' + outside)
+        setStatus(found ? (profile === 'stairs' ? clips.stairs.text : phrase) + outside : 'No alert on this scan.' + outside)
         if (alert) {
           stage = 'Alert audio'
           setLast(cue)
-          play(cue)
+          if (profile === 'stairs') play(cue)
+          else if (spokenNames.length) speakObstacle(phrase)
+          else play(cue)
         }
       } finally {
         try { new File(saved.uri).delete() } catch { /* The image is in the app cache. */ }
@@ -227,12 +257,14 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
       <View style={styles.controls}>
         <Button title="Object detection" selected={profile === 'coco'} disabled={active} onPress={() => changeProfile('coco')} />
         <Button title="Stairs (experimental)" selected={profile === 'stairs'} disabled={active} onPress={() => changeProfile('stairs')} />
+        <Button title="ROD field objects (experimental)" selected={profile === 'rod'} disabled={active} onPress={() => changeProfile('rod')} />
         {hasNativeDetector && <Button title="YOLOX comparison" primary={profile === 'yolox'} disabled={active} onPress={() => changeProfile('yolox')} />}
         <Button title="Black bottle baseline" selected={profile === 'bottle'} disabled={active} onPress={() => changeProfile('bottle')} />
       </View>
       <View style={[styles.cameraPanel, retroStyles.shadow]}>
       {profile === 'stairs' && <Text style={styles.body}>Experimental stair alerts. No direction or distance measurement. Stop the camera to switch back to everyday objects.</Text>}
-      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{profile === 'stairs' ? 'YOLOv8n stairs' : smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
+      {profile === 'rod' && <Text style={styles.body}>Experimental ROD detector trained on 25 street-scene classes. It can miss hazards and may alert on harmless objects; stationary checks only.</Text>}
+      <View style={styles.panelBar}><Text style={styles.panelTitle}>{active ? 'REAR CAMERA · LIVE' : 'REAR CAMERA'}</Text><Text style={styles.modelBadge}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : smart ? 'YOLOX-S' : 'BASELINE'}</Text></View>
       <View style={styles.preview}>
         {active ? <CameraView ref={camera} facing="back" mode="picture" style={StyleSheet.absoluteFill}
           animateShutter={false}
@@ -242,6 +274,10 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
             setReady(true)
             setStatus('Camera ready. Scan when stationary.')
           }} /> : <View style={styles.placeholder}><View style={styles.cameraSymbol}><Text style={styles.cameraSymbolText}>◎</Text></View><Text style={styles.placeholderTitle}>Point. Scan. Listen.</Text><Text style={styles.placeholderText}>Start the rear camera when you are ready.</Text></View>}
+        {active && <View pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={styles.corridorOverlay}>
+          <View style={styles.corridorTop} /><View style={styles.corridorBottom} />
+          <View style={styles.corridorLeft} /><View style={styles.corridorRight} />
+        </View>}
       </View>
       <View style={[styles.statusPanel, last === 'paused' && !active && styles.pausedPanel]}><Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text></View>
       </View>
@@ -253,7 +289,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
           <Button title={repeating ? 'Stop repeated scans' : 'Start repeated scans'} disabled={!ready || (scanning && !repeating) || (embedded && !objectWorker.ready)} onPress={toggleRepeatedScans} />
           <Button title="Stop camera" tone="pink" onPress={() => { end('Camera off'); player.pause() }} />
         </> : <Button title="Start camera" primary onPress={() => void start()} />}
-        <Button title="Repeat last alert" disabled={!last} onPress={() => { if (last) play(last) }} />
+        <Button title="Repeat last alert" disabled={!last} onPress={() => { if (last) last === 'obstacle' && lastSpoken.current ? speakObstacle(lastSpoken.current) : play(last) }} />
         <Button title="Test audio" tone="teal" onPress={() => {
           void setAudioModeAsync({ playsInSilentMode: true }).then(() => play('test')).catch(() => {
             setStatus('Audio check could not start.')
@@ -262,7 +298,7 @@ function Monitor({ openLidar }: { openLidar: () => void }) {
         }} />
       </View>
       {hasLidarModule && <Button title="LiDAR distance" onPress={openLidar} disabled={active} />}
-      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
+      {embedded && <Text style={styles.body}>{profile === 'stairs' ? 'YOLOv8n stairs' : profile === 'rod' ? 'ROD YOLOv8n' : 'YOLOX-S'}{scanTime !== null ? ' · Last scan ' + (scanTime / 1000).toFixed(1) + ' s' : ' · Loads when the camera starts'}</Text>}
       <View style={[styles.sessionPanel, retroStyles.shadow]}><Text style={styles.sessionHeading}>THIS SESSION</Text><View style={styles.metrics}><View style={styles.metric}><Text style={styles.metricNumber}>{counts.scans}</Text><Text style={styles.metricLabel}>scans</Text></View><View style={styles.metric}><Text style={styles.metricNumber}>{counts.alerts}</Text><Text style={styles.metricLabel}>alert requests</Text></View></View></View>
       <View style={styles.scopePanel}><Text style={styles.scopeHeading}>A stationary prototype</Text><Text style={styles.body}>Use this prototype while stationary. Silence carries no information about path conditions.</Text></View>
       <Button title="Source code and licences" onPress={() => { void Linking.openURL('https://pathsignal-six.vercel.app/source.html').catch(() => setStatus('Open pathsignal-six.vercel.app/source.html for source code and licences.')) }} />
@@ -295,6 +331,11 @@ const styles = StyleSheet.create({
   panelTitle: { color: retro.ink, fontSize: 12, fontWeight: '800' },
   modelBadge: { color: retro.ink, fontSize: 12, fontWeight: '700', backgroundColor: retro.cream, borderColor: retro.ink, borderWidth: 1, borderRadius: 5, padding: 4 },
   preview: { aspectRatio: 1, maxHeight: 380, backgroundColor: retro.paper, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
+  corridorOverlay: { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, zIndex: 2 },
+  corridorTop: { position: 'absolute', left: '35%', top: '28%', width: '30%', borderTopWidth: 2, borderStyle: 'dotted', borderColor: '#d5ef79' },
+  corridorBottom: { position: 'absolute', left: '19.16%', top: '94%', width: '61.68%', borderTopWidth: 2, borderStyle: 'dotted', borderColor: '#d5ef79' },
+  corridorLeft: { position: 'absolute', left: '-6.85%', top: '60.7%', width: '67.7%', borderTopWidth: 2, borderStyle: 'dotted', borderColor: '#d5ef79', transform: [{ rotate: '103.5deg' }] },
+  corridorRight: { position: 'absolute', left: '39.05%', top: '60.7%', width: '67.7%', borderTopWidth: 2, borderStyle: 'dotted', borderColor: '#d5ef79', transform: [{ rotate: '76.5deg' }] },
   placeholder: { gap: 13, padding: 20, alignItems: 'center' },
   cameraSymbol: { width: 62, height: 62, borderWidth: 2, borderColor: retro.ink, borderRadius: 14, backgroundColor: retro.orange, justifyContent: 'center', alignItems: 'center', transform: [{ rotate: '-5deg' }] },
   cameraSymbolText: { color: retro.ink, fontSize: 39, lineHeight: 47 },

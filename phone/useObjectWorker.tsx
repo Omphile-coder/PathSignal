@@ -8,8 +8,8 @@ import type { DetectedObject } from '@tensorflow-models/coco-ssd'
 type Result = { hazards: DetectedObject[]; seen: string[]; milliseconds: number; model: string }
 type Pending = { id: number; resolve(result: Result): void; reject(error: Error): void; timer: ReturnType<typeof setTimeout> }
 
-export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' = 'objects') {
-  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : 'YOLOX-S'
+export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | 'rod' = 'objects') {
+  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : mode === 'rod' ? 'ROD YOLOv8n · 25 classes' : 'YOLOX-S'
   const view = useRef<WebView<{}>>(null)
   const [html, setHtml] = useState('')
   const [status, setStatus] = useState('Preparing object model')
@@ -50,7 +50,9 @@ export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' = '
     }, 90000)
     void (async () => {
       try {
-        const asset = await Asset.fromModule(mode === 'stairs' ? require('./assets/model/stairs-detector.html') : require('./assets/model/detector.html')).downloadAsync()
+        const assetModule = mode === 'stairs' ? require('./assets/model/stairs-detector.html')
+          : mode === 'rod' ? require('./assets/model/rod-detector.html') : require('./assets/model/detector.html')
+        const asset = await Asset.fromModule(assetModule).downloadAsync()
         if (!asset.localUri) throw Error('Detector file unavailable')
         const content = await new File(asset.localUri).text()
         if (!disposed) setHtml(content)

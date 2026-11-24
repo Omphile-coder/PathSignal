@@ -1,0 +1,17 @@
+{
+  "state": "complete",
+  "dataset": "stairs-v1-corrected",
+  "checkpoint": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\stairs-v1-corrected\\weights\\best.pt",
+  "onnx": "C:\\Users\\lucas\\Desktop\\PathSignal\\training-lab\\runs\\stairs-v1-corrected\\weights\\best.onnx",
+  "elapsed_seconds": 3354,
+  "public_test_metrics": {
+    "metrics/precision(B)": 0.8717452620367981,
+    "metrics/recall(B)": 0.6619634563795453,
+    "metrics/mAP50(B)": 0.7617870888831874,
+    "metrics/mAP50-95(B)": 0.27888179294981047,
+    "fitness": 0.27888179294981047
+  },
+  "selection": "Best validation checkpoint. Public test used once after selection.",
+  "local_clips_used_for_training": false,
+  "app_updated": false
+}
