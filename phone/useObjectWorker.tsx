@@ -5,20 +5,21 @@ import { Asset } from 'expo-asset'
 import Constants from 'expo-constants'
 import { File } from 'expo-file-system'
 import type { DetectedObject } from '@tensorflow-models/coco-ssd'
+import { WALL_MODEL, type WallReading } from './wallDistance'
 
-type Result = { hazards: DetectedObject[]; seen: string[]; milliseconds: number; model: string }
+type Result = { hazards: DetectedObject[]; seen: string[]; milliseconds: number; model: string; wall?: WallReading | null }
 type Pending = { id: number; resolve(result: Result): void; reject(error: Error): void; timer: ReturnType<typeof setTimeout> }
 
-function footpathDevPage() {
+function detectorDevPage(mode: 'footpath' | 'wall') {
   const host = Constants.expoConfig?.hostUri
   if (!host) throw Error('Open PathSignal using the local Expo QR code on the same Wi-Fi as your PC.')
   const match = /^(https?:\/\/)?([^\/?#]+)(?:\/|$)/i.exec(host)
   if (!match) throw Error('Expo did not provide a usable development server address.')
-  return `${match[1] ?? 'http://'}${match[2]}/pathsignal-dev/footpath/detector.html`
+  return `${match[1] ?? 'http://'}${match[2]}/pathsignal-dev/${mode}/detector.html`
 }
 
-export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | 'rod' | 'footpath' = 'objects') {
-  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : mode === 'rod' ? 'ROD YOLOv8n · 25 classes' : mode === 'footpath' ? 'Footpath damage' : 'YOLOX-S'
+export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | 'rod' | 'footpath' | 'wall' = 'objects') {
+  const modelName = mode === 'stairs' ? 'YOLOv8n stairs' : mode === 'rod' ? 'ROD YOLOv8n · 25 classes' : mode === 'footpath' ? 'Footpath damage' : mode === 'wall' ? WALL_MODEL : 'YOLOX-S'
   const view = useRef<WebView<{}>>(null)
   const [source, setSource] = useState<{ html: string } | { uri: string } | null>(null)
   const [status, setStatus] = useState('Preparing object model')
@@ -59,8 +60,8 @@ export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | '
     }, mode === 'footpath' ? 600000 : 90000)
     void (async () => {
       try {
-        if (mode === 'footpath' && __DEV__) {
-          setSource({ uri: footpathDevPage() })
+        if ((mode === 'footpath' || mode === 'wall') && __DEV__) {
+          setSource({ uri: detectorDevPage(mode) })
           return
         }
         const assetModule = mode === 'stairs' ? require('./assets/model/stairs-detector.html')
@@ -95,7 +96,7 @@ export function useObjectWorker(enabled: boolean, mode: 'objects' | 'stairs' | '
         setReady(false)
         setStatus('Object model timed out')
         setGeneration(value => value + 1)
-      }, mode === 'footpath' ? 120000 : 20000)
+      }, mode === 'footpath' ? 120000 : mode === 'wall' ? 40000 : 20000)
       pending.current = { id, timer, resolve, reject }
       view.current!.postMessage(JSON.stringify({ id, jpeg }))
     })
