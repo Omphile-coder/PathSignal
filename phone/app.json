@@ -9,12 +9,16 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow PathSignal to use the rear camera to scan obstacles and read LiDAR depth."
+          "cameraPermission": "Allow PathSignal to use the rear camera to scan for nearby hazards."
         }
       ],
       "expo-dev-client"
     ],
     "scheme": "pathsignal",
+    "android": {
+      "package": "com.pathsignal.depthlab",
+      "permissions": ["android.permission.VIBRATE"]
+    },
     "ios": {
       "bundleIdentifier": "com.pathsignal.depthlab",
       "infoPlist": {

@@ -11,19 +11,19 @@ export const ROD_CLASSES = [
 
 type Detection = { class: string; score: number; bbox: [number, number, number, number] }
 
-export function prepareRodInput(data: Uint8Array, width: number, height: number) {
+export function prepareRodInput(data: Uint8Array, width: number, height: number, size = ROD_SIZE) {
   if (!Number.isSafeInteger(width) || !Number.isSafeInteger(height) || width < 1 || height < 1 || data.length !== width * height * 4) throw Error('Invalid ROD image')
-  const scale = Math.min(ROD_SIZE / width, ROD_SIZE / height)
+  const scale = Math.min(size / width, size / height)
   const resizedWidth = Math.max(1, Math.round(width * scale)), resizedHeight = Math.max(1, Math.round(height * scale))
-  const padX = Math.floor((ROD_SIZE - resizedWidth) / 2), padY = Math.floor((ROD_SIZE - resizedHeight) / 2)
-  const plane = ROD_SIZE ** 2, tensor = new Float32Array(plane * 3).fill(114 / 255)
+  const padX = Math.floor((size - resizedWidth) / 2), padY = Math.floor((size - resizedHeight) / 2)
+  const plane = size ** 2, tensor = new Float32Array(plane * 3).fill(114 / 255)
   for (let y = 0; y < resizedHeight; y++) {
     const sy = Math.max(0, Math.min(height - 1, (y + .5) * height / resizedHeight - .5))
     const y0 = Math.floor(sy), y1 = Math.min(height - 1, y0 + 1), wy = sy - y0
     for (let x = 0; x < resizedWidth; x++) {
       const sx = Math.max(0, Math.min(width - 1, (x + .5) * width / resizedWidth - .5))
       const x0 = Math.floor(sx), x1 = Math.min(width - 1, x0 + 1), wx = sx - x0
-      const pixel = ((y + padY) * ROD_SIZE) + x + padX
+      const pixel = ((y + padY) * size) + x + padX
       for (let channel = 0; channel < 3; channel++) {
         const top = data[(y0 * width + x0) * 4 + channel] * (1 - wx) + data[(y0 * width + x1) * 4 + channel] * wx
         const bottom = data[(y1 * width + x0) * 4 + channel] * (1 - wx) + data[(y1 * width + x1) * 4 + channel] * wx

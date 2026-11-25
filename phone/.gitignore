@@ -1,3 +1,6 @@
 node_modules/
 .expo/
 dist/
+/assets/model/wall-detector.html
+/assets/model/dual-detector.html
+/assets/model/dual/

@@ -4,8 +4,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "prestart": "node worker/build.cjs dual",
     "start": "expo start --go",
     "check": "tsc --noEmit",
+    "build:apk": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File build-apk.ps1",
     "start:lidar": "expo start --dev-client",
     "build:detector": "node worker/build.cjs"
   },
