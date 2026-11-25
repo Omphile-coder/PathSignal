@@ -1,1 +1,1 @@
-{"extends":"expo/tsconfig.base","compilerOptions":{"strict":true},"include":["App.tsx","vision.ts"]}
+{"extends":"expo/tsconfig.base","compilerOptions":{"strict":true},"include":["App.tsx","ClosestHazardMonitor.tsx","vision.ts","worker/detector.ts"]}
